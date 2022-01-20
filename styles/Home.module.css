@@ -1,18 +1,19 @@
 .container {
   @apply
+  px-10
+  md:px-0
   h-screen
   min-h-screen
 }
 
 .main {
   @apply
-  p-16
-  text-center
-}
-
-.footer {
-  @apply
-  border-t
-  border-solid
-  border-white-text;
+  px-0
+  py-10
+  mt-16
+  mx-auto
+  max-w-2xl
+  rounded
+  shadow-3xl
+  md:px-10
 }

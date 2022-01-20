@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        mPlusCode: ['M PLUS 1 Code', 'sans-serif'],
+        mPlusCode: ['M PLUS 1 Code', 'serif']
       },
       colors: {
         'pink-link': '#ff63c3',
@@ -15,6 +15,9 @@ module.exports = {
         'light-blue': '#88ccca',
         'white-text': '#EEEEEE',
       },
+      boxShadow: {
+        '3xl': '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)',
+      }
     },
   },
   plugins: [],

@@ -8,7 +8,7 @@ const ProfileTitle = () => {
   return (
     <div className={styles['profile-card-title']}>
       <h2 className={styles['profile-card-name']}>
-        {profileCardContent.aboutMyName}``
+        {profileCardContent.aboutMyName}
       </h2>
       <p className={styles['profile-card-roll']}>
         {profileCardContent.aboutRoll}

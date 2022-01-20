@@ -24,9 +24,11 @@
 
 .profile-card-title {
   @apply
-  max-w-[250px]
+  mt-4
   mx-auto
+  max-w-[250px]
   md:mx-0
+  md:mt-0
 }
 
 .profile-card-roll {

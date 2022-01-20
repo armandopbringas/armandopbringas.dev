@@ -1,20 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1+Code:wght@100;200;300;400;500;600&display=swap');
 
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  @apply
+  p-0
+  m-0
+  font-mPlusCode
+  bg-dark-gray
+  text-white-text
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+  @apply
+  text-inherit
+  no-underline
 }
 
 * {
-  box-sizing: border-box;
+  @apply
+  box-border
 }

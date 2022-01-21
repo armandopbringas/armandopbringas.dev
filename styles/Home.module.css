@@ -1,6 +1,6 @@
 .container {
   @apply
-  px-10
+  x-sm:px-10
   md:px-0
   h-screen
   min-h-screen
@@ -10,7 +10,7 @@
   @apply
   px-0
   py-10
-  mt-16
+  my-16
   mx-auto
   max-w-2xl
   rounded

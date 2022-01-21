@@ -3,9 +3,11 @@ import styles from '../styles/Home.module.css'
 
 //  Imported components
 import ProfileCard from '../components/profile-card'
+import Skills from '../components/skills'
 
 // Components content
 import profileCardContent from '../content/profile-card.content'
+import skillsContent from '../content/skills.content'
 
 export default function Home() {
   return (
@@ -17,6 +19,7 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <ProfileCard {...profileCardContent}/>
+        <Skills {...skillsContent}/>
       </main>
     </div>
   )

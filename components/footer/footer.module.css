@@ -2,16 +2,15 @@
   @apply
   flex
   pt-12
-  flex-col
   items-center
   col-span-full
-  justify-center
+  justify-end
 }
 
 .footer-text {
   @apply
-  mb-6
-  font-medium
+  font-extralight
+  text-light-blue
 }
 
 .footer-icons-container {

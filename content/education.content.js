@@ -1,4 +1,4 @@
-export const studies = [
+const studies = [
   {
     degree: "Bootcamp: FullStack Javascript Development",
     school: "Bedu",
@@ -29,4 +29,6 @@ export const studies = [
     date: "2014 - 2018",
     description: "bachelor's degree completed"
   }
-]
+];
+
+export default studies

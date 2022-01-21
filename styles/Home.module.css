@@ -1,7 +1,5 @@
 .container {
   @apply
-  h-screen
-  min-h-screen
   md:px-0
   x-sm:px-10
 }

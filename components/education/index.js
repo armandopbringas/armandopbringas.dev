@@ -1,4 +1,4 @@
-import { studies } from '../../content/education.content'
+import studies from '../../content/education.content'
 import styles from './education.module.css'
 
 const EducationCard = () => {

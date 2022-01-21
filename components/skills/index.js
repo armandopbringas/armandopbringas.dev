@@ -1,4 +1,4 @@
-import { skillsContent } from '../../content/skills.content'
+import skillsContent from '../../content/skills.content'
 import styles from './skills.module.css'
 
 const Skills = ({ aboutLenguagesSkills, aboutFrameworksSkills } = skillsContent) => {
@@ -6,7 +6,7 @@ const Skills = ({ aboutLenguagesSkills, aboutFrameworksSkills } = skillsContent)
     <div className={styles['skills-container']}>
       <h2 className={styles['skills-title']}>Skills</h2>
       <div className={styles['skills-items-container']}>
-        <ul className={styles['about-lenguges']}>
+        <ul className={styles['lenguages-container']}>
           <h3 className={styles['lenguages-title']}>
             Technologies stack
           </h3>
@@ -16,7 +16,7 @@ const Skills = ({ aboutLenguagesSkills, aboutFrameworksSkills } = skillsContent)
             </li>
           ))}
         </ul>
-        <ul className={styles['about-frameworks']}>
+        <ul>
           <h3 className={styles['frameworks-title']}>
             Frameworks, libraries & tools
           </h3>
@@ -27,7 +27,7 @@ const Skills = ({ aboutLenguagesSkills, aboutFrameworksSkills } = skillsContent)
           ))}
         </ul>
       </div>
-  </div>
+    </div>
   );
 }
  

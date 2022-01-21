@@ -19,7 +19,6 @@
 .skills-items-container {
   @apply
   flex
-  gap-8
   justify-between
 }
 

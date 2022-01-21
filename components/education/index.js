@@ -7,37 +7,12 @@ const EducationCard = () => {
       {studies.map((item, index) => {
         return (
           <div className={styles['eduaction-job-card']} key={index}>
-            <p className={styles['job-card-degree']}>{item.degree}</p>
+            <h2 className={styles['job-card-degree']}>{item.degree}</h2>
             <p className={styles['job-card-school']}>{item.school}</p>
             <p className={styles['job-card-date']}>{item.date}</p>
-            <div className={styles['education-tech-items']}>
-              <ul>
-                <h3 className={styles['subject-title']}>{item.frontendTitle}</h3>
-                {item.frontend?.map((techItem, index) => {
-                  return (
-                    <li 
-                      key={index}
-                      className={styles['education-tech-item']} 
-                    >
-                      {techItem}
-                    </li>
-                  );
-                })}
-              </ul>
-              <ul>
-                <h3 className={styles['subject-title']}>{item.backendTitle}</h3>
-                {item.backend?.map((techItem, index) => {
-                  return (
-                    <li 
-                      key={index}
-                      className={styles['education-tech-item']} 
-                    >
-                      {techItem}
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
+            <p className={styles['education-tech-decription']}>
+              {item.bootcamDescription}
+            </p>
             <p className={styles['education-tech-decription']}>
               {item.description}
             </p>
@@ -54,7 +29,9 @@ const Education = () => {
       <h2 className={styles['education-section-title']}>
         Studies
       </h2>
-      <EducationCard />
+      <div className={styles['experience-card-container']}>
+        <EducationCard />
+      </div>
     </section>
   );
 }

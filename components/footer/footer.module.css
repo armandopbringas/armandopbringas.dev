@@ -1,0 +1,29 @@
+.footer-container {
+  @apply
+  flex
+  pt-12
+  flex-col
+  items-center
+  col-span-full
+  justify-center
+}
+
+.footer-text {
+  @apply
+  mb-6
+  font-medium
+}
+
+.footer-icons-container {
+  @apply
+  flex
+  w-[10rem]
+  justify-around
+}
+
+.footer-icon-item {
+  @apply
+  text-2xl
+  text-light-blue
+  hover:text-pink-link
+}

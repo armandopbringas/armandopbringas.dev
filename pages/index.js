@@ -6,6 +6,7 @@ import ProfileCard from '../components/profile-card'
 import Skills from '../components/skills'
 import Experience from '../components/experience'
 import Education from '../components/education'
+import Footer from '../components/footer'
 
 // Components content
 import profileCardContent from '../content/profile-card.content'
@@ -26,6 +27,7 @@ export default function Home() {
         <Skills {...skillsContent}/>
         <Experience {...jobExperience}/>
         <Education {...studies}/>
+        <Footer />
       </main>
     </div>
   )

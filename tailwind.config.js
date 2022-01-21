@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        'x-sm': '425px'
+      },
       fontFamily: {
         mPlusCode: ['M PLUS 1 Code', 'serif']
       },

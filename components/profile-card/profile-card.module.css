@@ -64,8 +64,9 @@
 
 .text-title {
   @apply
-  mb-4
+  mb-6
   text-2xl
+  font-semibold
   underline
   decoration-4
   underline-offset-8

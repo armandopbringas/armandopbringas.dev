@@ -3,9 +3,13 @@ import styles from '../styles/Home.module.css'
 
 //  Imported components
 import ProfileCard from '../components/profile-card'
+import Skills from '../components/skills'
+import Experience from '../components/experience'
 
 // Components content
 import profileCardContent from '../content/profile-card.content'
+import skillsContent from '../content/skills.content'
+import jobExperience from '../content/experience.content'
 
 export default function Home() {
   return (
@@ -17,6 +21,8 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <ProfileCard {...profileCardContent}/>
+        <Skills {...skillsContent}/>
+        <Experience {...jobExperience}/>
       </main>
     </div>
   )

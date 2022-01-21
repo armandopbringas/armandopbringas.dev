@@ -1,0 +1,59 @@
+.experience-container {
+  @apply
+  mt-8
+  px-10
+  md:px-0
+}
+
+.experience-title {
+  @apply
+  text-2xl
+  font-semibold
+  underline
+  decoration-4
+  underline-offset-8
+  decoration-lihgt-gray
+}
+
+.experience-card-container {
+  @apply
+  md:flex
+  gap-x-8
+}
+
+.experience-job-card {
+  @apply
+  p-6
+  ml-0
+  mt-6
+  shadow-md
+  text-left
+  rounded-xl
+  col-span-full
+}
+
+.job-card-position {
+  @apply
+  mb-2
+  text-base
+  font-semibold
+}
+
+.job-card-company {
+  @apply
+  mb-2
+  font-semibold
+  text-light-blue
+}
+
+.job-card-time {
+  @apply
+  my-3
+  font-medium
+}
+
+.job-card-description {
+  @apply
+  text-sm
+  font-extralight
+}

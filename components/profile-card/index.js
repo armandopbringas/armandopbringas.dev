@@ -13,14 +13,10 @@ const ProfileTitle = () => {
       <p className={styles['profile-card-roll']}>
         {profileCardContent.aboutRoll}
       </p>
+      <p className={styles['profile-card-getintouch']}>
+        Let's get in touch!:
+      </p>
       <div className={styles['card-icons-container']}>
-        <a
-          target='_blank' 
-          rel='noopener noreferrer'
-          href='https://github.com/armandopbringas'
-        >
-          <FaGithub className={styles['card-icon-item']}/>
-        </a>
         <a
           target='_blank' 
           rel='noopener noreferrer'
@@ -33,6 +29,13 @@ const ProfileTitle = () => {
           href='mailto:bringas.armandop@gmail.com'
         >
           <FaEnvelope className={styles['card-icon-item']}/>
+        </a>
+        <a
+          target='_blank' 
+          rel='noopener noreferrer'
+          href='https://github.com/armandopbringas'
+        >
+          <FaGithub className={styles['card-icon-item']}/>
         </a>
       </div>
     </div>

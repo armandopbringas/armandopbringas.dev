@@ -33,6 +33,13 @@
 
 .profile-card-roll {
   @apply
+  mb-2
+  text-xl
+  md:text-left
+}
+
+.profile-card-getintouch {
+  @apply
   md:text-left
 }
 

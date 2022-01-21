@@ -4,10 +4,15 @@ import styles from '../styles/Home.module.css'
 //  Imported components
 import ProfileCard from '../components/profile-card'
 import Skills from '../components/skills'
+import Experience from '../components/experience'
+import Education from '../components/education'
+import Footer from '../components/footer'
 
 // Components content
 import profileCardContent from '../content/profile-card.content'
 import skillsContent from '../content/skills.content'
+import jobExperience from '../content/experience.content'
+import studies from '../content/education.content'
 
 export default function Home() {
   return (
@@ -20,6 +25,9 @@ export default function Home() {
       <main className={styles.main}>
         <ProfileCard {...profileCardContent}/>
         <Skills {...skillsContent}/>
+        <Experience {...jobExperience}/>
+        <Education {...studies}/>
+        <Footer />
       </main>
     </div>
   )

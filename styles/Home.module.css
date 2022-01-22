@@ -16,3 +16,21 @@
   shadow-3xl
   md:px-10
 }
+
+.footer-container {
+  @apply
+  flex
+  pt-12
+  px-10
+  items-center
+  col-span-full
+  justify-end
+  md:px-0
+  md:mr-4
+}
+
+.footer-text {
+  @apply
+  font-extralight
+  text-light-blue
+}

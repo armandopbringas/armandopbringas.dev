@@ -8,7 +8,8 @@ const skillsContent = {
   aboutFrameworksSkills: [
     "Sass",
     "Tailwnd",
-    "ReactJS"
+    "ReactJS",
+    "git"
   ]
 }
 

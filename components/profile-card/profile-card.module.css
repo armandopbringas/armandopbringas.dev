@@ -14,21 +14,23 @@
   rounded-full
 }
 
-.profile-card-name {
-  @apply
-  mb-2
-  text-3xl
-  font-semibold
-  md:text-left
-}
-
 .profile-card-title {
   @apply
   mt-4
+  pb-2
   mx-auto
   max-w-[250px]
   md:mx-0
   md:mt-0
+}
+
+.profile-card-name {
+  @apply
+  mt-4
+  mb-2
+  text-3xl
+  font-semibold
+  md:text-left
 }
 
 .profile-card-roll {
@@ -38,19 +40,18 @@
   md:text-left
 }
 
-.profile-card-getintouch {
-  @apply
-  md:text-left
-}
-
 .card-icons-container {
   @apply
   mt-3
+  pb-3
   flex
+  mx-auto
+  max-w-[140px]
   justify-center
-  md:justify-start
-  max-w-[250px]
+  border-b-[2.5px]
+  border-pink-link
   md:mx-0
+  md:justify-start
 }
 
 .card-icon-item {

@@ -13,9 +13,6 @@ const ProfileTitle = () => {
       <p className={styles['profile-card-roll']}>
         {profileCardContent.aboutRoll}
       </p>
-      <p className={styles['profile-card-getintouch']}>
-        Let's get in touch!:
-      </p>
       <div className={styles['card-icons-container']}>
         <a
           target='_blank' 

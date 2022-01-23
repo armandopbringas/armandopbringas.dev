@@ -6,7 +6,7 @@ const studies = [
     bootcamDescription: "Frontend & backend studies with JavaScript",
   },
   {
-    degree: " Bachelor's degree: Chemical Engeneering",
+    degree: "Bachelor's degree: Chemical Engeneering",
     school: "School: Universidad Veracruzana",
     date: "2014 - 2018",
     description: "bachelor's degree completed"

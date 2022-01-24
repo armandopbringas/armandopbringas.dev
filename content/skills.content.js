@@ -9,7 +9,7 @@ const skillsContent = {
     "Sass",
     "Tailwnd",
     "ReactJS",
-    "git"
+    "Git"
   ]
 }
 

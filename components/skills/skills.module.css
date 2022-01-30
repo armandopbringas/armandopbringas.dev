@@ -18,8 +18,8 @@
 
 .skills-items-container {
   @apply
-  flex
-  justify-between
+  sm:flex
+  sm:justify-between
 }
 
 .lenguages-title,
@@ -28,6 +28,7 @@
   mb-2
   text-xl
   font-semibold
+  text-light-blue
 }
 
 .skills-items {

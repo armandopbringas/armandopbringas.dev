@@ -1,7 +1,12 @@
 const profileCardContent = {
   aboutMyName: "Armando Bringas",
   aboutRoll: "Frontend developer",
-  aboutMeText: "Hi there, my name is Armando, i´m a frontend developer in training. I achived get my first job learning to code of self-thaught way but right there i realized that i had too much for learn yet. I was a trainee frontend developer at Iceberg9 from september 2020 to december 2020 collaborating as a remote way. Then i was in training in a code bootcam called Bedu, with the objetive to get better my code skills. In my last job i worked for a software consultory applicating what i know and learning too much.",
+  aboutMeText: `Hello there! My name is Armando, i'm a self-taught 
+    Frontend Developer. I have one year of experience as a trainee 
+    frontend developer. Currently i'm looking for my next job experience 
+    where i can contribute with my previous learned programming skills and 
+    also keep me learning how much as be possible on the technical part as 
+    in the soft part with the objetive of add value to the company.`
 }
 
 export default profileCardContent

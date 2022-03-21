@@ -3,7 +3,7 @@ const studies = [
     degree: "Bootcamp: FullStack Javascript Development",
     school: "School: Bedu",
     date: "dec 2020 - june 2021",
-    bootcamDescription: "Frontend & backend studies with JavaScript",
+    bootcamDescription: "I built strong foundations with a Front End - Full stack oriented training using JavaScript",
   },
   {
     degree: "Bachelor's degree: Chemical Engeneering",

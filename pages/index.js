@@ -179,7 +179,7 @@ const Home = () => {
             Skills
           </Heading>
           <FlexBox>
-            {skills.map((skil, i) => (
+            {skills.map((skill, i) => (
               <ListBox key={i}>
                 <div>{skill.logoSkill}</div>
                 <span>{skill.skill}</span>

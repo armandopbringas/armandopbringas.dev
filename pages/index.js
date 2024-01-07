@@ -133,7 +133,7 @@ const Home = () => {
 
         <Section delay={0.1}>
           <Heading as="h3" variant="section-title" marginTop="2rem">
-            Work
+            About
           </Heading>
           <Paragraph>
             Hi there, my name is Armando, I’m a self-taught Front-end developer
@@ -193,15 +193,16 @@ const Home = () => {
             I ♥
           </Heading>
           <Paragraph>
-            My gf, Music,{' '}
+            My gf, do music,{' '}
+            Playing{' '}
             <Link
               href="https://www.youtube.com/watch?v=O9FM11Ky4hs&t=11837s"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Playing frontenis,{' '}
+              frontenis,{' '}
             </Link>
-            Buzz & code
+            Buzz 🐶 & code
           </Paragraph>
         </Section>
       </Container>

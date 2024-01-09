@@ -193,8 +193,8 @@ const Home = () => {
             I ♥
           </Heading>
           <Paragraph>
-            My gf, do music,{' '}
-            Playing{' '}
+            My gf, doing music,{' '}
+            playing{' '}
             <Link
               href="https://www.youtube.com/watch?v=O9FM11Ky4hs&t=11837s"
               target="_blank"

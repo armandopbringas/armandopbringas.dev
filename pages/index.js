@@ -200,9 +200,9 @@ const Home = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              frontenis,{' '}
-            </Link>
-            Buzz 🐶 & code
+              frontenis
+            </Link>, 
+            {' '}Buzz 🐶 & code
           </Paragraph>
         </Section>
       </Container>

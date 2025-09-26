@@ -136,7 +136,7 @@ const Home = () => {
             About
           </Heading>
           <Paragraph>
-            Hi there, I´m Armando Pérez Bringas. I´m from Orizaba, Veracruz, Mexico. I have five years of experience working as a Frontend Developer. In this time, I worked in the IT world with APIs, data, and visualizations.
+            Hi there, my name is Armando Pérez Bringas. I´m from Orizaba, Veracruz, Mexico. I have five years of experience working as a Frontend Developer. In this time, I worked in the IT world with APIs, data, and visualizations.
           </Paragraph>
           <br />
           <p>

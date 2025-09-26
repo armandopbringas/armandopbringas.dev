@@ -87,7 +87,7 @@ const Home = () => {
                 css={{ backdropFilter: 'blur(10px)' }}
                 w="fit-content"
               >
-                Frontend developer
+                Jr. Data / BI Analytst
               </Box>
               <Box display="flex" alignItems="center" gap="1rem">
                 <a
@@ -136,14 +136,21 @@ const Home = () => {
             About
           </Heading>
           <Paragraph>
-            Hi there, my name is Armando, I’m a self-taught Front-end developer
-            with 2+ years of experience. My main focus is on creating intuitive
-            and appealing web experiences using as tech stack HTML5, CSS3,
-            JavaScript, React JS & TypeScript. I looking for professional
-            improvement to learn, challenge and apply my skills.
+            Hi there, I´m Armando Pérez Bringas. I´m from Orizaba, Veracruz, Mexico. I have five years of experience working as a Frontend Developer. In this time, I worked in the IT world with APIs, data, and visualizations.
           </Paragraph>
+          <br />
+          <p>
+            Now I want to take the next step into Data Analytics / Business Intelligence, because it combines technical and strategic work. I like using tools like SQL, Python, Excel/Google Sheets, and Power BI. I use them not only to process and show data, but also to create insights, define KPIs, and help in business decisions.
+          </p>
+          <br />
+          <p>
+            I think this is the right moment for me to move into this IT area and grow my career in a more analytic and strategic way, with the chance to reach management or leadership roles in data.
+          </p>
+          <br />
+          <p>
+            I am motivated to bring my technical experience and my interest in data to new opportunities where I can give value, grow as a professional, and find personal satisfaction.
+          </p>
         </Section>
-
         <Section delay={0.2}>
           <Heading as="h3" variant="section-title">
             Bio
@@ -158,19 +165,11 @@ const Home = () => {
           </BioSection>
           <BioSection>
             <BioYear>2020</BioYear>
-            Worked at Iceberg9 as junior frontend developer
+            Worked as Frontend / UI developer
           </BioSection>
           <BioSection>
-            <BioYear>2021</BioYear>
-            Worked with Noble as junior web developer
-          </BioSection>
-          <BioSection>
-            <BioYear>2022</BioYear>
-            Worked at Rocket Code as React developer
-          </BioSection>
-          <BioSection>
-            <BioYear>2023</BioYear>
-            Currently working at HCL Tech as UI developer
+            <BioYear>2025</BioYear>
+            Currently Enrolling in Data Analytics at Unicorn Academy Bootcamp
           </BioSection>
         </Section>
 
@@ -201,7 +200,7 @@ const Home = () => {
               rel="noopener noreferrer"
             >
               frontenis
-            </Link>, 
+            </Link>,
             {' '}Buzz 🐶 & code
           </Paragraph>
         </Section>

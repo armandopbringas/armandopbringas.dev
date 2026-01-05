@@ -1,47 +1,38 @@
-import { DiHtml5, DiCss3, DiJsBadge, DiSass, DiReact } from 'react-icons/di'
-import { BiLogoTypescript, BiLogoTailwindCss } from 'react-icons/bi'
-import { SiMui } from 'react-icons/si'
-import { FaNodeJs, FaGitAlt } from 'react-icons/fa'
+import { SiGooglesheets } from "react-icons/si";
+import { BsFillBarChartFill } from "react-icons/bs";
+import { ImDatabase } from "react-icons/im";
+import { SiPython } from "react-icons/si";
+import { FaGitAlt } from 'react-icons/fa'
+import { DiJsBadge } from 'react-icons/di'
+import { BiLogoTypescript, } from 'react-icons/bi'
 
 export const skills = [
   {
-    skill: 'HTML5',
-    logoSkill: <DiHtml5 />
+    skill: 'Google Sheets / Excel',
+    logoSkill: <SiGooglesheets />
   },
   {
-    skill: 'CSS3',
-    logoSkill: <DiCss3 />
+    skill: 'Power BI',
+    logoSkill: <BsFillBarChartFill />
   },
   {
-    skill: 'JavaScript (ES6+)',
-    logoSkill: <DiJsBadge />
+    skill: 'SQL',
+    logoSkill: <ImDatabase />
   },
   {
-    skill: 'TypeScript',
-    logoSkill: <BiLogoTypescript />
+    skill: 'Python',
+    logoSkill: <SiPython />
   },
   {
     skill: 'Git',
     logoSkill: <FaGitAlt />
   },
   {
-    skill: 'SASS',
-    logoSkill: <DiSass />
+    skill: 'JavaScript',
+    logoSkill: <DiJsBadge />
   },
   {
-    skill: 'Tailwind',
-    logoSkill: <BiLogoTailwindCss />
+    skill: 'TypeScript',
+    logoSkill: <BiLogoTypescript />
   },
-  {
-    skill: 'MUI',
-    logoSkill: <SiMui />
-  },
-  {
-    skill: 'ReactJS',
-    logoSkill: <DiReact />
-  },
-  {
-    skill: 'Node JS',
-    logoSkill: <FaNodeJs />
-  }
 ]

@@ -87,7 +87,7 @@ const Home = () => {
                 css={{ backdropFilter: 'blur(10px)' }}
                 w="fit-content"
               >
-                Frontend developer
+                Jr. Data / BI Analytst
               </Box>
               <Box display="flex" alignItems="center" gap="1rem">
                 <a
@@ -143,8 +143,19 @@ const Home = () => {
             designers and backend teams to deliver scalable, user-focused, and high-quality
             interfaces in remote and agile environments.
           </Paragraph>
+          <br />
+          <p>
+            Now I want to take the next step into Data Analytics / Business Intelligence, because it combines technical and strategic work. I like using tools like SQL, Python, Excel/Google Sheets, and Power BI. I use them not only to process and show data, but also to create insights, define KPIs, and help in business decisions.
+          </p>
+          <br />
+          <p>
+            I think this is the right moment for me to move into this IT area and grow my career in a more analytic and strategic way, with the chance to reach management or leadership roles in data.
+          </p>
+          <br />
+          <p>
+            I am motivated to bring my technical experience and my interest in data to new opportunities where I can give value, grow as a professional, and find personal satisfaction.
+          </p>
         </Section>
-
         <Section delay={0.2}>
           <Heading as="h3" variant="section-title">
             Bio
@@ -159,7 +170,7 @@ const Home = () => {
           </BioSection>
           <BioSection>
             <BioYear>2020</BioYear>
-            Worked at Iceberg9 as junior frontend developer
+            Worked as Frontend / UI developer
           </BioSection>
           <BioSection>
             <BioYear>2021</BioYear>
@@ -206,7 +217,7 @@ const Home = () => {
               rel="noopener noreferrer"
             >
               frontenis
-            </Link>, 
+            </Link>,
             {' '}Buzz 🐶 & code
           </Paragraph>
         </Section>

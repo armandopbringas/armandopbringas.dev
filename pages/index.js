@@ -136,11 +136,12 @@ const Home = () => {
             About
           </Heading>
           <Paragraph>
-            Hi there, my name is Armando, I’m a self-taught Front-end developer
-            with 2+ years of experience. My main focus is on creating intuitive
-            and appealing web experiences using as tech stack HTML5, CSS3,
-            JavaScript, React JS & TypeScript. I looking for professional
-            improvement to learn, challenge and apply my skills.
+            Senior React Developer with 5 years of experience building production-grade
+            web applications using ReactJS, TypeScript/JavaScript, HTML, and CSS.
+            Strong background in UI development, reusable components, API integration,
+            and frontend testing with Playwright and Cypress. Experienced working with
+            designers and backend teams to deliver scalable, user-focused, and high-quality
+            interfaces in remote and agile environments.
           </Paragraph>
         </Section>
 
@@ -170,7 +171,11 @@ const Home = () => {
           </BioSection>
           <BioSection>
             <BioYear>2023</BioYear>
-            Currently working at HCL Tech as UI developer
+            Worked at HCL Tech as UI developer
+          </BioSection>
+          <BioSection>
+            <BioYear>2024 - 2025</BioYear>
+            Worked at Ciudades as UI Engineer
           </BioSection>
         </Section>
 

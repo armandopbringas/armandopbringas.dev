@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Text, useColorModeValue } from '@chakra-ui/react'
-import { MdOutlineQueryStats } from "react-icons/md";
+import { CgCode } from "react-icons/cg";
 import styled from '@emotion/styled'
 
 const LogoBox = styled.span`
@@ -25,7 +25,7 @@ const Logo = () => {
   return (
     <Link href="/" scroll={false}>
       <LogoBox>
-        <MdOutlineQueryStats size={25} />
+        <CgCode size={25} />
         <Text
           color={useColorModeValue('gray.800', 'whiteAlpha.900')}
           fontFamily='M PLUS Rounded 1c", sans-serif'

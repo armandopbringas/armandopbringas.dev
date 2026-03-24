@@ -36,6 +36,7 @@ const ProfileFixedLayout = ({ currentPath }) => {
   const badgeBg = useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')
   const borderColor = useColorModeValue('blackAlpha.200', 'whiteAlpha.300')
   const inactiveColor = useColorModeValue('gray.700', 'whiteAlpha.700')
+  const profileIconColor = useColorModeValue('ink.700', 'sand.400')
 
   return (
     <>
@@ -90,7 +91,7 @@ const ProfileFixedLayout = ({ currentPath }) => {
                 rel="noopener noreferrer"
               >
                 <HoverBox>
-                  <FaGithub />
+                  <FaGithub color={profileIconColor} />
                 </HoverBox>
               </a>
               <a
@@ -99,7 +100,7 @@ const ProfileFixedLayout = ({ currentPath }) => {
                 rel="noopener noreferrer"
               >
                 <HoverBox>
-                  <MdEmail />
+                  <MdEmail color={profileIconColor} />
                 </HoverBox>
               </a>
               <a
@@ -108,7 +109,7 @@ const ProfileFixedLayout = ({ currentPath }) => {
                 rel="noopener noreferrer"
               >
                 <HoverBox>
-                  <FaMobile />
+                  <FaMobile color={profileIconColor} />
                 </HoverBox>
               </a>
             </Box>

@@ -1,4 +1,4 @@
-import { Container, Heading } from '@chakra-ui/react'
+import { Box, Container, Heading, useColorModeValue } from '@chakra-ui/react'
 import Head from 'next/head'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
@@ -15,6 +15,7 @@ const variants = {
 
 const SkillsPage = () => {
   const router = useRouter()
+  const skillsIconColor = useColorModeValue('ink.700', 'sand.400')
 
   return (
     <>
@@ -41,7 +42,7 @@ const SkillsPage = () => {
             <FlexBox>
               {frontendSkills.map((skill, i) => (
                 <ListBox key={i}>
-                  <div>{skill.logoSkill}</div>
+                  <Box color={skillsIconColor}>{skill.logoSkill}</Box>
                   <span>{skill.skill}</span>
                 </ListBox>
               ))}

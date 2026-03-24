@@ -35,9 +35,9 @@ const projects = [
     shortDescription:
       'Digital Analytics / Conversion Tracking for a demo ecommerce with end-to-end funnel measurement.',
     coverImageUrl:
-      'https://images.unsplash.com/photo-1686061593269-420785fb8fa0?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      'https://images.unsplash.com/photo-1686061594183-8c864f508b00?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     modalImageUrl:
-      'https://images.unsplash.com/photo-1686061593269-420785fb8fa0?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      'https://images.unsplash.com/photo-1686061594183-8c864f508b00?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     tags: ['GA4', 'Google Tag Manager', 'UTMs', 'Looker Studio', 'QA'],
     createdAt: '2026-03-24',
     content: 'Project documentation goes here'
@@ -48,34 +48,36 @@ const projects = [
     shortDescription:
       'Reporting end-to-end con GA4 y Looker Studio para adquisición, campañas y funnel.',
     coverImageUrl:
-      'https://images.unsplash.com/photo-1556155092-490a1ba16284?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      'https://images.unsplash.com/photo-1686061594225-3e92c0cd51b0?q=80&w=1771&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     modalImageUrl:
-      'https://images.unsplash.com/photo-1556155092-490a1ba16284?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      'https://images.unsplash.com/photo-1686061594225-3e92c0cd51b0?q=80&w=1771&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     tags: ['GA4', 'Looker Studio', 'UTMs', 'Acquisition', 'Funnel'],
     createdAt: '2026-03-24',
     content: 'Project documentation goes here'
   },
   {
     id: 'ga4-ads-validation',
-    title: 'GA4 Conversion Tracking + Google Ads Validation',
-    shortDescription: 'QA for conversion events and ad-platform attribution alignment.',
+    title: 'Enfoque: adquisición, UTMs y funnel de e-commerce (demo)',
+    shortDescription:
+      'Reporting end-to-end con GA4 y Looker Studio para adquisición, campañas y funnel.',
     coverImageUrl:
-      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1771054243991-e7b2d194ac96?q=80&w=905&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     modalImageUrl:
-      'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1800&q=80',
-    tags: ['Google Ads', 'QA', 'Conversions'],
+      'https://images.unsplash.com/photo-1771054243991-e7b2d194ac96?q=80&w=905&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    tags: ['GA4', 'Looker Studio', 'UTMs', 'Acquisition', 'Funnel'],
     createdAt: '2026-03-24',
     content: 'Project documentation goes here'
   },
   {
     id: 'gtm-implementation',
-    title: 'GTM Implementation and Tracking QA',
-    shortDescription: 'Tag architecture, debugging, and implementation governance.',
+    title: 'Google Tag Manager (GTM) | Implementación, Tracking y QA',
+    shortDescription:
+      'Arquitectura de tracking en GTM para e-commerce demo con QA reproducible en GA4.',
     coverImageUrl:
-      'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1555099962-4199c345e5dd?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     modalImageUrl:
-      'https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=1800&q=80',
-    tags: ['GTM', 'Implementation', 'Debugging'],
+      'https://images.unsplash.com/photo-1555099962-4199c345e5dd?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    tags: ['GTM', 'GA4', 'QA', 'Tracking', 'Ecommerce'],
     createdAt: '2026-03-24',
     content: 'Project documentation goes here'
   }
@@ -246,7 +248,7 @@ const renderProjectContent = project => {
     )
   }
 
-  if (project.id === 'utm-funnel-demo') {
+  if (project.id === 'utm-funnel-demo' || project.id === 'ga4-ads-validation') {
     return (
       <Stack spacing={4}>
         <Heading as="h4" size="md">
@@ -416,6 +418,178 @@ const renderProjectContent = project => {
     )
   }
 
+  if (project.id === 'gtm-implementation') {
+    return (
+      <Stack spacing={4}>
+        <Heading as="h4" size="md">
+          1) Resumen ejecutivo
+        </Heading>
+        <Text>
+          Implementé y validé una arquitectura de tracking en Google Tag Manager (GTM)
+          para una tienda demo (e-commerce simulado), asegurando que los eventos lleguen
+          correctamente a GA4 para análisis de funnel y adquisición.
+        </Text>
+        <Text>
+          Resultado: contenedor GTM con variables, activadores y etiquetas documentadas,
+          más flujo de QA reproducible con evidencias en DebugView/Realtime.
+        </Text>
+
+        <Divider />
+        <Heading as="h4" size="md">
+          2) Contexto y problema
+        </Heading>
+        <Text>Necesidades del equipo:</Text>
+        <UnorderedList spacing={1}>
+          <ListItem>Tracking consistente en eventos y parámetros.</ListItem>
+          <ListItem>Menor dependencia del equipo de desarrollo.</ListItem>
+          <ListItem>QA ágil antes de publicar cambios.</ListItem>
+          <ListItem>Trazabilidad de cambios.</ListItem>
+        </UnorderedList>
+        <Text>Dolores comunes:</Text>
+        <UnorderedList spacing={1}>
+          <ListItem>Eventos incompletos o duplicados.</ListItem>
+          <ListItem>Naming inconsistente.</ListItem>
+          <ListItem>Falta de validación previa a producción.</ListItem>
+        </UnorderedList>
+
+        <Divider />
+        <Heading as="h4" size="md">
+          3) Objetivos
+        </Heading>
+        <OrderedList spacing={1}>
+          <ListItem>Configurar contenedor GTM con buenas prácticas.</ListItem>
+          <ListItem>Implementar tracking para acciones clave del funnel.</ListItem>
+          <ListItem>Garantizar QA sin duplicados y con parámetros correctos.</ListItem>
+          <ListItem>Documentar setup escalable (SOP / handoff).</ListItem>
+        </OrderedList>
+
+        <Divider />
+        <Heading as="h4" size="md">
+          4) Alcance
+        </Heading>
+        <Text fontWeight="bold">Incluido</Text>
+        <UnorderedList spacing={1}>
+          <ListItem>Contenedor GTM Web y configuración base.</ListItem>
+          <ListItem>Variables integradas y custom.</ListItem>
+          <ListItem>Triggers por clicks y/o eventos dataLayer.</ListItem>
+          <ListItem>Envío de eventos a GA4.</ListItem>
+          <ListItem>QA con Tag Assistant, DebugView y Realtime.</ListItem>
+        </UnorderedList>
+        <Text fontWeight="bold">No incluido</Text>
+        <UnorderedList spacing={1}>
+          <ListItem>Server-side tagging.</ListItem>
+          <ListItem>Consent Mode avanzado.</ListItem>
+        </UnorderedList>
+
+        <Divider />
+        <Heading as="h4" size="md">
+          5) Implementación (arquitectura)
+        </Heading>
+        <Text fontWeight="bold">5.1 Diseño de medición (Naming & data contract)</Text>
+        <UnorderedList spacing={1}>
+          <ListItem>
+            Eventos consistentes: view_item, add_to_cart, begin_checkout, purchase.
+          </ListItem>
+          <ListItem>
+            Parámetros mínimos: item_id, item_name, value, currency, transaction_id,
+            items_count.
+          </ListItem>
+        </UnorderedList>
+        <Text fontWeight="bold">5.2 Variables</Text>
+        <UnorderedList spacing={1}>
+          <ListItem>Built-in clicks: ID, Classes, Text, URL, Element.</ListItem>
+          <ListItem>
+            DLV custom: transaction_id, value, currency, item_id, item_name, items_count.
+          </ListItem>
+          <ListItem>Page Path/Page URL para reglas.</ListItem>
+        </UnorderedList>
+        <Text fontWeight="bold">5.3 Triggers</Text>
+        <UnorderedList spacing={1}>
+          <ListItem>Triggers por click (Add to cart / Complete purchase).</ListItem>
+          <ListItem>Custom Events vía dataLayer.push cuando existe.</ListItem>
+        </UnorderedList>
+        <Text fontWeight="bold">5.4 Tags (GA4)</Text>
+        <UnorderedList spacing={1}>
+          <ListItem>GA4 Configuration Tag (cuando aplica).</ListItem>
+          <ListItem>GA4 Event tags: view_item, add_to_cart, begin_checkout, purchase.</ListItem>
+          <ListItem>Eventos click_* para engagement (si aplica).</ListItem>
+        </UnorderedList>
+
+        <Divider />
+        <Heading as="h4" size="md">
+          6) QA / Validación
+        </Heading>
+        <UnorderedList spacing={1}>
+          <ListItem>Preview: triggers disparan cuando corresponde.</ListItem>
+          <ListItem>DebugView: evento y parámetros presentes.</ListItem>
+          <ListItem>Realtime: eventos visibles sin duplicados.</ListItem>
+          <ListItem>
+            purchase con transaction_id, value, currency; add_to_cart con item params.
+          </ListItem>
+        </UnorderedList>
+
+        <Divider />
+        <Heading as="h4" size="md">
+          7) Resultados
+        </Heading>
+        <UnorderedList spacing={1}>
+          <ListItem>Tracking consistente del funnel completo.</ListItem>
+          <ListItem>Click tracking en acciones críticas.</ListItem>
+          <ListItem>QA reproducible con Preview + DebugView.</ListItem>
+          <ListItem>Estructura de contenedor lista para escalar.</ListItem>
+        </UnorderedList>
+
+        <Divider />
+        <Heading as="h4" size="md">
+          8) Qué aprendí / decisiones técnicas
+        </Heading>
+        <UnorderedList spacing={1}>
+          <ListItem>Con dataLayer, Custom Events es más robusto que reglas por CSS.</ListItem>
+          <ListItem>La consistencia de parámetros mantiene reportes confiables.</ListItem>
+          <ListItem>Preview/DebugView reduce riesgo de medición rota en producción.</ListItem>
+        </UnorderedList>
+
+        <Divider />
+        <Heading as="h4" size="md">
+          9) Guión corto para entrevista
+        </Heading>
+        <Text>
+          Monté un contenedor GTM para una tienda demo, estandaricé eventos del funnel y
+          configuré tags GA4 con variables/triggers para parámetros críticos. Validé disparos
+          y calidad con Tag Assistant + DebugView/Realtime para habilitar análisis de funnel
+          e integración con Ads/Looker.
+        </Text>
+
+        <Divider />
+        <Heading as="h4" size="md">
+          10) Links
+        </Heading>
+        <UnorderedList spacing={1}>
+          <ListItem>
+            GTM: https://tagmanager.google.com/?utm_source=marketingplatform.google.com&utm_medium=et&utm_campaign=marketingplatform.google.com%2Fintl%2Fes%2Fabout%2Ftag-manager%2F#/container/accounts/6345013589/containers/246720709/workspaces/4
+          </ListItem>
+          <ListItem>
+            GA4: https://analytics.google.com/analytics/web/#/a387127918p527851150/reports/intelligenthome
+          </ListItem>
+          <ListItem>
+            Looker Studio: https://lookerstudio.google.com/u/0/reporting/7745b769-fba3-454b-bd6a-05bc175c23f6/page/7J4rF
+          </ListItem>
+        </UnorderedList>
+
+        <Divider />
+        <Heading as="h4" size="md">
+          11) Próximos pasos
+        </Heading>
+        <UnorderedList spacing={1}>
+          <ListItem>Consent Mode v2.</ListItem>
+          <ListItem>Server-side tagging (GTM SS).</ListItem>
+          <ListItem>Tracking plan más formal y governance de naming.</ListItem>
+          <ListItem>Monitoreo de calidad de datos con alertas.</ListItem>
+        </UnorderedList>
+      </Stack>
+    )
+  }
+
   return (
     <Stack spacing={4}>
       <Text>{project.content}</Text>
@@ -443,7 +617,7 @@ const PortfolioPage = () => {
     'linear-gradient(to-t, rgba(0,0,0,0.92), rgba(0,0,0,0.3))'
   )
   const modalOverlayBg = useColorModeValue('blackAlpha.500', 'blackAlpha.700')
-  const modalBg = useColorModeValue('gray.50', 'gray.800')
+  const modalBg = useColorModeValue('sand.100', '#1D2021')
 
   const [selectedProject, setSelectedProject] = useState(null)
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -484,14 +658,14 @@ const PortfolioPage = () => {
               {projects.map(project => (
                 <Box
                   key={project.id}
-                  as="button"
-                  type="button"
-                  role="group"
-                  textAlign="left"
-                  borderRadius="xl"
-                  overflow="hidden"
-                  borderWidth="1px"
-                  borderColor={borderColor}
+                as="button"
+                type="button"
+                role="group"
+                textAlign="left"
+                borderRadius="8px"
+                overflow="hidden"
+                borderWidth="1px"
+                borderColor={borderColor}
                   boxShadow={cardShadow}
                   transition="all 0.2s ease"
                   _hover={{
@@ -532,16 +706,17 @@ const PortfolioPage = () => {
         </Box>
       </Container>
 
-      <Modal isOpen={isOpen} onClose={handleCloseProject} size="6xl" isCentered>
+      <Modal isOpen={isOpen} onClose={handleCloseProject} size="6xl">
         <ModalOverlay bg={modalOverlayBg} backdropFilter="blur(6px)" />
         <ModalContent
           maxW={{ base: '95vw', lg: '1000px' }}
-          borderRadius="2xl"
+          borderRadius="8px"
           overflow="hidden"
           bg={modalBg}
           borderWidth="1px"
           borderColor={borderColor}
           boxShadow={hoverCardShadow}
+          mt="64px"
         >
           <ModalCloseButton zIndex={2} />
           {selectedProject && (

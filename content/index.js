@@ -2,10 +2,16 @@ import { SiGooglesheets } from "react-icons/si";
 import { BsFillBarChartFill } from "react-icons/bs";
 import { ImDatabase } from "react-icons/im";
 import { SiPython } from "react-icons/si";
-import { FaReact, FaNodeJs, FaHtml5, FaCss3, FaGitAlt } from 'react-icons/fa'
+import { FaReact, FaHtml5, FaCss3, FaGitAlt } from 'react-icons/fa'
 import { DiJsBadge } from 'react-icons/di';
 import { BiLogoTypescript, } from 'react-icons/bi';
-import { SiNextdotjs, SiStyledcomponents, SiTailwindcss } from "react-icons/si";
+import {
+  SiNextdotjs,
+  SiGoogleanalytics,
+  SiGoogleads,
+  SiGoogletagmanager,
+  SiLooker
+} from "react-icons/si";
 
 export const skills = [
   {
@@ -40,24 +46,20 @@ export const skills = [
 
 export const frontendSkills = [
   {
-    skill: 'JavaScript',
-    logoSkill: <DiJsBadge />
+    skill: 'Google Analytics',
+    logoSkill: <SiGoogleanalytics />
   },
   {
-    skill: 'TypeScript',
-    logoSkill: <BiLogoTypescript />
+    skill: 'Google Ads',
+    logoSkill: <SiGoogleads />
   },
   {
-    skill: 'ReactJS',
-    logoSkill: <FaReact />
+    skill: 'Google Tag Manager',
+    logoSkill: <SiGoogletagmanager />
   },
   {
-    skill: 'NextJS',
-    logoSkill: <SiNextdotjs />
-  },
-  {
-    skill: 'NodeJS',
-    logoSkill: <FaNodeJs />
+    skill: 'Looker',
+    logoSkill: <SiLooker />
   },
   {
     skill: 'SQL',
@@ -76,12 +78,20 @@ export const frontendSkills = [
     logoSkill: <FaCss3 />
   },
   {
-    skill: 'Styled Components',
-    logoSkill: <SiStyledcomponents />
+    skill: 'JavaScript',
+    logoSkill: <DiJsBadge />
   },
   {
-    skill: 'Tailwind',
-    logoSkill: <SiTailwindcss />
+    skill: 'TypeScript',
+    logoSkill: <BiLogoTypescript />
+  },
+  {
+    skill: 'ReactJS',
+    logoSkill: <FaReact />
+  },
+  {
+    skill: 'NextJS',
+    logoSkill: <SiNextdotjs />
   },
   {
     skill: 'Git',

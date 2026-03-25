@@ -4,6 +4,7 @@ import { AnimatePresence } from 'framer-motion'
 import Chakra from '../components/chakra'
 import Payhip from '../components/payhip'
 import { Analytics } from '@vercel/analytics/react'
+import ColorModeScheduler from '../components/ColorModeScheduler'
 
 if (typeof window !== 'undefined') {
   window.history.scrollRestoration = 'manual'
@@ -12,6 +13,7 @@ if (typeof window !== 'undefined') {
 function Website({ Component, pageProps, router }) {
   return (
     <Chakra cookies={pageProps.cookies}>
+      <ColorModeScheduler />
       <Fonts />
       <Payhip />
       <Layout router={router}>

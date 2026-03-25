@@ -17,6 +17,7 @@ import {
 } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import ThemeToggleButton from './theme-toggle-button'
+import AudioToggle from './AudioToggle'
 
 // const LinkItem = ({ href, path, target, children, ...props }) => {
 //   const active = path === href
@@ -79,6 +80,7 @@ const Navbar = props => {
               Portfolio
             </LinkItem>
           </Stack> */}
+          <AudioToggle />
           <ThemeToggleButton />
 
           <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>

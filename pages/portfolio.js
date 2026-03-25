@@ -690,7 +690,7 @@ const PortfolioPage = () => {
                       _groupHover={{ bgGradient: projectOverlayHover }}
                     />
                     <Box position="absolute" bottom={0} left={0} right={0} zIndex={1} p={4}>
-                      <Heading as="h4" size="md" mb={1} noOfLines={2}>
+                      <Heading as="h4" size="md" mb={1} noOfLines={2} color="whiteAlpha.900">
                         {project.title}
                       </Heading>
                       <Text fontSize="sm" noOfLines={2} color="whiteAlpha.800">

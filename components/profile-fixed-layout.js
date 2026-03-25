@@ -53,7 +53,7 @@ const ProfileFixedLayout = ({ currentPath }) => {
             overflow="hidden"
           >
             <ProfileImage
-              src="/images/armando.jpg"
+              src="/images/me.JPG"
               alt="Profile image"
               borderRadius="full"
               width="100"

@@ -247,9 +247,11 @@ const PortfolioPage = () => {
               >
                 <Box position="absolute" inset={0} bgGradient={heroOverlay} />
               </Box>
-              <ModalHeader pb={2}>{selectedProject.title}</ModalHeader>
-              <ModalBody pb={8}>
-                <Stack spacing={5}>
+              <ModalHeader px={{ base: 5, md: 8 }} pb={2}>
+                {selectedProject.title}
+              </ModalHeader>
+              <ModalBody px={{ base: 5, md: 8 }} pb={8}>
+                <Stack spacing={5} maxW="860px" mx="auto" w="full">
                   <HStack spacing={8} flexWrap="wrap">
                     <Box>
                       <Text fontSize="sm" opacity={0.8}>

@@ -9,7 +9,7 @@ import {
 } from '@chakra-ui/react'
 import Image from 'next/image'
 import { chakra } from '@chakra-ui/react'
-import { FaGithub, FaMobile } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaMobile } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
 import styled from '@emotion/styled'
 import Paragraph from './paragraph'
@@ -86,16 +86,7 @@ const ProfileFixedLayout = ({ currentPath }) => {
             alignSelf="flex-start"
           >
             <Box display="flex" alignItems="center" gap="1rem">
-              <a
-                href="https://github.com/armandopbringas"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <HoverBox>
-                  <FaGithub color={profileIconColor} />
-                </HoverBox>
-              </a>
-              <a
+                            <a
                 href="mailto:bringas.armandop@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -111,6 +102,24 @@ const ProfileFixedLayout = ({ currentPath }) => {
               >
                 <HoverBox>
                   <FaMobile color={profileIconColor} />
+                </HoverBox>
+              </a>
+              <a
+                href="https://github.com/armandopbringas"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <HoverBox>
+                  <FaGithub color={profileIconColor} />
+                </HoverBox>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/armandopbringas/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <HoverBox>
+                  <FaLinkedin color={profileIconColor} />
                 </HoverBox>
               </a>
             </Box>

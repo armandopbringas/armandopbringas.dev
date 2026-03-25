@@ -111,6 +111,8 @@ const PortfolioPage = () => {
 
   const borderColor = useColorModeValue('blackAlpha.200', 'whiteAlpha.300')
   const surfaceBg = useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')
+  const cardContentBg = useColorModeValue('sand.100', '#1D2021')
+  const cardSubtitleColor = useColorModeValue('accent.600', 'accent.500')
   const cardShadow = useColorModeValue('md', 'dark-lg')
   const hoverCardShadow = useColorModeValue('lg', '2xl')
   const badgeBg = useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')
@@ -202,32 +204,32 @@ const PortfolioPage = () => {
                     }}
                     onClick={() => handleOpenProject(project.id)}
                   >
+                  <Box
+                    position="relative"
+                    minH="160px"
+                    bgImage={`url('${project.coverImageUrl}')`}
+                    bgPosition="center"
+                    bgSize="cover"
+                    bgColor={surfaceBg}
+                  >
                     <Box
-                      position="relative"
-                      minH="220px"
-                      bgImage={`url('${project.coverImageUrl}')`}
-                      bgPosition="center"
-                      bgSize="cover"
-                      bgColor={surfaceBg}
-                    >
-                      <Box
-                        position="absolute"
-                        inset={0}
-                        bgGradient={projectOverlay}
-                        transition="all 0.2s ease"
-                        _groupHover={{ bgGradient: projectOverlayHover }}
-                      />
-                      <Box position="absolute" bottom={0} left={0} right={0} zIndex={1} p={4}>
-                        <Heading as="h4" size="md" mb={1} noOfLines={2} color="whiteAlpha.900">
-                          {project.title}
-                        </Heading>
-                        <Text fontSize="sm" noOfLines={2} color="whiteAlpha.800">
-                          {project.shortDescription}
-                        </Text>
-                      </Box>
-                    </Box>
+                      position="absolute"
+                      inset={0}
+                      bgGradient={projectOverlay}
+                      transition="all 0.2s ease"
+                      _groupHover={{ bgGradient: projectOverlayHover }}
+                    />
                   </Box>
-                ))}
+                  <Box p={4} bg={cardContentBg}>
+                    <Heading as="h4" size="md" mb={1} noOfLines={2}>
+                      {project.title}
+                    </Heading>
+                    <Text fontSize="sm" noOfLines={2} color={cardSubtitleColor}>
+                      {project.shortDescription}
+                    </Text>
+                  </Box>
+                </Box>
+              ))}
               </SimpleGrid>
             </Section>
           </motion.div>

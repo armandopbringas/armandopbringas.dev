@@ -122,7 +122,7 @@
       "items": [
         { "year": "1991", "text": "Nací en Orizaba (Veracruz), México." },
         { "year": "2018", "text": "Completé la carrera de Ingeniería Química en la Universidad Veracruzana." },
-        { "year": "2020", "text": "Trabajé como Desarrollador Web." },
+        { "year": "2020", "text": "Trabajé como Desarrollador Web hasta 2025." },
         { "year": "2026", "text": "En transición de Desarrollador a Digital Analytics." }
       ]
     }
@@ -250,7 +250,7 @@
       "items": [
         { "year": "1991", "text": "I was born in Orizaba (Veracruz), Mexico." },
         { "year": "2018", "text": "I completed Chemical Engineering degree at Universidad Veracruzana." },
-        { "year": "2020", "text": "I worked as Web Developer." },
+        { "year": "2020", "text": "I worked as a Web Developer until 2025." },
         { "year": "2026", "text": "I am moving from Developer to Digital Analytics." }
       ]
     }

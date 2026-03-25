@@ -11,7 +11,8 @@ const Main = ({ children, router }) => {
         <meta name="description" content="Armando's homepage" />
         <meta name="author" content="Armando Bringas" />
         <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-        <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml" />
         <meta property="og:site_name" content="Armando Bringas" />
         <meta name="og:title" content="Armando Bringas" />
         <meta property="og:type" content="website" />

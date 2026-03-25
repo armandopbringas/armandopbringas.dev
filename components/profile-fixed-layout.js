@@ -13,6 +13,7 @@ import { FaGithub, FaMobile } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
 import styled from '@emotion/styled'
 import Paragraph from './paragraph'
+import { useLanguage } from './language-context'
 
 const ProfileImage = chakra(Image, {
   shouldForwardProp: prop => ['width', 'height', 'src', 'alt'].includes(prop)
@@ -26,17 +27,17 @@ const HoverBox = styled.span`
   }
 `
 
-const navItems = [
-  { href: '/portfolio', label: 'Portfolio' },
-  { href: '/bio', label: 'Bio' },
-  { href: '/skills', label: 'Skills' }
-]
-
 const ProfileFixedLayout = ({ currentPath }) => {
+  const { t } = useLanguage()
   const badgeBg = useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')
   const borderColor = useColorModeValue('blackAlpha.200', 'whiteAlpha.300')
   const inactiveColor = useColorModeValue('gray.700', 'whiteAlpha.700')
   const profileIconColor = useColorModeValue('ink.700', 'sand.400')
+  const navItems = [
+    { href: '/portfolio', label: t.nav.portfolio },
+    { href: '/bio', label: t.nav.bio },
+    { href: '/skills', label: t.nav.skills }
+  ]
 
   return (
     <>
@@ -54,7 +55,7 @@ const ProfileFixedLayout = ({ currentPath }) => {
           >
             <ProfileImage
               src="/images/me.JPG"
-              alt="Profile image"
+              alt={t.profile.imageAlt}
               borderRadius="full"
               width="100"
               height="100"
@@ -74,7 +75,7 @@ const ProfileFixedLayout = ({ currentPath }) => {
           w="100%"
         >
           <Heading as="h2" variant="page-title" alignSelf="flex-start">
-            Armando Bringas
+            {t.profile.name}
           </Heading>
           <Box
             display="flex"
@@ -116,11 +117,7 @@ const ProfileFixedLayout = ({ currentPath }) => {
           </Box>
           <Box w="fit-content" alignSelf="flex-start">
             <Wrap spacing={2} display="flex" flexWrap="nowrap">
-              {[
-                'Technical Digital Analytics',
-                'GA4, GTM & Web Measurement',
-                'Frontend Background'
-              ].map(label => (
+              {t.profile.badges.map(label => (
                 <WrapItem
                   key={label}
                   borderRadius="lg"
@@ -142,20 +139,15 @@ const ProfileFixedLayout = ({ currentPath }) => {
 
       <Box mt={6}>
         <Heading as="h3" variant="section-title" marginTop="2rem">
-          About Me
+          {t.profile.aboutTitle}
         </Heading>
-        <Paragraph>
-          Hello, welcome to my portfolio. Here I show my practice projects. I work as a
-          Digital Analytics / Web Measurement Analyst. In these projects I set up tracking
-          with GA4 and GTM, check events and conversions (QA), connect GA4 with Google Ads,
-          and build simple dashboards in Looker Studio to see traffic sources (UTMs),
-          campaigns, and the funnel.
-        </Paragraph>
+        <Paragraph>{t.profile.aboutText}</Paragraph>
       </Box>
 
       <Box
         as="nav"
         display="flex"
+        justifyContent="center"
         gap={4}
         mt={6}
         mb={6}
@@ -164,7 +156,8 @@ const ProfileFixedLayout = ({ currentPath }) => {
         borderColor={borderColor}
       >
         {navItems.map(item => {
-          const isActive = currentPath === item.href
+          const isActive =
+            currentPath === item.href || (item.href === '/portfolio' && currentPath === '/')
           return (
             <ChakraLink
               key={item.href}

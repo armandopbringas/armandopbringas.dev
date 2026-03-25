@@ -18,6 +18,8 @@ import {
 import { HamburgerIcon } from '@chakra-ui/icons'
 import ThemeToggleButton from './theme-toggle-button'
 import AudioToggle from './AudioToggle'
+import LanguageToggleButton from './language-toggle-button'
+import { useLanguage } from './language-context'
 
 // const LinkItem = ({ href, path, target, children, ...props }) => {
 //   const active = path === href
@@ -44,6 +46,7 @@ const MenuLink = forwardRef((props, ref) => (
 
 const Navbar = props => {
   // const { path } = props
+  const { t } = useLanguage()
 
   return (
     <Box
@@ -81,6 +84,7 @@ const Navbar = props => {
             </LinkItem>
           </Stack> */}
           <AudioToggle />
+          <LanguageToggleButton />
           <ThemeToggleButton />
 
           <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
@@ -93,7 +97,7 @@ const Navbar = props => {
               />
               <MenuList>
                 <MenuItem as={MenuLink} href="/">
-                  About
+                  {t.nav.mobileAbout}
                 </MenuItem>
                 {/* <MenuItem as={MenuLink} href="/works">
                   Works

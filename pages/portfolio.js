@@ -19,12 +19,10 @@ import {
   Link as ChakraLink,
   UnorderedList,
   Wrap,
-  useColorModeValue,
-  useDisclosure
+  useColorModeValue
 } from '@chakra-ui/react'
 import Head from 'next/head'
 import { motion } from 'framer-motion'
-import { useState } from 'react'
 import { useRouter } from 'next/router'
 import Section from '../components/section'
 import ProfileFixedLayout from '../components/profile-fixed-layout'
@@ -137,19 +135,30 @@ const PortfolioPage = () => {
     createdAt: '2026-03-24'
   }))
 
-  const [selectedProjectId, setSelectedProjectId] = useState(null)
-  const { isOpen, onOpen, onClose } = useDisclosure()
-
-  const selectedProject = projects.find(project => project.id === selectedProjectId) || null
+  const routeProjectId = Array.isArray(router.query.projectId)
+    ? router.query.projectId[0]
+    : router.query.projectId
+  const selectedProject =
+    projects.find(project => project.id === routeProjectId) || null
+  const isOpen = Boolean(selectedProject)
 
   const handleOpenProject = projectId => {
-    setSelectedProjectId(projectId)
-    onOpen()
+    if (router.asPath !== `/portfolio/${projectId}`) {
+      router.push(
+        { pathname: '/portfolio', query: { projectId } },
+        `/portfolio/${projectId}`,
+        { scroll: false, shallow: true }
+      )
+    }
   }
 
   const handleCloseProject = () => {
-    onClose()
-    setSelectedProjectId(null)
+    if (router.asPath !== '/portfolio') {
+      router.push({ pathname: '/portfolio' }, '/portfolio', {
+        scroll: false,
+        shallow: true
+      })
+    }
   }
 
   return (
@@ -161,7 +170,9 @@ const PortfolioPage = () => {
       </Head>
       <Container>
         <Box position="relative" my="4rem">
-          <ProfileFixedLayout currentPath={router.pathname} />
+          <ProfileFixedLayout
+            currentPath={router.pathname.startsWith('/portfolio') ? '/portfolio' : router.pathname}
+          />
 
           <motion.div
             initial="hidden"

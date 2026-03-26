@@ -845,37 +845,37 @@
                   "id": "01-gtm-workspace",
                   "title": "GTM Workspace",
                   "caption": "Resumen del contenedor y acceso a Vista previa / Enviar.",
-                  "imageUrl": "/projects/p3-gtm-implementation/01-gtm-workspace.png"
+                  "imageUrl": "/projects/p3-gtm-implementation/01-gtm-workspace.webp"
                 },
                 {
                   "id": "02-tag-assistant-connected",
                   "title": "Tag Assistant Connected",
                   "caption": "Sitio conectado con gtm_debug.",
-                  "imageUrl": "/projects/p3-gtm-implementation/02-tag-assistant-connected.png"
+                  "imageUrl": "/projects/p3-gtm-implementation/02-tag-assistant-connected.webp"
                 },
                 {
                   "id": "03-gtm-preview-summary",
                   "title": "Preview Summary",
                   "caption": "Etiquetas activadas/no activadas en Tag Assistant.",
-                  "imageUrl": "/projects/p3-gtm-implementation/03-gtm-preview-summary.png"
+                  "imageUrl": "/projects/p3-gtm-implementation/03-gtm-preview-summary.webp"
                 },
                 {
                   "id": "04-gtm-tag-ga4-event",
                   "title": "GA4 Event Tag",
                   "caption": "Etiqueta GA4 Event add_to_cart_click con parámetros.",
-                  "imageUrl": "/projects/p3-gtm-implementation/04-gtm-tag-ga4-event.png"
+                  "imageUrl": "/projects/p3-gtm-implementation/04-gtm-tag-ga4-event.webp"
                 },
                 {
                   "id": "05-ga4-debugview",
                   "title": "GA4 DebugView",
                   "caption": "Eventos llegando en DebugView.",
-                  "imageUrl": "/projects/p3-gtm-implementation/05-ga4-debugview.png"
+                  "imageUrl": "/projects/p3-gtm-implementation/05-ga4-debugview.webp"
                 },
                 {
                   "id": "06-ga4-realtime",
                   "title": "GA4 Realtime",
                   "caption": "Validación rápida en Realtime.",
-                  "imageUrl": "/projects/p3-gtm-implementation/06-ga4-realtime.png"
+                  "imageUrl": "/projects/p3-gtm-implementation/06-ga4-realtime.webp"
                 }
               ]
             },
@@ -1789,37 +1789,37 @@
                   "id": "01-gtm-workspace",
                   "title": "GTM Workspace",
                   "caption": "Container summary and Preview/Submit actions.",
-                  "imageUrl": "/projects/p3-gtm-implementation/01-gtm-workspace.png"
+                  "imageUrl": "/projects/p3-gtm-implementation/01-gtm-workspace.webp"
                 },
                 {
                   "id": "02-tag-assistant-connected",
                   "title": "Tag Assistant Connected",
                   "caption": "Site connected with gtm_debug.",
-                  "imageUrl": "/projects/p3-gtm-implementation/02-tag-assistant-connected.png"
+                  "imageUrl": "/projects/p3-gtm-implementation/02-tag-assistant-connected.webp"
                 },
                 {
                   "id": "03-gtm-preview-summary",
                   "title": "Preview Summary",
                   "caption": "Fired and not-fired tags in Tag Assistant.",
-                  "imageUrl": "/projects/p3-gtm-implementation/03-gtm-preview-summary.png"
+                  "imageUrl": "/projects/p3-gtm-implementation/03-gtm-preview-summary.webp"
                 },
                 {
                   "id": "04-gtm-tag-ga4-event",
                   "title": "GA4 Event Tag",
                   "caption": "add_to_cart_click GA4 Event tag with params.",
-                  "imageUrl": "/projects/p3-gtm-implementation/04-gtm-tag-ga4-event.png"
+                  "imageUrl": "/projects/p3-gtm-implementation/04-gtm-tag-ga4-event.webp"
                 },
                 {
                   "id": "05-ga4-debugview",
                   "title": "GA4 DebugView",
                   "caption": "Events arriving in DebugView.",
-                  "imageUrl": "/projects/p3-gtm-implementation/05-ga4-debugview.png"
+                  "imageUrl": "/projects/p3-gtm-implementation/05-ga4-debugview.webp"
                 },
                 {
                   "id": "06-ga4-realtime",
                   "title": "GA4 Realtime",
                   "caption": "Quick validation in Realtime.",
-                  "imageUrl": "/projects/p3-gtm-implementation/06-ga4-realtime.png"
+                  "imageUrl": "/projects/p3-gtm-implementation/06-ga4-realtime.webp"
                 }
               ]
             },

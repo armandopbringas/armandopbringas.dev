@@ -17,7 +17,7 @@
       "badges": [
         "Technical Digital Analytics",
         "GA4, GTM & Web Measurement",
-        "Frontend Background"
+        "Developer Background"
       ],
       "aboutTitle": "Sobre mí",
       "aboutText": "Hola, soy Armando Bringas. Bienvenido a mi portafolio. Soy Digital Analyst, Web Measurement y Developer. Ayudo a equipos de marketing y producto a entender qué pasa en un sitio web con tracking limpio y reportes claros. Configuro y valido medición con Google Analytics 4 (GA4), Google Tag Manager (GTM), y creo dashboards en Looker Studio para adquisición, campañas y funnels."
@@ -223,25 +223,25 @@
                   "id": "07-ga4-realtime",
                   "title": "GA4 Realtime",
                   "caption": "GA4 Realtime — evidencia de eventos llegando (validación rápida).",
-                  "imageUrl": "/projects/01-ga4-looker-demo/07-ga4-realtime.png"
+                  "imageUrl": "/projects/p1-ga4-demo-store/07-ga4-realtime.png"
                 },
                 {
                   "id": "08-gtm-preview",
                   "title": "GTM Preview (Tag Assistant)",
                   "caption": "GTM Preview (Tag Assistant conectado) — evidencia de QA del contenedor.",
-                  "imageUrl": "/projects/01-ga4-looker-demo/08-gtm-preview.png"
+                  "imageUrl": "/projects/p1-ga4-demo-store/08-demo-debug-page.png"
                 },
                 {
                   "id": "09-gtm-tag-ga4-event",
                   "title": "GTM Tag (GA4 Event)",
                   "caption": "GTM Tag (GA4 event) — detalle de la etiqueta/evento configurado.",
-                  "imageUrl": "/projects/01-ga4-looker-demo/09-gtm-tag-ga4-event.png"
+                  "imageUrl": "/projects/p1-ga4-demo-store/10-gtm-tag-ga4-event.png"
                 },
                 {
                   "id": "10-ga4-events-report",
                   "title": "GA4 Events Report",
                   "caption": "GA4 Events Report — evidencia del evento registrado en reportes.",
-                  "imageUrl": "/projects/01-ga4-looker-demo/10-ga4-events-report.png"
+                  "imageUrl": "/projects/p1-ga4-demo-store/11-ga4-events-report.png"
                 }
               ]
             },
@@ -1055,7 +1055,7 @@
       "badges": [
         "Technical Digital Analytics",
         "GA4, GTM & Web Measurement",
-        "Frontend Background"
+        "Developer Background"
       ],
       "aboutTitle": "About me",
       "aboutText": "Hi, I am Armando Bringas. Welcome to my portfolio. I am a Digital Analyst, Web Measurement specialist, and Developer. I help marketing and product teams understand website behavior with clean tracking and clear reports. I configure and validate measurement in Google Analytics 4 (GA4), Google Tag Manager (GTM), and build Looker Studio dashboards for acquisition, campaigns, and funnels."
@@ -1261,25 +1261,25 @@
                   "id": "07-ga4-realtime",
                   "title": "GA4 Realtime",
                   "caption": "GA4 Realtime - proof that events are arriving quickly.",
-                  "imageUrl": "/projects/01-ga4-looker-demo/07-ga4-realtime.png"
+                  "imageUrl": "/projects/p1-ga4-demo-store/07-ga4-realtime.png"
                 },
                 {
                   "id": "08-gtm-preview",
                   "title": "GTM Preview (Tag Assistant)",
                   "caption": "Tag Assistant connected - QA proof for GTM container.",
-                  "imageUrl": "/projects/01-ga4-looker-demo/08-gtm-preview.png"
+                  "imageUrl": "/projects/p1-ga4-demo-store/08-demo-debug-page.png"
                 },
                 {
                   "id": "09-gtm-tag-ga4-event",
                   "title": "GTM Tag (GA4 Event)",
                   "caption": "Detail of configured GA4 event tag in GTM.",
-                  "imageUrl": "/projects/01-ga4-looker-demo/09-gtm-tag-ga4-event.png"
+                  "imageUrl": "/projects/p1-ga4-demo-store/10-gtm-tag-ga4-event.png"
                 },
                 {
                   "id": "10-ga4-events-report",
                   "title": "GA4 Events Report",
                   "caption": "Proof that event is registered in reports.",
-                  "imageUrl": "/projects/01-ga4-looker-demo/10-ga4-events-report.png"
+                  "imageUrl": "/projects/p1-ga4-demo-store/11-ga4-events-report.png"
                 }
               ]
             },

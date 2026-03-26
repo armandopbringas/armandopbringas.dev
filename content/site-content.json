@@ -585,37 +585,40 @@
         },
         {
           "id": "ga4-ads-validation",
-          "title": "Enfoque: adquisición, UTMs y funnel de e-commerce (demo)",
-          "shortDescription": "Reporting end-to-end con GA4 y Looker Studio para adquisición, campañas y funnel.",
+          "title": "Validación: GA4 → Google Ads (Demo Analytics Store)",
+          "shortDescription": "Práctica de medición y atribución: conversión purchase importada desde GA4 a Google Ads y validación de configuración.",
           "tags": [
             "GA4",
-            "Looker Studio",
-            "UTMs",
-            "Acquisition",
-            "Funnel"
+            "Google Ads",
+            "Attribution",
+            "Measurement QA"
           ],
           "contentBlocks": [
             {
               "type": "heading",
-              "text": "Resumen ejecutivo"
+              "text": "Resumen"
             },
             {
               "type": "text",
-              "text": "Proyecto orientado a adquisición y campañas UTM con lectura de funnel desde GA4 en Looker Studio."
+              "text": "En este proyecto dejé Google Ads listo para medir resultados a partir de GA4: vinculé Google Ads ↔ GA4, importé el evento purchase como conversión principal en Ads, y validé que GA4 registra compras y que Ads tiene la conversión configurada."
+            },
+            {
+              "type": "text",
+              "text": "Sitio de práctica: https://demo-analytics-store.vercel.app/"
             },
             {
               "type": "divider"
             },
             {
               "type": "heading",
-              "text": "Qué demuestra"
+              "text": "Objetivo"
             },
             {
               "type": "ul",
               "items": [
-                "Canales y campañas que traen más sesiones/compras.",
-                "Etapas del funnel con mayor caída.",
-                "Buenas prácticas de QA y reporting."
+                "Definir qué cuenta como conversión en Ads.",
+                "Entender por qué Ads puede mostrar 0 conversiones aunque GA4 tenga compras.",
+                "Dejar una cuenta lista para activación: conversión + settings + checklist de QA."
               ]
             },
             {
@@ -623,15 +626,106 @@
             },
             {
               "type": "heading",
-              "text": "Stack"
+              "text": "Enfoque (Analista)"
+            },
+            {
+              "type": "text",
+              "text": "Enfoque de medición y atribución (rol Digital/Web Analyst). No es un proyecto de optimización de campañas."
             },
             {
               "type": "ul",
               "items": [
-                "GA4",
-                "Looker Studio",
-                "UTMs",
-                "GTM (soporte de tracking)"
+                "Ads no mide todo lo que pasa: cuenta conversiones según una definición.",
+                "GA4 registra comportamiento en eventos; Ads necesita atribuir esos eventos a tráfico de Ads.",
+                "Sin clics reales de Ads, es normal tener conversión configurada y conversiones atribuidas = 0."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Qué hice (pasos)"
+            },
+            {
+              "type": "ol",
+              "items": [
+                "Vinculación Ads ↔ GA4.",
+                "Importación de conversión desde GA4 (evento purchase).",
+                "Revisión de settings recomendados: acción principal, recuento, valor y atribución."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Qué validé"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "En GA4 existe purchase y aparece en reportes.",
+                "purchase trae valor/moneda cuando aplica.",
+                "En Ads la conversión importada desde GA4 está activa.",
+                "Settings coherentes: principal, recuento, valor y atribución."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Nota de atribución"
+            },
+            {
+              "type": "text",
+              "text": "Si Ads muestra 0 conversiones, la explicación defendible es que no hubo tráfico real de Ads para atribuir (por ejemplo, sin clics reales con gclid + sesión + compra)."
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Resultado"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Conversión purchase configurada en Ads con fuente GA4.",
+                "Medición lista para atribución cuando existan clics reales de Ads.",
+                "Aprendizaje clave: diferencia entre evento existente (GA4) y evento atribuible (Ads)."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Evidencia visual"
+            },
+            {
+              "type": "text",
+              "text": "Screenshots pending (Ads conversion setup + GA4 purchase event)."
+            },
+            {
+              "type": "text",
+              "text": "Ruta preparada para futuras imágenes: /projects/p4-ga4-ads-validation/"
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Enlaces"
+            },
+            {
+              "type": "ul",
+              "items": [
+                {
+                  "text": "Demo site",
+                  "url": "https://demo-analytics-store.vercel.app/"
+                }
               ]
             }
           ]
@@ -1529,37 +1623,40 @@
         },
         {
           "id": "ga4-ads-validation",
-          "title": "Focus: acquisition, UTMs and ecommerce funnel (demo)",
-          "shortDescription": "End-to-end reporting with GA4 and Looker Studio for acquisition, campaigns, and funnel.",
+          "title": "Validation: GA4 → Google Ads (Demo Analytics Store)",
+          "shortDescription": "Measurement and attribution practice: purchase conversion imported from GA4 to Google Ads and setup validation.",
           "tags": [
             "GA4",
-            "Looker Studio",
-            "UTMs",
-            "Acquisition",
-            "Funnel"
+            "Google Ads",
+            "Attribution",
+            "Measurement QA"
           ],
           "contentBlocks": [
             {
               "type": "heading",
-              "text": "Executive summary"
+              "text": "Overview"
             },
             {
               "type": "text",
-              "text": "Project focused on acquisition and UTM campaigns with funnel visibility from GA4 into Looker Studio."
+              "text": "In this project, I prepared Google Ads to measure results from GA4. I linked Google Ads ↔ GA4, imported purchase as main conversion, and validated that GA4 records purchases and Ads has a correct conversion setup."
+            },
+            {
+              "type": "text",
+              "text": "Practice site: https://demo-analytics-store.vercel.app/"
             },
             {
               "type": "divider"
             },
             {
               "type": "heading",
-              "text": "What it shows"
+              "text": "Goal"
             },
             {
               "type": "ul",
               "items": [
-                "Which channel/campaign drives more sessions and purchases.",
-                "Where users drop in funnel steps.",
-                "How QA and reporting best practices improve decisions."
+                "Define what counts as conversion in Ads.",
+                "Understand why Ads can show 0 conversions while GA4 has purchases.",
+                "Leave account ready for activation: conversion + settings + QA checklist."
               ]
             },
             {
@@ -1567,15 +1664,106 @@
             },
             {
               "type": "heading",
-              "text": "Stack"
+              "text": "Analyst focus"
+            },
+            {
+              "type": "text",
+              "text": "This is a measurement and attribution project (Digital/Web Analyst role). It is not a campaign optimization project."
             },
             {
               "type": "ul",
               "items": [
-                "GA4",
-                "Looker Studio",
-                "UTMs",
-                "GTM (tracking support)"
+                "Ads does not measure everything: it counts conversions by a definition.",
+                "GA4 records behavior as events; Ads must attribute those events to Ads traffic.",
+                "Without real Ads clicks, it is normal to have conversion setup and attributed conversions = 0."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "What I did (steps)"
+            },
+            {
+              "type": "ol",
+              "items": [
+                "Link Ads ↔ GA4.",
+                "Import conversion from GA4 (purchase event).",
+                "Review recommended settings: primary action, count, value, attribution."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "What I validated"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "purchase exists in GA4 and appears in reports.",
+                "purchase has value/currency when applicable.",
+                "Imported conversion from GA4 is active in Ads.",
+                "Settings are coherent: primary, count, value, attribution."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Attribution note"
+            },
+            {
+              "type": "text",
+              "text": "If Ads shows 0 conversions, the defendable explanation is no real Ads traffic to attribute (for example, no real clicks with gclid + session + purchase)."
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Outcome"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "purchase conversion configured in Ads from GA4 source.",
+                "Measurement ready for attribution when real Ads clicks exist.",
+                "Key learning: existing event (GA4) is not always attributable event (Ads)."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Visual evidence"
+            },
+            {
+              "type": "text",
+              "text": "Screenshots pending (Ads conversion setup + GA4 purchase event)."
+            },
+            {
+              "type": "text",
+              "text": "Prepared path for future images: /projects/p4-ga4-ads-validation/"
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Links"
+            },
+            {
+              "type": "ul",
+              "items": [
+                {
+                  "text": "Demo site",
+                  "url": "https://demo-analytics-store.vercel.app/"
+                }
               ]
             }
           ]

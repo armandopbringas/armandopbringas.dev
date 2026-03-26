@@ -28,126 +28,906 @@
       "projects": [
         {
           "id": "ga4-demo-store",
-          "title": "Demo Web Store + GA4 (Implementación de eCommerce y QA)",
-          "shortDescription": "Proyecto práctico de analítica digital para eCommerce demo con implementación de funnel y QA en GA4.",
-          "tags": ["GA4", "Google Tag Manager", "UTMs", "Looker Studio", "QA"],
+          "title": "Proyecto 1 (End-to-End) — GA4 + Looker Studio | Demo Analytics Store",
+          "shortDescription": "Proyecto end-to-end de medición digital con GA4 + GTM + Looker Studio para adquisición, campañas y embudo e-commerce.",
+          "tags": [
+            "GA4",
+            "Google Tag Manager",
+            "Looker Studio",
+            "UTMs",
+            "Ecommerce QA"
+          ],
           "contentBlocks": [
-            { "type": "heading", "text": "Resumen" },
-            { "type": "text", "text": "Proyecto práctico de analítica digital para eCommerce (demo) donde implementé y validé una medición base con Google Analytics 4 (GA4) en una web store de prueba. El foco fue construir un funnel de compra confiable (eventos, parámetros y conversiones) y comprobar la calidad de datos con Realtime / DebugView." },
-            { "type": "divider" },
-            { "type": "heading", "text": "Objetivo" },
-            { "type": "ul", "items": ["Contar con una demo funcional para practicar medición end-to-end en eCommerce.", "Implementar un modelo de eventos GA4 para el embudo de compra.", "Ejecutar QA de eventos y conversiones para asegurar consistencia y trazabilidad."] },
-            { "type": "divider" },
-            { "type": "heading", "text": "Alcance" },
-            { "type": "text", "text": "Incluye:" },
-            { "type": "ul", "items": ["Configuración de propiedad GA4 y flujo de datos Web.", "Implementación de eventos del funnel (mínimo viable): view_item, add_to_cart, begin_checkout, purchase.", "Validación de eventos y parámetros (Realtime / DebugView).", "Estandarización de nomenclatura y reglas de envío."] },
-            { "type": "text", "text": "No incluye (para este proyecto):" },
-            { "type": "ul", "items": ["Consent Mode.", "Server-side tagging.", "Audiencias avanzadas."] },
-            { "type": "divider" },
-            { "type": "heading", "text": "Stack / Herramientas" },
-            { "type": "ul", "items": ["GA4 (propiedad y reportes)", "DebugView / Realtime (QA)", "Web store demo (sitio de práctica)"] },
-            { "type": "divider" },
-            { "type": "heading", "text": "Implementación" },
-            { "type": "text", "text": "1) Estructura de medición (funnel): Se definió el embudo estándar de eCommerce: Producto → view_item, Carrito → add_to_cart, Checkout → begin_checkout, Compra → purchase." },
-            { "type": "text", "text": "2) Parámetros principales (mínimo viable): Para asegurar reportabilidad y consistencia, los eventos incluyen currency, value, transaction_id (para purchase), items_count (cuando aplica) y, de forma opcional/recomendada, items[] con item_id, item_name, price y quantity." },
-            { "type": "text", "text": "Nota: en esta demo se priorizó el funnel + QA. Si tu implementación ya incluye items[], se documenta como implementado. Si no, se deja como siguiente iteración." },
-            { "type": "divider" },
-            { "type": "heading", "text": "QA / Validación" },
-            { "type": "text", "text": "Checklist de QA aplicado:" },
-            { "type": "ul", "items": ["Realtime: ver el evento dispararse al momento.", "DebugView: validar orden del funnel y valores enviados.", "Validar que purchase tenga transaction_id único.", "Validar que value y currency estén presentes.", "Validar que el orden del funnel tenga sentido en pruebas controladas."] },
-            { "type": "text", "text": "Evidencia (para entrevistas):" },
-            { "type": "ul", "items": ["Capturas o links de GA4 Realtime mostrando los eventos.", "Capturas o links de DebugView con secuencia de funnel.", "Si aplica, página /debug del sitio con el último evento enviado."] },
-            { "type": "divider" },
-            { "type": "heading", "text": "Resultados" },
-            { "type": "ul", "items": ["Funnel GA4 funcionando en un entorno de práctica.", "Datos verificables en Realtime/DebugView.", "Base lista para conectar reporting (Looker Studio) y/o conversiones (Ads) en proyectos posteriores."] },
-            { "type": "divider" },
-            { "type": "heading", "text": "Principales aprendizajes" },
-            { "type": "ul", "items": ["Cómo definir un funnel GA4 mínimo viable y hacerlo consistente.", "Importancia de QA (Realtime/DebugView) para evitar datos bonitos pero falsos.", "Buenas prácticas: transaction_id único, currency/value estables y nomenclatura clara."] },
-            { "type": "divider" },
-            { "type": "heading", "text": "Links" },
-            { "type": "ul", "items": [
-              { "text": "Sitio demo (si aplica)", "url": "https://demo-analytics-store.vercel.app/" },
-              { "text": "GA4 (capturas/nota)", "url": "https://analytics.google.com/analytics/web/#/a387127918p527851150/reports/intelligenthome" },
-              "Evidencias (screenshots): (carpeta o enlaces)"
-            ] },
-            { "type": "divider" },
-            { "type": "heading", "text": "Próximos pasos (iteración sugerida)" },
-            { "type": "ul", "items": ["Añadir items[] completo en todos los eventos ecommerce para reportes más ricos.", "Marcar purchase como Key Event y documentar reglas.", "Conectar con Looker Studio para reporting de funnel/adquisición (Proyecto 2)."] }
+            {
+              "type": "heading",
+              "text": "Resumen"
+            },
+            {
+              "type": "text",
+              "text": "Proyecto práctico end-to-end de medición digital sobre una tienda demo. Implementé y validé tracking con Google Analytics 4 (GA4) y Google Tag Manager (GTM), luego construí un dashboard en Looker Studio para visualizar adquisición (UTMs), campañas y embudo e-commerce."
+            },
+            {
+              "type": "text",
+              "text": "Objetivo: demostrar que puedo instrumentar, hacer QA, y convertir datos en un reporte entendible para marketing/producto."
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Contexto y problema"
+            },
+            {
+              "type": "text",
+              "text": "En un sitio web real, marketing y producto necesitan responder preguntas como:"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "¿De dónde viene el tráfico? (fuentes, medio, campañas)",
+                "¿Qué hace el usuario dentro del sitio? (embudo de compra)",
+                "¿Los datos son confiables? (QA de eventos, parámetros y conversiones)"
+              ]
+            },
+            {
+              "type": "text",
+              "text": "Este proyecto simula ese contexto con una tienda demo para practicar un flujo completo de medición."
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Alcance del proyecto"
+            },
+            {
+              "type": "text",
+              "text": "Incluye"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "GA4: medición basada en eventos y validación de eventos clave.",
+                "GTM: apoyo para tracking de clicks/eventos (cuando aplica) y QA con Preview/Tag Assistant.",
+                "UTMs: simulación de campañas y tráfico etiquetado.",
+                "Looker Studio: dashboard final con KPIs y tablas/gráficas de adquisición + embudo."
+              ]
+            },
+            {
+              "type": "text",
+              "text": "No incluye"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Consent Mode / Server-side GTM (fuera del alcance de este proyecto).",
+                "Optimización avanzada de campañas (se cubre en el proyecto de Google Ads)."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Objetivos y KPIs"
+            },
+            {
+              "type": "text",
+              "text": "Objetivos"
+            },
+            {
+              "type": "ol",
+              "items": [
+                "Medir el recorrido de compra (embudo) y detectar caídas.",
+                "Medir adquisición por source/medium/campaign (UTMs) y comparar calidad de tráfico.",
+                "Entregar un dashboard listo para negocio en Looker Studio."
+              ]
+            },
+            {
+              "type": "text",
+              "text": "KPIs (ejemplo)"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Sesiones / Usuarios por fuente/medio y por campaña.",
+                "Eventos: view_item, add_to_cart, begin_checkout, purchase.",
+                "Eventos clave: purchase (y cualquier evento marcado como key event).",
+                "Engagement: sesiones con interacción / tasa de interacción."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Implementación (qué hice)"
+            },
+            {
+              "type": "text",
+              "text": "1) Instrumentación de eventos (GA4)"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Definí y validé un embudo e-commerce basado en eventos: view_item → add_to_cart → begin_checkout → purchase.",
+                "Confirmé que cada evento se dispara al realizar la acción correspondiente.",
+                "Verifiqué parámetros útiles en eventos (page_path, item_id, value, currency, etc. según el caso)."
+              ]
+            },
+            {
+              "type": "text",
+              "text": "2) QA / Validación"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "DebugView / Realtime en GA4 para confirmar recepción de eventos.",
+                "GTM Preview (Tag Assistant) para validar contenedor, disparo de etiqueta y llegada del evento a GA4 end-to-end."
+              ]
+            },
+            {
+              "type": "text",
+              "text": "3) Adquisición con UTMs (tráfico de prueba)"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Generé enlaces con UTMs para simular campañas (google/cpc, meta/paid_social, newsletter, partner/referral).",
+                "Verifiqué en GA4 la presencia de source/medium y campaign.",
+                "Validé relación entre tráfico etiquetado y eventos del embudo."
+              ]
+            },
+            {
+              "type": "text",
+              "text": "4) Dashboard en Looker Studio"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Conecté GA4 a Looker Studio.",
+                "Construí vistas de adquisición, campañas, embudo por eventos y KPIs superiores.",
+                "Validé coherencia de números con GA4 para el mismo rango de fechas."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Entregables"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Tracking funcional en GA4 (eventos + validación).",
+                "UTMs funcionando (fuente/medio/campaña visibles en GA4).",
+                "Dashboard en Looker Studio (adquisición + campañas + embudo)."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Evidencia visual (screenshots)"
+            },
+            {
+              "type": "text",
+              "text": "Para el portafolio web, usaré 4 capturas principales (las más importantes)."
+            },
+            {
+              "type": "gallery",
+              "items": [
+                {
+                  "id": "07-ga4-realtime",
+                  "title": "GA4 Realtime",
+                  "caption": "GA4 Realtime — evidencia de eventos llegando (validación rápida).",
+                  "imageUrl": "/projects/01-ga4-looker-demo/07-ga4-realtime.png"
+                },
+                {
+                  "id": "08-gtm-preview",
+                  "title": "GTM Preview (Tag Assistant)",
+                  "caption": "GTM Preview (Tag Assistant conectado) — evidencia de QA del contenedor.",
+                  "imageUrl": "/projects/01-ga4-looker-demo/08-gtm-preview.png"
+                },
+                {
+                  "id": "09-gtm-tag-ga4-event",
+                  "title": "GTM Tag (GA4 Event)",
+                  "caption": "GTM Tag (GA4 event) — detalle de la etiqueta/evento configurado.",
+                  "imageUrl": "/projects/01-ga4-looker-demo/09-gtm-tag-ga4-event.png"
+                },
+                {
+                  "id": "10-ga4-events-report",
+                  "title": "GA4 Events Report",
+                  "caption": "GA4 Events Report — evidencia del evento registrado en reportes.",
+                  "imageUrl": "/projects/01-ga4-looker-demo/10-ga4-events-report.png"
+                }
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Links"
+            },
+            {
+              "type": "ul",
+              "items": [
+                {
+                  "text": "Sitio demo",
+                  "url": "https://demo-analytics-store.vercel.app/"
+                },
+                {
+                  "text": "Looker Studio",
+                  "url": "https://lookerstudio.google.com/u/0/reporting/7745b769-fba3-454b-bd6a-05bc175c23f6/page/7J4rF"
+                }
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Lo más importante que aprendí"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "GA4 se basa en eventos + parámetros: primero haces que exista, luego que sea útil.",
+                "Realtime/DebugView sirven para QA; reportes sirven para análisis (pueden tener latencia).",
+                "UTMs permiten conectar marketing → comportamiento → resultados.",
+                "Looker Studio es la capa para negocio: convierte medición en una historia clara."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Stack / Herramientas"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Google Analytics 4 (GA4)",
+                "Google Tag Manager (GTM)",
+                "Looker Studio",
+                "UTMs (convención source/medium/campaign)"
+              ]
+            }
           ]
         },
         {
           "id": "utm-funnel-demo",
-          "title": "Enfoque: adquisición, UTMs y funnel de e-commerce (demo)",
-          "shortDescription": "Reporting end-to-end con GA4 y Looker Studio para adquisición, campañas y funnel.",
-          "tags": ["GA4", "Looker Studio", "UTMs", "Acquisition", "Funnel"],
+          "title": "Enfoque: Adquisición con UTMs (Demo Analytics Store)",
+          "shortDescription": "Adquisición con UTMs en la Demo Analytics Store: sesiones de prueba, validación en GA4 Realtime y análisis en Traffic acquisition.",
+          "tags": [
+            "GA4",
+            "UTMs",
+            "Traffic Acquisition",
+            "QA",
+            "Demo Analytics Store"
+          ],
           "contentBlocks": [
-            { "type": "heading", "text": "Resumen ejecutivo" },
-            { "type": "text", "text": "Construí reporting end-to-end conectando GA4 con Looker Studio para adquisición por canal, campañas UTM y funnel e-commerce." },
-            { "type": "divider" },
-            { "type": "heading", "text": "Objetivos" },
-            { "type": "ol", "items": ["Estandarizar adquisición con UTMs.", "Visualizar funnel completo: view_item → purchase.", "Publicar dashboard accionable para negocio."] },
-            { "type": "divider" },
-            { "type": "heading", "text": "Dashboard" },
-            { "type": "ul", "items": ["KPIs (usuarios, sesiones, eventos, purchase).", "Tabla Fuente/Medio.", "Tabla UTM Campaign.", "Tabla de funnel por eventos.", "Tendencia temporal de sesiones."] },
-            { "type": "divider" },
-            { "type": "heading", "text": "Resultados (demo)" },
-            { "type": "ul", "items": ["Usuarios: 29", "Sesiones: 64", "Eventos: 801", "purchase: 14", "Funnel: view_item 78, add_to_cart 44, begin_checkout 23, purchase 14"] },
-            { "type": "divider" },
-            { "type": "heading", "text": "Links" },
-            { "type": "ul", "items": [
-              { "text": "GA4", "url": "https://analytics.google.com/analytics/web/#/a387127918p527851150/reports/intelligenthome" },
-              { "text": "GTM", "url": "https://tagmanager.google.com/?utm_source=marketingplatform.google.com&utm_medium=et&utm_campaign=marketingplatform.google.com%2Fintl%2Fes%2Fabout%2Ftag-manager%2F#/container/accounts/6345013589/containers/246720709/workspaces/4" },
-              { "text": "Looker Studio", "url": "https://lookerstudio.google.com/u/0/reporting/7745b769-fba3-454b-bd6a-05bc175c23f6/page/7J4rF" }
-            ] }
+            {
+              "type": "heading",
+              "text": "Resumen"
+            },
+            {
+              "type": "text",
+              "text": "Este proyecto se enfoca en adquisición con UTMs en la Demo Analytics Store. Se generaron sesiones con enlaces UTM (simulando campañas) y se validó el comportamiento en GA4."
+            },
+            {
+              "type": "text",
+              "text": "La evidencia principal es GA4 (Realtime y Traffic acquisition). Si no hay dashboard de Looker para este proyecto, no se inventa: se usa GA4 como fuente principal."
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Objetivo"
+            },
+            {
+              "type": "ol",
+              "items": [
+                "Generar sesiones identificables con links UTM.",
+                "Revisar en GA4 source/medium y campaign para comparar adquisición.",
+                "Validar en GA4 que el tráfico UTM recorra el funnel y dispare eventos cuando aplica."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Problema que resuelve"
+            },
+            {
+              "type": "text",
+              "text": "Sin UTMs, el tráfico se mezcla y es difícil atribuir comportamiento por fuente o campaña. Este enfoque permite separar tráfico etiquetado, validar calidad y entender qué fuentes generan mejor interacción en el sitio demo."
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Alcance (Incluye / No incluye)"
+            },
+            {
+              "type": "text",
+              "text": "Incluye"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Creación de enlaces UTM para simular adquisición.",
+                "Pruebas de sesiones reales con navegación de ejemplo.",
+                "Validación en GA4 Realtime para QA rápido.",
+                "Revisión en GA4 Traffic acquisition para source/medium y campaign."
+              ]
+            },
+            {
+              "type": "text",
+              "text": "No incluye"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Inversión en campañas reales.",
+                "Construcción obligatoria de dashboard en Looker para este proyecto."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "UTMs usados (ejemplo + formato recomendado)"
+            },
+            {
+              "type": "text",
+              "text": "Formato recomendado: utm_source, utm_medium, utm_campaign y, cuando aplica, utm_content + utm_term. Mantener nombres consistentes y sin espacios."
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "UTM links"
+            },
+            {
+              "type": "table",
+              "columns": [
+                "utm_source",
+                "utm_medium",
+                "utm_campaign",
+                "utm_content",
+                "utm_term",
+                "URL"
+              ],
+              "rows": [
+                [
+                  "meta",
+                  "paid_social",
+                  "demo_launch",
+                  "carousel_1",
+                  "interest_shopping",
+                  "https://demo-analytics-store.vercel.app/products?utm_source=meta&utm_medium=paid_social&utm_campaign=demo_launch&utm_content=carousel_1&utm_term=interest_shopping"
+                ],
+                [
+                  "google",
+                  "cpc",
+                  "demo_search",
+                  "ad_1",
+                  "demo_product",
+                  "https://demo-analytics-store.vercel.app/products/1?utm_source=google&utm_medium=cpc&utm_campaign=demo_search&utm_content=ad_1&utm_term=demo_product"
+                ],
+                [
+                  "newsletter",
+                  "email",
+                  "demo_news_01",
+                  "cta_header",
+                  "—",
+                  "https://demo-analytics-store.vercel.app/?utm_source=newsletter&utm_medium=email&utm_campaign=demo_news_01&utm_content=cta_header"
+                ],
+                [
+                  "partner",
+                  "referral",
+                  "demo_partnership",
+                  "listing_1",
+                  "—",
+                  "https://demo-analytics-store.vercel.app/products?utm_source=partner&utm_medium=referral&utm_campaign=demo_partnership&utm_content=listing_1"
+                ],
+                [
+                  "linkedin",
+                  "organic_social",
+                  "demo_portfolio",
+                  "post_1",
+                  "—",
+                  "https://demo-analytics-store.vercel.app/?utm_source=linkedin&utm_medium=organic_social&utm_campaign=demo_portfolio&utm_content=post_1"
+                ]
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Implementación (paso a paso)"
+            },
+            {
+              "type": "ol",
+              "items": [
+                "Crear y ejecutar enlaces UTM hacia páginas clave de la tienda demo.",
+                "Abrir sesiones de prueba y navegar flujo básico del sitio.",
+                "Validar en Realtime que lleguen usuarios y eventos.",
+                "Validar en Traffic acquisition que aparezcan source/medium/campaign esperados."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Validación (QA checklist)"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Realtime muestra usuarios activos durante pruebas con UTM.",
+                "Eventos del funnel se observan durante la sesión de prueba.",
+                "Traffic acquisition muestra source/medium correctos.",
+                "Traffic acquisition muestra campaign correcta.",
+                "Se considera latencia normal de GA4 cuando aplica."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Resultados (qué se puede mostrar)"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Separación de tráfico etiquetado vs no etiquetado.",
+                "Comparación de comportamiento por fuente y campaña según los datos.",
+                "Evidencia de validación de adquisición con GA4 como fuente principal."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Entregables"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Tabla de links UTM con convención de naming.",
+                "Evidencia de QA en GA4 Realtime.",
+                "Evidencia de adquisición en GA4 Traffic acquisition."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Evidencias (screenshots)"
+            },
+            {
+              "type": "gallery",
+              "items": [
+                {
+                  "id": "01-utm-links",
+                  "title": "UTM links",
+                  "caption": "Evidencia de links UTM usados en pruebas.",
+                  "imageUrl": "/projects/p2-ga4-utms-looker/01-utm-links.png"
+                },
+                {
+                  "id": "02-ga4-realtime",
+                  "title": "GA4 Realtime",
+                  "caption": "QA rápido durante sesiones con UTM.",
+                  "imageUrl": "/projects/p2-ga4-utms-looker/02-ga4-realtime.png"
+                },
+                {
+                  "id": "03-ga4-traffic-acquisition",
+                  "title": "GA4 Traffic acquisition (Source/Medium)",
+                  "caption": "Validación de source/medium en adquisición.",
+                  "imageUrl": "/projects/p2-ga4-utms-looker/03-ga4-traffic-acquisition.png"
+                },
+                {
+                  "id": "04-ga4-acquisition-campaign",
+                  "title": "GA4 Traffic acquisition (Campaign)",
+                  "caption": "Validación de campaign en adquisición.",
+                  "imageUrl": "/projects/p2-ga4-utms-looker/04-ga4-acquisition-campaign.png"
+                }
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Lo que aprendí"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "UTMs ayudan a atribuir adquisición de forma clara.",
+                "Realtime acelera QA de tracking durante pruebas.",
+                "Traffic acquisition permite comparar fuentes y campañas con criterio."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Links"
+            },
+            {
+              "type": "ul",
+              "items": [
+                {
+                  "text": "Sitio demo",
+                  "url": "https://demo-analytics-store.vercel.app/"
+                }
+              ]
+            }
           ]
         },
         {
           "id": "ga4-ads-validation",
           "title": "Enfoque: adquisición, UTMs y funnel de e-commerce (demo)",
           "shortDescription": "Reporting end-to-end con GA4 y Looker Studio para adquisición, campañas y funnel.",
-          "tags": ["GA4", "Looker Studio", "UTMs", "Acquisition", "Funnel"],
+          "tags": [
+            "GA4",
+            "Looker Studio",
+            "UTMs",
+            "Acquisition",
+            "Funnel"
+          ],
           "contentBlocks": [
-            { "type": "heading", "text": "Resumen ejecutivo" },
-            { "type": "text", "text": "Proyecto orientado a adquisición y campañas UTM con lectura de funnel desde GA4 en Looker Studio." },
-            { "type": "divider" },
-            { "type": "heading", "text": "Qué demuestra" },
-            { "type": "ul", "items": ["Canales y campañas que traen más sesiones/compras.", "Etapas del funnel con mayor caída.", "Buenas prácticas de QA y reporting."] },
-            { "type": "divider" },
-            { "type": "heading", "text": "Stack" },
-            { "type": "ul", "items": ["GA4", "Looker Studio", "UTMs", "GTM (soporte de tracking)"] }
+            {
+              "type": "heading",
+              "text": "Resumen ejecutivo"
+            },
+            {
+              "type": "text",
+              "text": "Proyecto orientado a adquisición y campañas UTM con lectura de funnel desde GA4 en Looker Studio."
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Qué demuestra"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Canales y campañas que traen más sesiones/compras.",
+                "Etapas del funnel con mayor caída.",
+                "Buenas prácticas de QA y reporting."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Stack"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "GA4",
+                "Looker Studio",
+                "UTMs",
+                "GTM (soporte de tracking)"
+              ]
+            }
           ]
         },
         {
           "id": "gtm-implementation",
-          "title": "Google Tag Manager (GTM) | Implementación, Tracking y QA",
-          "shortDescription": "Arquitectura de tracking en GTM para e-commerce demo con QA reproducible en GA4.",
-          "tags": ["GTM", "GA4", "QA", "Tracking", "Ecommerce"],
+          "title": "Enfoque: Implementación y QA de Google Tag Manager (GTM) + GA4",
+          "shortDescription": "Implementación de GTM como capa de control para tracking, con evento add_to_cart_click robusto y validación end-to-end en Tag Assistant + GA4.",
+          "tags": [
+            "GTM",
+            "GA4",
+            "Tag Assistant",
+            "QA",
+            "Demo Analytics Store"
+          ],
           "contentBlocks": [
-            { "type": "heading", "text": "Resumen ejecutivo" },
-            { "type": "text", "text": "Implementé una arquitectura de tracking en GTM para e-commerce demo, con validación en GA4 DebugView y Realtime." },
-            { "type": "divider" },
-            { "type": "heading", "text": "Objetivos" },
-            { "type": "ol", "items": ["Configurar GTM con buenas prácticas.", "Implementar tracking del funnel y clicks críticos.", "Asegurar QA sin duplicados.", "Documentar setup para escalar."] },
-            { "type": "divider" },
-            { "type": "heading", "text": "Implementación" },
-            { "type": "ul", "items": ["Variables built-in y DLV custom.", "Triggers por click y custom event.", "GA4 Event tags: view_item, add_to_cart, begin_checkout, purchase."] },
-            { "type": "divider" },
-            { "type": "heading", "text": "Links" },
-            { "type": "ul", "items": [
-              { "text": "GTM", "url": "https://tagmanager.google.com/?utm_source=marketingplatform.google.com&utm_medium=et&utm_campaign=marketingplatform.google.com%2Fintl%2Fes%2Fabout%2Ftag-manager%2F#/container/accounts/6345013589/containers/246720709/workspaces/4" },
-              { "text": "GA4", "url": "https://analytics.google.com/analytics/web/#/a387127918p527851150/reports/intelligenthome" },
-              { "text": "Looker Studio", "url": "https://lookerstudio.google.com/u/0/reporting/7745b769-fba3-454b-bd6a-05bc175c23f6/page/7J4rF" }
-            ] }
+            {
+              "type": "heading",
+              "text": "Resumen"
+            },
+            {
+              "type": "text",
+              "text": "Implementé Google Tag Manager (GTM) como capa de control para la medición del sitio Demo Analytics Store. Configuré el Google tag de GA4 desde GTM y construí un evento de clic (add_to_cart_click) con activador robusto basado en selectores estables (data-gtm)."
+            },
+            {
+              "type": "text",
+              "text": "GTM me permitió centralizar el tracking y depurar eventos sin depender de cambios en código para cada ajuste. Validé disparo con Tag Assistant (Preview) y recepción en GA4 Realtime/DebugView."
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Objetivo"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Centralizar tracking en GTM para evitar cambios constantes en código.",
+                "Asegurar que GA4 reciba page_view y eventos personalizados de forma controlada.",
+                "Practicar flujo real: implementar → depurar → estabilizar → validar."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Alcance"
+            },
+            {
+              "type": "text",
+              "text": "Incluye:"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Creación de cuenta y contenedor GTM (Web).",
+                "Instalación del snippet GTM en Next.js (Vercel).",
+                "Debug con Preview/Tag Assistant.",
+                "Configuración de GA4 desde GTM (Google tag).",
+                "Publicación (Submit).",
+                "Creación de evento por clic (GA4 Event).",
+                "Activador robusto con data-gtm y QA en GA4."
+              ]
+            },
+            {
+              "type": "text",
+              "text": "No incluye (por ahora):"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Ecommerce estándar con items[] vía dataLayer avanzada.",
+                "Consent Mode / Server-side GTM."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Stack y herramientas"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Next.js (sitio demo)",
+                "Google Tag Manager (GTM)",
+                "Google Analytics 4 (GA4)",
+                "Tag Assistant / Preview"
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Arquitectura de tracking"
+            },
+            {
+              "type": "text",
+              "text": "Idea clave: GTM dispara (ejecuta etiquetas y eventos) y GA4 recibe (almacena eventos)."
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Etiqueta (Tag): la acción (enviar a GA4).",
+                "Activador (Trigger): cuándo se envía (All Pages, Click).",
+                "Variables: qué datos se envían (page_path, button_text, data-*)."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Implementación"
+            },
+            {
+              "type": "ol",
+              "items": [
+                "Crear cuenta y contenedor GTM tipo Web (ej. GTM-XXXXXXX).",
+                "Instalar snippet GTM en Next.js.",
+                "Verificar conexión con Preview / Tag Assistant (Connected).",
+                "Configurar Google tag de GA4 con trigger All Pages.",
+                "Publicar cambios (Submit).",
+                "Validar en GA4 Realtime + DebugView (page_view y actividad)."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Evento de ejemplo: clic Add to cart desde GTM"
+            },
+            {
+              "type": "text",
+              "text": "Problema inicial común: Click Text puede fallar en UI moderna (iconos, spans, undefined)."
+            },
+            {
+              "type": "text",
+              "text": "Solución aplicada: selector estable con data-gtm=\"add_to_cart\"."
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Trigger recomendado: Click Element matches CSS selector [data-gtm=\"add_to_cart\"].",
+                "Tag: GA4 Event.",
+                "Event name: add_to_cart_click.",
+                "Parámetros ejemplo: button_text, page_path."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Validación / QA"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Tag Assistant: confirmar que contenedor carga y que etiqueta/evento disparan en Click.",
+                "GA4 Realtime: confirmar recepción de add_to_cart_click.",
+                "Revisar parámetros para asegurar contexto útil."
+              ]
+            },
+            {
+              "type": "heading",
+              "text": "QA / Checklist"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "[ ] El contenedor GTM carga en producción (sin preview).",
+                "[ ] No hay doble implementación (gtag + GTM al mismo tiempo).",
+                "[ ] Google tag dispara en All Pages.",
+                "[ ] Trigger de clic usa selector estable (data-gtm).",
+                "[ ] Evento aparece en Tag Assistant y en GA4.",
+                "[ ] Parámetros llegan con valores consistentes."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Resultado"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Tracking centralizado en GTM para el sitio demo.",
+                "Evento de clic estable y defendible usando data-gtm.",
+                "Flujo de QA replicable: GTM Preview → GA4 Realtime/DebugView."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Evidencia visual (4 capturas recomendadas)"
+            },
+            {
+              "type": "gallery",
+              "items": [
+                {
+                  "id": "01-gtm-workspace",
+                  "title": "GTM Workspace / Overview",
+                  "caption": "Contenedor y versión publicada.",
+                  "imageUrl": "/projects/p3-gtm-implementation/01-gtm-workspace.webp"
+                },
+                {
+                  "id": "02-tag-assistant-preview",
+                  "title": "Tag Assistant (Preview) conectado",
+                  "caption": "Estado Connected en vista previa.",
+                  "imageUrl": "/projects/p3-gtm-implementation/02-tag-assistant-preview.webp"
+                },
+                {
+                  "id": "03-gtm-tag-ga4-event",
+                  "title": "GTM Tag (GA4 Event) configuración",
+                  "caption": "Evento add_to_cart_click y parámetros.",
+                  "imageUrl": "/projects/p3-gtm-implementation/03-gtm-tag-ga4-event.webp"
+                },
+                {
+                  "id": "04-ga4-realtime-event",
+                  "title": "GA4 DebugView / Realtime",
+                  "caption": "Evento llegando a GA4.",
+                  "imageUrl": "/projects/p3-gtm-implementation/04-ga4-realtime-event.webp"
+                }
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Links"
+            },
+            {
+              "type": "ul",
+              "items": [
+                {
+                  "text": "Sitio demo",
+                  "url": "https://demo-analytics-store.vercel.app/"
+                },
+                {
+                  "text": "GTM workspace",
+                  "url": "https://tagmanager.google.com/?utm_source=marketingplatform.google.com&utm_medium=et&utm_campaign=marketingplatform.google.com%2Fintl%2Fes%2Fabout%2Ftag-manager%2F#/container/accounts/6345013589/containers/246720709/workspaces/4"
+                },
+                {
+                  "text": "GA4 property",
+                  "url": "https://analytics.google.com/analytics/web/#/a387127918p527851150/reports/intelligenthome"
+                }
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Qué demuestra este proyecto"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Implementación realista de GTM en un sitio.",
+                "Capacidad de depurar por qué un evento no dispara.",
+                "Buenas prácticas: selectores estables (data-gtm) y validación end-to-end."
+              ]
+            }
           ]
         }
       ]
     },
     "bio": {
       "items": [
-        { "year": "1991", "text": "Nací en Orizaba (Veracruz), México." },
-        { "year": "2018", "text": "Completé la carrera de Ingeniería Química en la Universidad Veracruzana." },
-        { "year": "2020", "text": "Trabajé como Desarrollador Web hasta 2025." },
-        { "year": "2026", "text": "En transición de Desarrollador a Digital Analytics." }
+        {
+          "year": "1991",
+          "text": "Nací en Orizaba (Veracruz), México."
+        },
+        {
+          "year": "2018",
+          "text": "Completé la carrera de Ingeniería Química en la Universidad Veracruzana."
+        },
+        {
+          "year": "2020",
+          "text": "Trabajé como Desarrollador Web hasta 2025."
+        },
+        {
+          "year": "2026",
+          "text": "En transición de Desarrollador a Digital Analytics."
+        }
       ]
     }
   },
@@ -180,126 +960,906 @@
       "projects": [
         {
           "id": "ga4-demo-store",
-          "title": "Demo Web Store + Google Analytics 4 (GA4)",
-          "shortDescription": "Digital analytics demo for ecommerce with GA4 funnel setup and QA validation.",
-          "tags": ["GA4", "Google Tag Manager", "UTMs", "Looker Studio", "QA"],
+          "title": "Project 1 (End-to-End) — GA4 + Looker Studio | Demo Analytics Store",
+          "shortDescription": "End-to-end digital measurement project with GA4 + GTM + Looker Studio for acquisition, campaigns, and ecommerce funnel.",
+          "tags": [
+            "GA4",
+            "Google Tag Manager",
+            "Looker Studio",
+            "UTMs",
+            "Ecommerce QA"
+          ],
           "contentBlocks": [
-            { "type": "heading", "text": "Summary" },
-            { "type": "text", "text": "This is a digital analytics practice project for a demo ecommerce store. I implemented and validated base measurement with Google Analytics 4 (GA4). The focus was a reliable purchase funnel (events, parameters, and conversions) and data quality checks in Realtime and DebugView." },
-            { "type": "divider" },
-            { "type": "heading", "text": "Goal" },
-            { "type": "ul", "items": ["Have a working demo to practice end-to-end measurement in ecommerce.", "Implement a GA4 event model for the purchase funnel.", "Run QA for events and conversions to keep consistency and traceability."] },
-            { "type": "divider" },
-            { "type": "heading", "text": "Scope" },
-            { "type": "text", "text": "Includes:" },
-            { "type": "ul", "items": ["GA4 property setup and Web data stream.", "Funnel events (minimum): view_item, add_to_cart, begin_checkout, purchase.", "Validation of events and parameters in Realtime and DebugView.", "Standard naming and send rules."] },
-            { "type": "text", "text": "Does not include (for this project):" },
-            { "type": "ul", "items": ["Consent Mode.", "Server-side tagging.", "Advanced audiences."] },
-            { "type": "divider" },
-            { "type": "heading", "text": "Stack / Tools" },
-            { "type": "ul", "items": ["GA4 (property and reports)", "DebugView / Realtime (QA)", "Demo web store (practice site)"] },
-            { "type": "divider" },
-            { "type": "heading", "text": "Implementation" },
-            { "type": "text", "text": "1) Measurement structure (funnel): Standard ecommerce funnel was defined: Product -> view_item, Cart -> add_to_cart, Checkout -> begin_checkout, Purchase -> purchase." },
-            { "type": "text", "text": "2) Main parameters (minimum): To keep reports and consistency, events include currency, value, transaction_id (for purchase), items_count (when needed), and optional/recommended items[] with item_id, item_name, price, quantity." },
-            { "type": "text", "text": "Note: this demo focused on funnel + QA. If your setup already has items[], document it as implemented. If not, leave it for next iteration." },
-            { "type": "divider" },
-            { "type": "heading", "text": "QA / Validation" },
-            { "type": "text", "text": "QA checklist used:" },
-            { "type": "ul", "items": ["Realtime: see each event when it fires.", "DebugView: validate funnel order and sent values.", "Check purchase has unique transaction_id.", "Check value and currency are present.", "Check funnel order makes sense in controlled tests."] },
-            { "type": "text", "text": "Evidence (for interviews):" },
-            { "type": "ul", "items": ["Screenshots or links from GA4 Realtime with events.", "Screenshots or links from DebugView with funnel sequence.", "If available, /debug page with last sent event."] },
-            { "type": "divider" },
-            { "type": "heading", "text": "Results" },
-            { "type": "ul", "items": ["GA4 funnel working in a practice environment.", "Data is verifiable in Realtime and DebugView.", "Base is ready to connect reporting (Looker Studio) and/or Ads conversions in next projects."] },
-            { "type": "divider" },
-            { "type": "heading", "text": "Main learnings" },
-            { "type": "ul", "items": ["How to define a GA4 minimum viable funnel and keep it consistent.", "Why QA in Realtime and DebugView is important to avoid false data.", "Good practices: unique transaction_id, stable currency/value, and clear naming."] },
-            { "type": "divider" },
-            { "type": "heading", "text": "Links" },
-            { "type": "ul", "items": [
-              { "text": "Demo site (if available)", "url": "https://demo-analytics-store.vercel.app/" },
-              { "text": "GA4 (screenshots/note)", "url": "https://analytics.google.com/analytics/web/#/a387127918p527851150/reports/intelligenthome" },
-              "Evidence (screenshots): (folder or links)"
-            ] },
-            { "type": "divider" },
-            { "type": "heading", "text": "Next steps (suggested iteration)" },
-            { "type": "ul", "items": ["Add full items[] in all ecommerce events for richer reports.", "Mark purchase as Key Event and document rules.", "Connect to Looker Studio for funnel/acquisition reporting (Project 2)."] }
+            {
+              "type": "heading",
+              "text": "Summary"
+            },
+            {
+              "type": "text",
+              "text": "This is an end-to-end practice project for digital measurement in a demo store. I implemented and validated tracking with Google Analytics 4 (GA4) and Google Tag Manager (GTM). Then I built a Looker Studio dashboard for acquisition (UTMs), campaigns, and ecommerce funnel."
+            },
+            {
+              "type": "text",
+              "text": "Goal: show I can instrument tracking, run QA, and turn data into a clear report for marketing and product teams."
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Context and problem"
+            },
+            {
+              "type": "text",
+              "text": "In a real website, marketing and product need answers to questions like:"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Where does traffic come from? (source, medium, campaign)",
+                "What does the user do in the site? (purchase funnel)",
+                "Are the data reliable? (QA of events, parameters, and conversions)"
+              ]
+            },
+            {
+              "type": "text",
+              "text": "This project simulates that context with a demo store and a full measurement flow."
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Project scope"
+            },
+            {
+              "type": "text",
+              "text": "Includes"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "GA4: event measurement and validation of key events.",
+                "GTM: support for click/event tracking and QA with Preview/Tag Assistant.",
+                "UTMs: simulation of campaigns and tagged traffic.",
+                "Looker Studio: final dashboard with KPIs and acquisition + funnel views."
+              ]
+            },
+            {
+              "type": "text",
+              "text": "Does not include"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Consent Mode / Server-side GTM (out of this project scope).",
+                "Advanced campaign optimization (covered in Google Ads project)."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Goals and KPIs"
+            },
+            {
+              "type": "text",
+              "text": "Goals"
+            },
+            {
+              "type": "ol",
+              "items": [
+                "Measure purchase journey (funnel) and detect drop-offs.",
+                "Measure acquisition by source/medium/campaign (UTMs) and compare traffic quality.",
+                "Deliver a business-ready dashboard in Looker Studio."
+              ]
+            },
+            {
+              "type": "text",
+              "text": "KPIs (example)"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Sessions / Users by source-medium and campaign.",
+                "Events: view_item, add_to_cart, begin_checkout, purchase.",
+                "Key events: purchase (and any event marked as key event).",
+                "Engagement: engaged sessions / engagement rate."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Implementation (what I did)"
+            },
+            {
+              "type": "text",
+              "text": "1) Event instrumentation (GA4)"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "I defined and validated ecommerce funnel events: view_item -> add_to_cart -> begin_checkout -> purchase.",
+                "I confirmed each event fires on the right user action.",
+                "I validated useful event parameters (page_path, item_id, value, currency, etc.)."
+              ]
+            },
+            {
+              "type": "text",
+              "text": "2) QA / Validation"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "I used GA4 DebugView / Realtime to confirm event reception.",
+                "I used GTM Preview (Tag Assistant) to validate container load, correct tag trigger, and event delivery to GA4."
+              ]
+            },
+            {
+              "type": "text",
+              "text": "3) Acquisition with UTMs (test traffic)"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "I created UTM links to simulate campaigns (google/cpc, meta/paid_social, newsletter, partner/referral).",
+                "I verified source/medium and campaign in GA4.",
+                "I validated that tagged traffic links to funnel events."
+              ]
+            },
+            {
+              "type": "text",
+              "text": "4) Looker Studio dashboard"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "I connected GA4 to Looker Studio.",
+                "I built views for acquisition, campaigns, event funnel, and top KPIs.",
+                "I checked number consistency with GA4 for the same date range."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Deliverables"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Working GA4 tracking (events + validation).",
+                "Working UTMs (source/medium/campaign visible in GA4).",
+                "Looker Studio dashboard (acquisition + campaigns + funnel)."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Visual evidence (screenshots)"
+            },
+            {
+              "type": "text",
+              "text": "For this portfolio page, I use 4 key screenshots."
+            },
+            {
+              "type": "gallery",
+              "items": [
+                {
+                  "id": "07-ga4-realtime",
+                  "title": "GA4 Realtime",
+                  "caption": "GA4 Realtime - proof that events are arriving quickly.",
+                  "imageUrl": "/projects/01-ga4-looker-demo/07-ga4-realtime.png"
+                },
+                {
+                  "id": "08-gtm-preview",
+                  "title": "GTM Preview (Tag Assistant)",
+                  "caption": "Tag Assistant connected - QA proof for GTM container.",
+                  "imageUrl": "/projects/01-ga4-looker-demo/08-gtm-preview.png"
+                },
+                {
+                  "id": "09-gtm-tag-ga4-event",
+                  "title": "GTM Tag (GA4 Event)",
+                  "caption": "Detail of configured GA4 event tag in GTM.",
+                  "imageUrl": "/projects/01-ga4-looker-demo/09-gtm-tag-ga4-event.png"
+                },
+                {
+                  "id": "10-ga4-events-report",
+                  "title": "GA4 Events Report",
+                  "caption": "Proof that event is registered in reports.",
+                  "imageUrl": "/projects/01-ga4-looker-demo/10-ga4-events-report.png"
+                }
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Links"
+            },
+            {
+              "type": "ul",
+              "items": [
+                {
+                  "text": "Site demo",
+                  "url": "https://demo-analytics-store.vercel.app/"
+                },
+                {
+                  "text": "Looker Studio",
+                  "url": "https://lookerstudio.google.com/u/0/reporting/7745b769-fba3-454b-bd6a-05bc175c23f6/page/7J4rF"
+                }
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Most important learnings"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "GA4 works with events + parameters: first make it exist, then make it useful.",
+                "Realtime/DebugView are for QA; reports are for analysis and can have latency.",
+                "UTMs connect marketing -> behavior -> outcomes.",
+                "Looker Studio is the business layer: it turns measurement into a clear story."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Stack / Tools"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Google Analytics 4 (GA4)",
+                "Google Tag Manager (GTM)",
+                "Looker Studio",
+                "UTMs (source/medium/campaign convention)"
+              ]
+            }
           ]
         },
         {
           "id": "utm-funnel-demo",
-          "title": "Focus: acquisition, UTMs and ecommerce funnel (demo)",
-          "shortDescription": "End-to-end reporting with GA4 and Looker Studio for acquisition, campaigns, and funnel.",
-          "tags": ["GA4", "Looker Studio", "UTMs", "Acquisition", "Funnel"],
+          "title": "Focus: Acquisition with UTMs (Demo Analytics Store)",
+          "shortDescription": "UTM acquisition in Demo Analytics Store: test sessions, quick QA in GA4 Realtime, and source/medium + campaign review in Traffic acquisition.",
+          "tags": [
+            "GA4",
+            "UTMs",
+            "Traffic Acquisition",
+            "QA",
+            "Demo Analytics Store"
+          ],
           "contentBlocks": [
-            { "type": "heading", "text": "Executive summary" },
-            { "type": "text", "text": "I built end-to-end reporting by connecting GA4 to Looker Studio to analyze channel acquisition, UTM campaigns, and ecommerce funnel events." },
-            { "type": "divider" },
-            { "type": "heading", "text": "Goals" },
-            { "type": "ol", "items": ["Standardize acquisition tracking with UTMs.", "Visualize full funnel: view_item → purchase.", "Deliver actionable dashboard for business."] },
-            { "type": "divider" },
-            { "type": "heading", "text": "Dashboard" },
-            { "type": "ul", "items": ["Main KPIs (users, sessions, events, purchase).", "Source/Medium table.", "UTM Campaign table.", "Event funnel table.", "Session trend over time."] },
-            { "type": "divider" },
-            { "type": "heading", "text": "Demo results" },
-            { "type": "ul", "items": ["Users: 29", "Sessions: 64", "Events: 801", "purchase: 14", "Funnel: view_item 78, add_to_cart 44, begin_checkout 23, purchase 14"] },
-            { "type": "divider" },
-            { "type": "heading", "text": "Links" },
-            { "type": "ul", "items": [
-              { "text": "GA4", "url": "https://analytics.google.com/analytics/web/#/a387127918p527851150/reports/intelligenthome" },
-              { "text": "GTM", "url": "https://tagmanager.google.com/?utm_source=marketingplatform.google.com&utm_medium=et&utm_campaign=marketingplatform.google.com%2Fintl%2Fes%2Fabout%2Ftag-manager%2F#/container/accounts/6345013589/containers/246720709/workspaces/4" },
-              { "text": "Looker Studio", "url": "https://lookerstudio.google.com/u/0/reporting/7745b769-fba3-454b-bd6a-05bc175c23f6/page/7J4rF" }
-            ] }
+            {
+              "type": "heading",
+              "text": "Summary"
+            },
+            {
+              "type": "text",
+              "text": "This project focuses on acquisition with UTMs in Demo Analytics Store. I generated sessions with UTM links (campaign simulation) and validated behavior in GA4."
+            },
+            {
+              "type": "text",
+              "text": "Main evidence is GA4 (Realtime and Traffic acquisition). If there is no Looker dashboard for this project, I do not invent one: GA4 is the main evidence."
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Goal"
+            },
+            {
+              "type": "ol",
+              "items": [
+                "Generate identifiable sessions with UTM links.",
+                "Review source/medium and campaign in GA4 for acquisition comparison.",
+                "Validate that UTM traffic can move through funnel events when applicable."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Problem it solves"
+            },
+            {
+              "type": "text",
+              "text": "Without UTMs, traffic is mixed and attribution is weak. This approach separates tagged traffic, validates quality, and helps compare behavior by source and campaign in the demo site."
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Scope (Includes / Does not include)"
+            },
+            {
+              "type": "text",
+              "text": "Includes"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "UTM link creation for acquisition simulation.",
+                "Real test sessions with basic site navigation.",
+                "Quick QA in GA4 Realtime.",
+                "Source/medium and campaign check in GA4 Traffic acquisition."
+              ]
+            },
+            {
+              "type": "text",
+              "text": "Does not include"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Real media spend.",
+                "Mandatory Looker dashboard for this project."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "UTMs used (example + recommended format)"
+            },
+            {
+              "type": "text",
+              "text": "Recommended format: utm_source, utm_medium, utm_campaign and, when needed, utm_content + utm_term. Keep names consistent and without spaces."
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "UTM links"
+            },
+            {
+              "type": "table",
+              "columns": [
+                "utm_source",
+                "utm_medium",
+                "utm_campaign",
+                "utm_content",
+                "utm_term",
+                "URL"
+              ],
+              "rows": [
+                [
+                  "meta",
+                  "paid_social",
+                  "demo_launch",
+                  "carousel_1",
+                  "interest_shopping",
+                  "https://demo-analytics-store.vercel.app/products?utm_source=meta&utm_medium=paid_social&utm_campaign=demo_launch&utm_content=carousel_1&utm_term=interest_shopping"
+                ],
+                [
+                  "google",
+                  "cpc",
+                  "demo_search",
+                  "ad_1",
+                  "demo_product",
+                  "https://demo-analytics-store.vercel.app/products/1?utm_source=google&utm_medium=cpc&utm_campaign=demo_search&utm_content=ad_1&utm_term=demo_product"
+                ],
+                [
+                  "newsletter",
+                  "email",
+                  "demo_news_01",
+                  "cta_header",
+                  "—",
+                  "https://demo-analytics-store.vercel.app/?utm_source=newsletter&utm_medium=email&utm_campaign=demo_news_01&utm_content=cta_header"
+                ],
+                [
+                  "partner",
+                  "referral",
+                  "demo_partnership",
+                  "listing_1",
+                  "—",
+                  "https://demo-analytics-store.vercel.app/products?utm_source=partner&utm_medium=referral&utm_campaign=demo_partnership&utm_content=listing_1"
+                ],
+                [
+                  "linkedin",
+                  "organic_social",
+                  "demo_portfolio",
+                  "post_1",
+                  "—",
+                  "https://demo-analytics-store.vercel.app/?utm_source=linkedin&utm_medium=organic_social&utm_campaign=demo_portfolio&utm_content=post_1"
+                ]
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Implementation (step by step)"
+            },
+            {
+              "type": "ol",
+              "items": [
+                "Create and run UTM links to key pages in the demo store.",
+                "Open test sessions and navigate a basic site flow.",
+                "Validate active users and events in Realtime.",
+                "Validate expected source/medium/campaign in Traffic acquisition."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Validation (QA checklist)"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Realtime shows active users during UTM tests.",
+                "Funnel events appear during test sessions.",
+                "Traffic acquisition shows expected source/medium values.",
+                "Traffic acquisition shows expected campaign values.",
+                "Normal GA4 latency is considered when needed."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Results (what can be shown)"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Clear difference between tagged and untagged traffic.",
+                "Behavior comparison by source and campaign according to data.",
+                "Acquisition validation evidence with GA4 as main source."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Deliverables"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "UTM links table with naming convention.",
+                "QA evidence in GA4 Realtime.",
+                "Acquisition evidence in GA4 Traffic acquisition."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Evidence (screenshots)"
+            },
+            {
+              "type": "gallery",
+              "items": [
+                {
+                  "id": "01-utm-links",
+                  "title": "UTM links",
+                  "caption": "Evidence of UTM links used in tests.",
+                  "imageUrl": "/projects/p2-ga4-utms-looker/01-utm-links.png"
+                },
+                {
+                  "id": "02-ga4-realtime",
+                  "title": "GA4 Realtime",
+                  "caption": "Quick QA during UTM sessions.",
+                  "imageUrl": "/projects/p2-ga4-utms-looker/02-ga4-realtime.png"
+                },
+                {
+                  "id": "03-ga4-traffic-acquisition",
+                  "title": "GA4 Traffic acquisition (Source/Medium)",
+                  "caption": "Validation of source/medium in acquisition.",
+                  "imageUrl": "/projects/p2-ga4-utms-looker/03-ga4-traffic-acquisition.png"
+                },
+                {
+                  "id": "04-ga4-acquisition-campaign",
+                  "title": "GA4 Traffic acquisition (Campaign)",
+                  "caption": "Validation of campaign in acquisition.",
+                  "imageUrl": "/projects/p2-ga4-utms-looker/04-ga4-acquisition-campaign.png"
+                }
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "What I learned"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "UTMs help traffic attribution in a clear way.",
+                "Realtime accelerates tracking QA during tests.",
+                "Traffic acquisition helps compare sources and campaigns with better context."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Links"
+            },
+            {
+              "type": "ul",
+              "items": [
+                {
+                  "text": "Demo site",
+                  "url": "https://demo-analytics-store.vercel.app/"
+                }
+              ]
+            }
           ]
         },
         {
           "id": "ga4-ads-validation",
           "title": "Focus: acquisition, UTMs and ecommerce funnel (demo)",
           "shortDescription": "End-to-end reporting with GA4 and Looker Studio for acquisition, campaigns, and funnel.",
-          "tags": ["GA4", "Looker Studio", "UTMs", "Acquisition", "Funnel"],
+          "tags": [
+            "GA4",
+            "Looker Studio",
+            "UTMs",
+            "Acquisition",
+            "Funnel"
+          ],
           "contentBlocks": [
-            { "type": "heading", "text": "Executive summary" },
-            { "type": "text", "text": "Project focused on acquisition and UTM campaigns with funnel visibility from GA4 into Looker Studio." },
-            { "type": "divider" },
-            { "type": "heading", "text": "What it shows" },
-            { "type": "ul", "items": ["Which channel/campaign drives more sessions and purchases.", "Where users drop in funnel steps.", "How QA and reporting best practices improve decisions."] },
-            { "type": "divider" },
-            { "type": "heading", "text": "Stack" },
-            { "type": "ul", "items": ["GA4", "Looker Studio", "UTMs", "GTM (tracking support)"] }
+            {
+              "type": "heading",
+              "text": "Executive summary"
+            },
+            {
+              "type": "text",
+              "text": "Project focused on acquisition and UTM campaigns with funnel visibility from GA4 into Looker Studio."
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "What it shows"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Which channel/campaign drives more sessions and purchases.",
+                "Where users drop in funnel steps.",
+                "How QA and reporting best practices improve decisions."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Stack"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "GA4",
+                "Looker Studio",
+                "UTMs",
+                "GTM (tracking support)"
+              ]
+            }
           ]
         },
         {
           "id": "gtm-implementation",
-          "title": "Google Tag Manager (GTM) | Implementation, Tracking and QA",
-          "shortDescription": "GTM tracking architecture for demo ecommerce with reproducible QA in GA4.",
-          "tags": ["GTM", "GA4", "QA", "Tracking", "Ecommerce"],
+          "title": "Focus: Google Tag Manager (GTM) + GA4 Implementation and QA",
+          "shortDescription": "GTM centralizes tracking and QA. Includes a stable add_to_cart_click event with Tag Assistant + GA4 validation.",
+          "tags": [
+            "GTM",
+            "GA4",
+            "Tag Assistant",
+            "QA",
+            "Demo Analytics Store"
+          ],
           "contentBlocks": [
-            { "type": "heading", "text": "Executive summary" },
-            { "type": "text", "text": "I implemented GTM tracking architecture for a demo ecommerce and validated events in GA4 DebugView and Realtime." },
-            { "type": "divider" },
-            { "type": "heading", "text": "Goals" },
-            { "type": "ol", "items": ["Set GTM container with good practices.", "Track funnel and critical clicks.", "Ensure QA without duplicates.", "Document setup for scale."] },
-            { "type": "divider" },
-            { "type": "heading", "text": "Implementation" },
-            { "type": "ul", "items": ["Built-in and custom DLV variables.", "Click and custom event triggers.", "GA4 tags for view_item, add_to_cart, begin_checkout, purchase."] },
-            { "type": "divider" },
-            { "type": "heading", "text": "Links" },
-            { "type": "ul", "items": [
-              { "text": "GTM", "url": "https://tagmanager.google.com/?utm_source=marketingplatform.google.com&utm_medium=et&utm_campaign=marketingplatform.google.com%2Fintl%2Fes%2Fabout%2Ftag-manager%2F#/container/accounts/6345013589/containers/246720709/workspaces/4" },
-              { "text": "GA4", "url": "https://analytics.google.com/analytics/web/#/a387127918p527851150/reports/intelligenthome" },
-              { "text": "Looker Studio", "url": "https://lookerstudio.google.com/u/0/reporting/7745b769-fba3-454b-bd6a-05bc175c23f6/page/7J4rF" }
-            ] }
+            {
+              "type": "heading",
+              "text": "Summary"
+            },
+            {
+              "type": "text",
+              "text": "I implemented Google Tag Manager (GTM) as the control layer for Demo Analytics Store tracking. I configured the GA4 Google tag from GTM and created a click event (add_to_cart_click) with a stable selector (data-gtm)."
+            },
+            {
+              "type": "text",
+              "text": "GTM helped me centralize tracking and debug events without code changes for every update. I validated with Tag Assistant (Preview) and GA4 Realtime/DebugView."
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Goal"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Centralize tracking in GTM to avoid constant code changes.",
+                "Ensure GA4 receives page_view and custom events in a controlled way.",
+                "Practice a real flow: implement -> debug -> stabilize -> validate."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Scope"
+            },
+            {
+              "type": "text",
+              "text": "Includes:"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Create GTM account and Web container.",
+                "Install GTM snippet in Next.js (Vercel).",
+                "Debug with Preview/Tag Assistant.",
+                "Configure GA4 from GTM (Google tag).",
+                "Publish (Submit).",
+                "Create click event (GA4 Event).",
+                "Use stable data-gtm trigger and QA in GA4."
+              ]
+            },
+            {
+              "type": "text",
+              "text": "Does not include (for now):"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Standard ecommerce items[] with advanced dataLayer.",
+                "Consent Mode / Server-side GTM."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Stack and tools"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Next.js (demo site)",
+                "Google Tag Manager (GTM)",
+                "Google Analytics 4 (GA4)",
+                "Tag Assistant / Preview"
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Tracking architecture"
+            },
+            {
+              "type": "text",
+              "text": "Key idea: GTM fires tags/events and GA4 receives/stores events."
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Tag: action (send to GA4).",
+                "Trigger: when to send (All Pages, Click).",
+                "Variables: what data to send (page_path, button_text, data-*)."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Implementation"
+            },
+            {
+              "type": "ol",
+              "items": [
+                "Create GTM Web container (example GTM-XXXXXXX).",
+                "Install GTM snippet in Next.js.",
+                "Check connection with Preview / Tag Assistant (Connected).",
+                "Configure GA4 Google tag with All Pages trigger.",
+                "Publish changes (Submit).",
+                "Validate in GA4 Realtime + DebugView (page_view and activity)."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Example event: Add to cart click from GTM"
+            },
+            {
+              "type": "text",
+              "text": "Common issue: Click Text can fail in modern UI (icons, spans, undefined)."
+            },
+            {
+              "type": "text",
+              "text": "Applied solution: stable selector with data-gtm=\"add_to_cart\"."
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Recommended trigger: Click Element matches CSS selector [data-gtm=\"add_to_cart\"].",
+                "Tag: GA4 Event.",
+                "Event name: add_to_cart_click.",
+                "Example parameters: button_text, page_path."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Validation / QA"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Tag Assistant: confirm container load and tag/event fire on Click.",
+                "GA4 Realtime: confirm add_to_cart_click reception.",
+                "Check parameters for useful context."
+              ]
+            },
+            {
+              "type": "heading",
+              "text": "QA / Checklist"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "[ ] GTM container loads in production (without preview).",
+                "[ ] No double implementation (gtag + GTM at same time).",
+                "[ ] Google tag fires on All Pages.",
+                "[ ] Click trigger uses stable selector (data-gtm).",
+                "[ ] Event appears in Tag Assistant and in GA4.",
+                "[ ] Parameters arrive with consistent values."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Result"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Tracking is centralized in GTM for the demo site.",
+                "Click event is stable with data-gtm selector.",
+                "QA flow is repeatable: GTM Preview -> GA4 Realtime/DebugView."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Visual evidence (4 recommended screenshots)"
+            },
+            {
+              "type": "gallery",
+              "items": [
+                {
+                  "id": "01-gtm-workspace",
+                  "title": "GTM Workspace / Overview",
+                  "caption": "Container and published version.",
+                  "imageUrl": "/projects/p3-gtm-implementation/01-gtm-workspace.webp"
+                },
+                {
+                  "id": "02-tag-assistant-preview",
+                  "title": "Tag Assistant (Preview) connected",
+                  "caption": "Connected status in preview.",
+                  "imageUrl": "/projects/p3-gtm-implementation/02-tag-assistant-preview.webp"
+                },
+                {
+                  "id": "03-gtm-tag-ga4-event",
+                  "title": "GTM Tag (GA4 Event) configuration",
+                  "caption": "add_to_cart_click event and params.",
+                  "imageUrl": "/projects/p3-gtm-implementation/03-gtm-tag-ga4-event.webp"
+                },
+                {
+                  "id": "04-ga4-realtime-event",
+                  "title": "GA4 DebugView / Realtime",
+                  "caption": "Event arriving in GA4.",
+                  "imageUrl": "/projects/p3-gtm-implementation/04-ga4-realtime-event.webp"
+                }
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Links"
+            },
+            {
+              "type": "ul",
+              "items": [
+                {
+                  "text": "Demo site",
+                  "url": "https://demo-analytics-store.vercel.app/"
+                },
+                {
+                  "text": "GTM workspace",
+                  "url": "https://tagmanager.google.com/?utm_source=marketingplatform.google.com&utm_medium=et&utm_campaign=marketingplatform.google.com%2Fintl%2Fes%2Fabout%2Ftag-manager%2F#/container/accounts/6345013589/containers/246720709/workspaces/4"
+                },
+                {
+                  "text": "GA4 property",
+                  "url": "https://analytics.google.com/analytics/web/#/a387127918p527851150/reports/intelligenthome"
+                }
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "What this project shows"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Real GTM implementation in a site.",
+                "Ability to debug why an event does not fire.",
+                "Best practices: stable selectors (data-gtm) and end-to-end validation."
+              ]
+            }
           ]
         }
       ]
     },
     "bio": {
       "items": [
-        { "year": "1991", "text": "I was born in Orizaba (Veracruz), Mexico." },
-        { "year": "2018", "text": "I completed Chemical Engineering degree at Universidad Veracruzana." },
-        { "year": "2020", "text": "I worked as a Web Developer until 2025." },
-        { "year": "2026", "text": "I am moving from Developer to Digital Analytics." }
+        {
+          "year": "1991",
+          "text": "I was born in Orizaba (Veracruz), Mexico."
+        },
+        {
+          "year": "2018",
+          "text": "I completed Chemical Engineering degree at Universidad Veracruzana."
+        },
+        {
+          "year": "2020",
+          "text": "I worked as a Web Developer until 2025."
+        },
+        {
+          "year": "2026",
+          "text": "I am moving from Developer to Digital Analytics."
+        }
       ]
     }
   }

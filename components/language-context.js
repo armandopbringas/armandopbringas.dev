@@ -14,14 +14,7 @@ export const LanguageProvider = ({ children }) => {
     }
 
     const saved = window.localStorage.getItem(STORAGE_KEY)
-    let nextLanguage = 'es'
-
-    if (saved === 'es' || saved === 'en') {
-      nextLanguage = saved
-    } else {
-      const browserLang = window.navigator.language?.toLowerCase() || 'es'
-      nextLanguage = browserLang.startsWith('en') ? 'en' : 'es'
-    }
+    const nextLanguage = saved === 'es' || saved === 'en' ? saved : 'es'
 
     const timeoutId = window.setTimeout(() => {
       setLanguage(nextLanguage)

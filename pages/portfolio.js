@@ -4,6 +4,7 @@ import {
   Divider,
   Heading,
   HStack,
+  Image as ChakraImage,
   ListItem,
   Modal,
   ModalBody,
@@ -15,7 +16,14 @@ import {
   SimpleGrid,
   Stack,
   Tag,
+  Table,
+  TableContainer,
+  Tbody,
+  Td,
+  Th,
+  Thead,
   Text,
+  Tr,
   Link as ChakraLink,
   UnorderedList,
   Wrap,
@@ -23,6 +31,7 @@ import {
 } from '@chakra-ui/react'
 import Head from 'next/head'
 import { motion } from 'framer-motion'
+import { useState } from 'react'
 import { useRouter } from 'next/router'
 import Section from '../components/section'
 import ProfileFixedLayout from '../components/profile-fixed-layout'
@@ -61,7 +70,16 @@ const projectMedia = {
   }
 }
 
-const renderContentBlocks = blocks =>
+const renderContentBlocks = (
+  blocks,
+  {
+    borderColor,
+    cardShadow,
+    surfaceBg,
+    onOpenEvidenceImage,
+    placeholderBg
+  } = {}
+) =>
   blocks.map((block, index) => {
     if (block.type === 'divider') {
       return <Divider key={`divider-${index}`} />
@@ -102,6 +120,86 @@ const renderContentBlocks = blocks =>
         </OrderedList>
       )
     }
+    if (block.type === 'gallery') {
+      return (
+        <SimpleGrid key={`gallery-${index}`} columns={{ base: 1, md: 2 }} spacing={4}>
+          {block.items.map(item => (
+            <Box
+              key={item.id}
+              as="button"
+              type="button"
+              textAlign="left"
+              borderWidth="1px"
+              borderColor={borderColor}
+              borderRadius="8px"
+              overflow="hidden"
+              boxShadow={cardShadow}
+              bg={surfaceBg}
+              onClick={() => onOpenEvidenceImage?.(item)}
+              _hover={{ transform: 'translateY(-2px)' }}
+              transition="all 0.2s ease"
+            >
+              <Box h="160px">
+                <ChakraImage
+                  src={item.imageUrl}
+                  alt={item.title}
+                  w="100%"
+                  h="100%"
+                  objectFit="cover"
+                  fallbackSrc="/favicon.svg"
+                  bg={placeholderBg}
+                />
+              </Box>
+              <Box p={3}>
+                <Text fontWeight="bold" mb={1}>
+                  {item.title}
+                </Text>
+                <Text fontSize="sm" noOfLines={1} opacity={0.85}>
+                  {item.caption}
+                </Text>
+              </Box>
+            </Box>
+          ))}
+        </SimpleGrid>
+      )
+    }
+    if (block.type === 'table') {
+      return (
+        <TableContainer
+          key={`table-${index}`}
+          borderWidth="1px"
+          borderColor={borderColor}
+          borderRadius="8px"
+        >
+          <Table size="sm" variant="simple">
+            <Thead>
+              <Tr>
+                {block.columns.map(column => (
+                  <Th key={column}>{column}</Th>
+                ))}
+              </Tr>
+            </Thead>
+            <Tbody>
+              {block.rows.map((row, rowIndex) => (
+                <Tr key={`row-${rowIndex}`}>
+                  {row.map((cell, cellIndex) => (
+                    <Td key={`cell-${rowIndex}-${cellIndex}`} whiteSpace="normal">
+                      {cellIndex === block.columns.length - 1 && typeof cell === 'string' && cell.startsWith('http') ? (
+                        <ChakraLink href={cell} isExternal>
+                          {cell}
+                        </ChakraLink>
+                      ) : (
+                        cell
+                      )}
+                    </Td>
+                  ))}
+                </Tr>
+              ))}
+            </Tbody>
+          </Table>
+        </TableContainer>
+      )
+    }
     return null
   })
 
@@ -130,6 +228,7 @@ const PortfolioPage = () => {
   )
   const modalOverlayBg = useColorModeValue('blackAlpha.500', 'blackAlpha.700')
   const modalBg = useColorModeValue('sand.100', '#1D2021')
+  const evidencePlaceholderBg = useColorModeValue('blackAlpha.100', 'whiteAlpha.200')
 
   const projects = t.portfolio.projects.map(project => ({
     ...project,
@@ -140,6 +239,7 @@ const PortfolioPage = () => {
   const routeProjectId = Array.isArray(router.query.projectId)
     ? router.query.projectId[0]
     : router.query.projectId
+  const [selectedEvidence, setSelectedEvidence] = useState(null)
   const selectedProject =
     projects.find(project => project.id === routeProjectId) || null
   const isOpen = Boolean(selectedProject)
@@ -155,6 +255,7 @@ const PortfolioPage = () => {
   }
 
   const handleCloseProject = () => {
+    setSelectedEvidence(null)
     if (router.asPath !== '/portfolio') {
       router.push({ pathname: '/portfolio' }, '/portfolio', {
         scroll: false,
@@ -286,7 +387,55 @@ const PortfolioPage = () => {
                     </Box>
                   </HStack>
                   <Box borderTopWidth="1px" borderColor={borderColor} />
-                  <Stack spacing={4}>{renderContentBlocks(selectedProject.contentBlocks)}</Stack>
+                  <Stack spacing={4}>
+                    {renderContentBlocks(selectedProject.contentBlocks, {
+                      borderColor,
+                      cardShadow,
+                      surfaceBg,
+                      placeholderBg: evidencePlaceholderBg,
+                      onOpenEvidenceImage: setSelectedEvidence
+                    })}
+                  </Stack>
+                </Stack>
+              </ModalBody>
+            </>
+          )}
+        </ModalContent>
+      </Modal>
+
+      <Modal isOpen={Boolean(selectedEvidence)} onClose={() => setSelectedEvidence(null)} size="4xl">
+        <ModalOverlay bg={modalOverlayBg} backdropFilter="blur(6px)" />
+        <ModalContent
+          maxW={{ base: '95vw', lg: '1000px' }}
+          borderRadius="8px"
+          overflow="hidden"
+          bg={modalBg}
+          borderWidth="1px"
+          borderColor={borderColor}
+          boxShadow={hoverCardShadow}
+          mt="64px"
+        >
+          <ModalCloseButton zIndex={2} />
+          {selectedEvidence && (
+            <>
+              <ModalHeader pr={12}>{selectedEvidence.title}</ModalHeader>
+              <ModalBody p={0}>
+                <Stack spacing={0}>
+                  <Box w="100%" h={{ base: '320px', md: '620px' }}>
+                    <ChakraImage
+                      src={selectedEvidence.imageUrl}
+                      alt={selectedEvidence.title}
+                      w="100%"
+                      h="100%"
+                      objectFit={selectedEvidence.id === '01-utm-links' ? 'contain' : 'cover'}
+                      objectPosition={selectedEvidence.id === '01-utm-links' ? 'center' : 'top center'}
+                      fallbackSrc="/favicon.svg"
+                      bg={evidencePlaceholderBg}
+                    />
+                  </Box>
+                  <Text fontSize="sm" opacity={0.9} p={4}>
+                    {selectedEvidence.caption}
+                  </Text>
                 </Stack>
               </ModalBody>
             </>

@@ -1013,6 +1013,106 @@
               ]
             }
           ]
+        },
+        {
+          "id": "marketing-analytics-assignment",
+          "title": "Proyecto 5 — Marketing Analytics Assignment (TCS)",
+          "shortDescription": "Análisis de marketing basado en assignment: limpieza y análisis en Google Sheets + dashboard en Looker Studio.",
+          "tags": [
+            "Google Sheets",
+            "Looker Studio",
+            "Marketing Analytics",
+            "Data Cleaning",
+            "Reporting"
+          ],
+          "contentBlocks": [
+            {
+              "type": "heading",
+              "text": "Resumen"
+            },
+            {
+              "type": "text",
+              "text": "Proyecto de análisis de marketing basado en el assignment de TCS. Trabajé el dataset en Google Sheets y construí un dashboard en Looker Studio para comunicar hallazgos de forma clara."
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Qué hice"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Revisé el contexto y requerimientos del assignment.",
+                "Limpié y estructuré datos en Google Sheets para análisis.",
+                "Construí visualizaciones y KPIs en Looker Studio para reporting."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Entregables"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Hoja de cálculo con análisis y estructura de datos.",
+                "Dashboard de Looker Studio con métricas y visualizaciones.",
+                "Documentación fuente del assignment en GitHub."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Evidencia visual (screenshots)"
+            },
+            {
+              "type": "gallery",
+              "items": [
+                {
+                  "id": "01-gs-analysis-overview",
+                  "title": "Google Sheets — Análisis",
+                  "caption": "Hoja de cálculo con análisis y estructura de datos del assignment.",
+                  "imageUrl": "/projects/p4-gs-looker-dashboard/01-gs-analysis-overview.png"
+                },
+                {
+                  "id": "02-looker-dashboard-overview",
+                  "title": "Looker Studio — Dashboard",
+                  "caption": "Dashboard final con métricas y visualizaciones de marketing.",
+                  "imageUrl": "/projects/p4-gs-looker-dashboard/02-looker-dashboard-overview.png"
+                }
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Links"
+            },
+            {
+              "type": "ul",
+              "items": [
+                {
+                  "text": "Repositorio (contexto)",
+                  "url": "https://github.com/ej29-r3d/Marketing-Analytics-Assignments/tree/main/tcs-assignment"
+                },
+                {
+                  "text": "Google Sheets (mi trabajo)",
+                  "url": "https://docs.google.com/spreadsheets/d/1wvslt22xH1wAKabOxJoyZdA94_sScWGKUajE2I8Zyg0/edit?gid=0#gid=0"
+                },
+                {
+                  "text": "Looker Studio (dashboard)",
+                  "url": "https://lookerstudio.google.com/u/0/reporting/8c55a54e-571f-48ac-8d98-340a77663126/page/p_auv6jsxa2d"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -2048,6 +2148,106 @@
                 "Real GTM implementation in a site.",
                 "Ability to debug why an event does not fire.",
                 "Best practices: stable selectors (data-gtm) and end-to-end validation."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "marketing-analytics-assignment",
+          "title": "Project 5 - Marketing Analytics Assignment (TCS)",
+          "shortDescription": "Marketing analytics assignment: data cleaning and analysis in Google Sheets plus a Looker Studio dashboard.",
+          "tags": [
+            "Google Sheets",
+            "Looker Studio",
+            "Marketing Analytics",
+            "Data Cleaning",
+            "Reporting"
+          ],
+          "contentBlocks": [
+            {
+              "type": "heading",
+              "text": "Summary"
+            },
+            {
+              "type": "text",
+              "text": "Marketing analytics project based on the TCS assignment context. I worked the dataset in Google Sheets and built a Looker Studio dashboard to communicate findings clearly."
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "What I did"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Reviewed assignment context and requirements.",
+                "Cleaned and structured data in Google Sheets for analysis.",
+                "Built KPI visuals and reporting views in Looker Studio."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Deliverables"
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Spreadsheet with analysis and cleaned structure.",
+                "Looker Studio dashboard with metrics and visualizations.",
+                "Source assignment documentation in GitHub."
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Visual evidence (screenshots)"
+            },
+            {
+              "type": "gallery",
+              "items": [
+                {
+                  "id": "01-gs-analysis-overview",
+                  "title": "Google Sheets - Analysis",
+                  "caption": "Spreadsheet with assignment analysis and data structure.",
+                  "imageUrl": "/projects/p4-gs-looker-dashboard/01-gs-analysis-overview.png"
+                },
+                {
+                  "id": "02-looker-dashboard-overview",
+                  "title": "Looker Studio - Dashboard",
+                  "caption": "Final dashboard with marketing metrics and visualizations.",
+                  "imageUrl": "/projects/p4-gs-looker-dashboard/02-looker-dashboard-overview.png"
+                }
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "heading",
+              "text": "Links"
+            },
+            {
+              "type": "ul",
+              "items": [
+                {
+                  "text": "Repository (context)",
+                  "url": "https://github.com/ej29-r3d/Marketing-Analytics-Assignments/tree/main/tcs-assignment"
+                },
+                {
+                  "text": "Google Sheets (my work)",
+                  "url": "https://docs.google.com/spreadsheets/d/1wvslt22xH1wAKabOxJoyZdA94_sScWGKUajE2I8Zyg0/edit?gid=0#gid=0"
+                },
+                {
+                  "text": "Looker Studio (dashboard)",
+                  "url": "https://lookerstudio.google.com/u/0/reporting/8c55a54e-571f-48ac-8d98-340a77663126/page/p_auv6jsxa2d"
+                }
               ]
             }
           ]

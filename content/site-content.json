@@ -9,20 +9,32 @@
       "portfolio": "Portfolio",
       "bio": "Bio",
       "skills": "Skills",
-      "mobileAbout": "Sobre mí"
+      "mobileAbout": "Sobre mí",
+      "about": "Sobre mí",
+      "services": "Servicios",
+      "workProcess": "Cómo trabajo",
+      "contact": "Contacto"
     },
     "profile": {
       "name": "Armando Bringas",
       "imageAlt": "Foto de perfil",
       "badges": [
-        "Technical Digital Analytics",
-        "GA4, GTM & Web Measurement",
-        "Developer Background"
+        "Web Development",
+        "Web Design",
+        "Web Analytics"
       ],
-      "aboutTitle": "Sobre mí",
-      "aboutText": "Hola, soy Armando Bringas. Bienvenido a mi portafolio. Soy Digital Analyst, Web Measurement y Developer. Ayudo a equipos de marketing y producto a entender qué pasa en un sitio web con tracking limpio y reportes claros. Configuro y valido medición con Google Analytics 4 (GA4), Google Tag Manager (GTM), y creo dashboards en Looker Studio para adquisición, campañas y funnels."
+      "aboutTitle": "Acerca de",
+      "aboutText": "Product developer especializado en sitios web. Construyo sitios rapidos, optimizados y medibles para negocios que quieren resultados reales de su presencia digital."
     },
     "portfolio": {
+      "hero": {
+        "eyebrow": "PRODUCT DEVELOPER",
+        "title": "Desarrollo sitios web y landings que convierten, no solo que se ven bien.",
+        "description": "",
+        "primaryCta": "Agendar llamada",
+        "secondaryCta": "Escríbeme",
+        "footnote": "Cuéntame tu proyecto y en 15 minutos vemos si encajamos y cuál es el mejor punto de partida."
+      },
       "createdLabel": "Creado",
       "tagsLabel": "Etiquetas",
       "projects": [
@@ -1147,20 +1159,32 @@
       "portfolio": "Portfolio",
       "bio": "Bio",
       "skills": "Skills",
-      "mobileAbout": "About me"
+      "mobileAbout": "About me",
+      "about": "About me",
+      "services": "Services",
+      "workProcess": "How I work",
+      "contact": "Contact"
     },
     "profile": {
       "name": "Armando Bringas",
       "imageAlt": "Profile photo",
       "badges": [
-        "Technical Digital Analytics",
-        "GA4, GTM & Web Measurement",
-        "Developer Background"
+        "Frontend Development",
+        "Next.js & React",
+        "AI-assisted UX/UI"
       ],
-      "aboutTitle": "About me",
-      "aboutText": "Hi, I am Armando Bringas. Welcome to my portfolio. I am a Digital Analyst, Web Measurement specialist, and Developer. I help marketing and product teams understand website behavior with clean tracking and clear reports. I configure and validate measurement in Google Analytics 4 (GA4), Google Tag Manager (GTM), and build Looker Studio dashboards for acquisition, campaigns, and funnels."
+      "aboutTitle": "About",
+      "aboutText": "Product developer specialized in websites. I build fast, optimized, and measurable sites for businesses that want real results from their digital presence."
     },
     "portfolio": {
+      "hero": {
+        "eyebrow": "PRODUCT DEVELOPER",
+        "title": "I build websites and landing pages that convert, not just look good.",
+        "description": "",
+        "primaryCta": "Book a call",
+        "secondaryCta": "Email me",
+        "footnote": "Tell me about your project and in 15 minutes we can see if we're a fit and what the best starting point is."
+      },
       "createdLabel": "Created",
       "tagsLabel": "Tags",
       "projects": [

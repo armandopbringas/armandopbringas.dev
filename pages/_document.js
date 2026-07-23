@@ -6,17 +6,6 @@ import theme from '../lib/theme'
 export default class Document extends NextDocument {
   render() {
     const gtmId = process.env.NEXT_PUBLIC_GTM_ID
-    const colorModeInitScript = `
-      (function() {
-        try {
-          var now = new Date();
-          var hour = now.getHours();
-          var mode = (hour >= 7 && hour < 19) ? 'light' : 'dark';
-          localStorage.setItem('chakra-ui-color-mode', mode);
-          document.cookie = 'chakra-ui-color-mode=' + mode + '; path=/; max-age=31536000';
-        } catch (e) {}
-      })();
-    `
 
     return (
       <Html lang="en">
@@ -44,7 +33,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               />
             </noscript>
           ) : null}
-          <script dangerouslySetInnerHTML={{ __html: colorModeInitScript }} />
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           <Main />
           <NextScript />

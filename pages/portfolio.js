@@ -1,6 +1,7 @@
 import {
   Box,
   Button,
+  Checkbox,
   Container,
   Divider,
   FormControl,
@@ -265,7 +266,7 @@ const PortfolioPage = () => {
     name: '',
     email: '',
     company: '',
-    service: '',
+    service: [],
     budget: '',
     details: ''
   })
@@ -423,6 +424,15 @@ const PortfolioPage = () => {
     }))
   }
 
+  const handleServiceToggle = value => {
+    setContactForm(prev => ({
+      ...prev,
+      service: prev.service.includes(value)
+        ? prev.service.filter(item => item !== value)
+        : [...prev.service, value]
+    }))
+  }
+
   const handleContactSubmit = async event => {
     event.preventDefault()
     setIsSubmittingContact(true)
@@ -435,6 +445,7 @@ const PortfolioPage = () => {
         },
         body: JSON.stringify({
           ...contactForm,
+          service: contactForm.service,
           language
         })
       })
@@ -449,7 +460,7 @@ const PortfolioPage = () => {
         name: '',
         email: '',
         company: '',
-        service: '',
+        service: [],
         budget: '',
         details: ''
       })
@@ -496,7 +507,7 @@ const PortfolioPage = () => {
             width="100dvw"
             maxW="100dvw"
             ml="calc(50% - 50dvw)"
-            minH={{ base: '420px', md: '500px' }}
+            minH={{ base: '360px', md: '440px' }}
             mt="3.75rem"
             mb={{ base: 10, md: 12 }}
             borderRadius="0"
@@ -909,24 +920,21 @@ const PortfolioPage = () => {
 
                             <FormControl isRequired>
                               <FormLabel>
-                                {language === 'es' ? 'Servicio que necesitas' : 'Service needed'}
+                                {language === 'es'
+                                  ? 'Servicios que necesitas'
+                                  : 'Services needed'}
                               </FormLabel>
-                              <Select
-                                name="service"
-                                placeholder={
-                                  language === 'es'
-                                    ? 'Selecciona un servicio'
-                                    : 'Select a service'
-                                }
-                                value={contactForm.service}
-                                onChange={handleContactFieldChange}
-                              >
+                              <Stack spacing={3} pt={1}>
                                 {serviceOptions.map(option => (
-                                  <option key={option} value={option}>
+                                  <Checkbox
+                                    key={option}
+                                    isChecked={contactForm.service.includes(option)}
+                                    onChange={() => handleServiceToggle(option)}
+                                  >
                                     {option}
-                                  </option>
+                                  </Checkbox>
                                 ))}
-                              </Select>
+                              </Stack>
                             </FormControl>
 
                             <FormControl isRequired>

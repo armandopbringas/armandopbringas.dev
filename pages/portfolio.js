@@ -34,6 +34,7 @@ import {
   Link as ChakraLink,
   UnorderedList,
   Wrap,
+  useToast,
   useColorModeValue
 } from '@chakra-ui/react'
 import Head from 'next/head'
@@ -221,6 +222,7 @@ const renderContentBlocks = (
 const PortfolioPage = () => {
   const router = useRouter()
   const { t, language } = useLanguage()
+  const toast = useToast()
 
   const borderColor = useColorModeValue('blackAlpha.200', 'whiteAlpha.300')
   const surfaceBg = useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')
@@ -267,6 +269,7 @@ const PortfolioPage = () => {
     budget: '',
     details: ''
   })
+  const [isSubmittingContact, setIsSubmittingContact] = useState(false)
   const tabRefs = useRef([])
   const selectedProject =
     projects.find(project => project.id === routeProjectId) || null
@@ -420,42 +423,63 @@ const PortfolioPage = () => {
     }))
   }
 
-  const handleContactSubmit = event => {
+  const handleContactSubmit = async event => {
     event.preventDefault()
+    setIsSubmittingContact(true)
 
-    const subject =
-      language === 'es'
-        ? `Consulta web de ${contactForm.name || 'nuevo prospecto'}`
-        : `Web project inquiry from ${contactForm.name || 'new lead'}`
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          ...contactForm,
+          language
+        })
+      })
 
-    const bodyLines =
-      language === 'es'
-        ? [
-            `Nombre: ${contactForm.name}`,
-            `Correo de trabajo: ${contactForm.email}`,
-            `Empresa: ${contactForm.company || '-'}`,
-            `Servicio que necesitas: ${contactForm.service}`,
-            `Rango de inversión: ${contactForm.budget}`,
-            '',
-            'Detalles del proyecto:',
-            contactForm.details
-          ]
-        : [
-            `Name: ${contactForm.name}`,
-            `Work email: ${contactForm.email}`,
-            `Company: ${contactForm.company || '-'}`,
-            `Service needed: ${contactForm.service}`,
-            `Budget range: ${contactForm.budget}`,
-            '',
-            'Project details:',
-            contactForm.details
-          ]
+      const result = await response.json()
 
-    const mailtoHref = `mailto:bringas.armandop@gmail.com?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(bodyLines.join('\n'))}`
+      if (!response.ok) {
+        throw new Error(result.error || 'Request failed')
+      }
 
-    window.location.href = mailtoHref
+      setContactForm({
+        name: '',
+        email: '',
+        company: '',
+        service: '',
+        budget: '',
+        details: ''
+      })
+
+      toast({
+        title: language === 'es' ? 'Consulta enviada' : 'Inquiry sent',
+        description:
+          language === 'es'
+            ? 'Tu mensaje fue enviado correctamente a Armando.'
+            : 'Your message was sent successfully to Armando.',
+        status: 'success',
+        duration: 5000,
+        isClosable: true
+      })
+    } catch (error) {
+      toast({
+        title: language === 'es' ? 'No se pudo enviar' : 'Could not send',
+        description:
+          error instanceof Error
+            ? error.message
+            : language === 'es'
+              ? 'Ocurrió un error inesperado.'
+              : 'An unexpected error occurred.',
+        status: 'error',
+        duration: 6000,
+        isClosable: true
+      })
+    } finally {
+      setIsSubmittingContact(false)
+    }
   }
 
   return (
@@ -942,13 +966,19 @@ const PortfolioPage = () => {
                             </FormControl>
 
                             <Box>
-                              <Button type="submit" bg={heroPrimaryButtonBg} color={heroPrimaryButtonColor}>
+                              <Button
+                                type="submit"
+                                bg={heroPrimaryButtonBg}
+                                color={heroPrimaryButtonColor}
+                                isLoading={isSubmittingContact}
+                                loadingText={language === 'es' ? 'Enviando...' : 'Sending...'}
+                              >
                                 {language === 'es' ? 'Enviar consulta' : 'Send inquiry'}
                               </Button>
                               <Text mt={3} fontSize="sm" color={mutedColor}>
                                 {language === 'es'
-                                  ? 'El envío abre un correo prellenado para que puedas revisarlo antes de mandarlo.'
-                                  : 'Submitting opens a prefilled email so you can review it before sending.'}
+                                  ? 'El formulario envía tu consulta directamente por correo.'
+                                  : 'The form sends your inquiry directly by email.'}
                               </Text>
                             </Box>
                           </Stack>

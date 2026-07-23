@@ -13,13 +13,15 @@ export default async function handler(req, res) {
     name = '',
     email = '',
     company = '',
-    service = '',
+    service = [],
     budget = '',
     details = '',
     language = 'es'
   } = req.body || {}
 
-  if (!name || !email || !service || !budget || !details) {
+  const selectedServices = Array.isArray(service) ? service : service ? [service] : []
+
+  if (!name || !email || selectedServices.length === 0 || !budget || !details) {
     return res.status(400).json({
       error: getErrorMessage(language, {
         es: 'Faltan campos obligatorios del formulario.',
@@ -52,7 +54,7 @@ export default async function handler(req, res) {
       <p><strong>${language === 'es' ? 'Nombre' : 'Name'}:</strong> ${name}</p>
       <p><strong>${language === 'es' ? 'Correo de trabajo' : 'Work email'}:</strong> ${email}</p>
       <p><strong>${language === 'es' ? 'Empresa' : 'Company'}:</strong> ${company || '-'}</p>
-      <p><strong>${language === 'es' ? 'Servicio que necesitas' : 'Service needed'}:</strong> ${service}</p>
+      <p><strong>${language === 'es' ? 'Servicios que necesitas' : 'Services needed'}:</strong> ${selectedServices.join(', ')}</p>
       <p><strong>${language === 'es' ? 'Rango de inversión' : 'Budget range'}:</strong> ${budget}</p>
       <p><strong>${language === 'es' ? 'Detalles del proyecto' : 'Project details'}:</strong></p>
       <p>${String(details).replace(/\n/g, '<br />')}</p>

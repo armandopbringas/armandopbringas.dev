@@ -272,6 +272,7 @@ const PortfolioPage = () => {
   })
   const [isSubmittingContact, setIsSubmittingContact] = useState(false)
   const tabRefs = useRef([])
+  const contactSectionRef = useRef([])
   const selectedProject =
     projects.find(project => project.id === routeProjectId) || null
   const isOpen = Boolean(selectedProject)
@@ -433,8 +434,40 @@ const PortfolioPage = () => {
     }))
   }
 
+  const handleOpenContactSection = () => {
+    setActiveTab('contact')
+
+    if (typeof window === 'undefined') {
+      return
+    }
+
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        contactSectionRef.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        })
+      })
+    })
+  }
+
   const handleContactSubmit = async event => {
     event.preventDefault()
+
+    if (contactForm.service.length === 0) {
+      toast({
+        title: language === 'es' ? 'Selecciona al menos un servicio' : 'Select at least one service',
+        description:
+          language === 'es'
+            ? 'Puedes elegir uno, varios o todos los servicios según lo que necesites.'
+            : 'You can choose one, several, or all services depending on what you need.',
+        status: 'warning',
+        duration: 5000,
+        isClosable: true
+      })
+      return
+    }
+
     setIsSubmittingContact(true)
 
     try {
@@ -583,12 +616,16 @@ const PortfolioPage = () => {
                     </Button>
                   </Tooltip>
                   <Button
-                    as="a"
-                    href="mailto:bringas.armandop@gmail.com"
                     size="lg"
                     variant="ghost"
-                    color={heroSecondaryButtonColor}
-                    _hover={{ bg: 'whiteAlpha.200' }}
+                    color="white"
+                    textShadow="0 1px 2px rgba(0, 0, 0, 0.35)"
+                    _hover={{
+                      bg: 'blackAlpha.300',
+                      backdropFilter: 'blur(6px)',
+                      borderColor: 'whiteAlpha.300'
+                    }}
+                    onClick={handleOpenContactSection}
                   >
                     {t.portfolio.hero.secondaryCta}
                   </Button>
@@ -851,7 +888,12 @@ const PortfolioPage = () => {
                     )}
 
                     {activeTab === 'contact' && (
-                      <Stack spacing={6}>
+                      <Stack
+                        ref={contactSectionRef}
+                        spacing={6}
+                        id="contact"
+                        scrollMarginTop="96px"
+                      >
                         <Box>
                           <Text
                             fontSize="sm"
@@ -918,7 +960,7 @@ const PortfolioPage = () => {
                               />
                             </FormControl>
 
-                            <FormControl isRequired>
+                            <FormControl>
                               <FormLabel>
                                 {language === 'es'
                                   ? 'Servicios que necesitas'

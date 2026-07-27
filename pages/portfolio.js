@@ -40,6 +40,7 @@ import {
 } from '@chakra-ui/react'
 import Head from 'next/head'
 import Image from 'next/image'
+import Script from 'next/script'
 import { motion } from 'framer-motion'
 import { useRef, useState } from 'react'
 import { useRouter } from 'next/router'
@@ -86,6 +87,8 @@ const projectMedia = {
       '/projects/p4-gs-looker-dashboard/02-looker-dashboard-overview.png'
   }
 }
+
+const calendlyUrl = 'https://calendly.com/armandopbringas/new-meeting'
 
 const renderContentBlocks = (
   blocks,
@@ -451,6 +454,19 @@ const PortfolioPage = () => {
     })
   }
 
+  const handleOpenCalendly = () => {
+    if (typeof window === 'undefined') {
+      return
+    }
+
+    if (window.Calendly) {
+      window.Calendly.initPopupWidget({ url: calendlyUrl })
+      return
+    }
+
+    window.open(calendlyUrl, '_blank', 'noopener,noreferrer')
+  }
+
   const handleContactSubmit = async event => {
     event.preventDefault()
 
@@ -532,7 +548,12 @@ const PortfolioPage = () => {
         <title>{t.meta.portfolioTitle}</title>
         <meta name="twitter:title" content={t.meta.portfolioTitle} />
         <meta property="og:title" content={t.meta.portfolioTitle} />
+        <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
       </Head>
+      <Script
+        src="https://assets.calendly.com/assets/external/widget.js"
+        strategy="afterInteractive"
+      />
       <Container>
         <Box position="relative" my="4rem">
           <Box
@@ -604,13 +625,12 @@ const PortfolioPage = () => {
                     textAlign="center"
                   >
                     <Button
-                      as="a"
-                      href="#projects"
                       size="lg"
                       px={8}
                       bg={heroPrimaryButtonBg}
                       color={heroPrimaryButtonColor}
                       _hover={{ bg: heroPrimaryButtonBg, transform: 'translateY(-1px)' }}
+                      onClick={handleOpenCalendly}
                     >
                       {t.portfolio.hero.primaryCta}
                     </Button>
@@ -920,8 +940,12 @@ const PortfolioPage = () => {
                           <ChakraLink href="mailto:bringas.armandop@gmail.com" fontWeight="semibold">
                             {language === 'es' ? 'Escríbeme por correo' : 'Email me'} →
                           </ChakraLink>
-                          {/* TODO: actualizar link de Calendly */}
-                          <ChakraLink href="https://calendly.com" isExternal color={mutedColor}>
+                          <ChakraLink
+                            as="button"
+                            type="button"
+                            onClick={handleOpenCalendly}
+                            color={mutedColor}
+                          >
                             {language === 'es'
                               ? 'O agenda una llamada breve'
                               : 'Or schedule a short call'} →

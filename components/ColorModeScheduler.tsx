@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { useColorMode } from '@chakra-ui/react'
 
 const LIGHT_START_HOUR = 7
-const DARK_START_HOUR = 19
+const DARK_START_HOUR = 18
 
 const getModeForDate = (date: Date) => {
   const hour = date.getHours()

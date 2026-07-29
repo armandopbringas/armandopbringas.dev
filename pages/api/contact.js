@@ -3,6 +3,36 @@ const RESEND_API_URL = 'https://api.resend.com/emails'
 const getErrorMessage = (language, fallback) =>
   language === 'es' ? fallback.es : fallback.en
 
+const appendLeadToSheet = async lead => {
+  const webhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL
+  const webhookSecret = process.env.GOOGLE_SHEETS_WEBHOOK_SECRET
+
+  if (!webhookUrl || !webhookSecret) {
+    return false
+  }
+
+  const response = await fetch(webhookUrl, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ ...lead, secret: webhookSecret })
+  })
+
+  const responseBody = await response.text()
+  let data
+
+  try {
+    data = JSON.parse(responseBody)
+  } catch {
+    throw new Error('Google Sheets webhook returned an invalid response.')
+  }
+
+  if (!response.ok || !data.ok) {
+    throw new Error(data?.error || 'Google Sheets webhook request failed.')
+  }
+
+  return true
+}
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST')
@@ -90,7 +120,23 @@ export default async function handler(req, res) {
       })
     }
 
-    return res.status(200).json({ ok: true, id: data.id })
+    let sheetLogged = false
+
+    try {
+      sheetLogged = await appendLeadToSheet({
+        name,
+        email,
+        company,
+        services: selectedServices,
+        budget,
+        details
+      })
+    } catch (error) {
+      // The email remains the primary lead notification if the Sheet is unavailable.
+      console.error('Failed to append contact lead to Google Sheets:', error)
+    }
+
+    return res.status(200).json({ ok: true, id: data.id, sheetLogged })
   } catch {
     return res.status(500).json({
       error: getErrorMessage(language, {

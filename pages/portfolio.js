@@ -1,4 +1,5 @@
 import {
+  AspectRatio,
   Box,
   Button,
   Checkbox,
@@ -9,6 +10,7 @@ import {
   Heading,
   HStack,
   Icon,
+  IconButton,
   Input,
   ListItem,
   Modal,
@@ -44,48 +46,16 @@ import Script from 'next/script'
 import { motion } from 'framer-motion'
 import { useRef, useState } from 'react'
 import { useRouter } from 'next/router'
-import { FaGithub, FaLinkedin, FaWhatsapp } from 'react-icons/fa'
+import { FaChevronLeft, FaChevronRight, FaGithub, FaLinkedin, FaWhatsapp } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
 import Section from '../components/section'
 import { useLanguage } from '../components/language-context'
+import { getFeaturedProjects } from '../content/featured-projects'
 
 const variants = {
   hidden: { opacity: 0, x: 0, y: 20 },
   enter: { opacity: 1, x: 0, y: 0 },
   exit: { opacity: 0, x: 0, y: 20 }
-}
-
-const projectMedia = {
-  'ga4-demo-store': {
-    coverImageUrl:
-      'https://images.unsplash.com/photo-1686061594183-8c864f508b00?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    modalImageUrl:
-      'https://images.unsplash.com/photo-1686061594183-8c864f508b00?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-  },
-  'utm-funnel-demo': {
-    coverImageUrl:
-      'https://images.unsplash.com/photo-1686061594225-3e92c0cd51b0?q=80&w=1771&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    modalImageUrl:
-      'https://images.unsplash.com/photo-1686061594225-3e92c0cd51b0?q=80&w=1771&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-  },
-  'ga4-ads-validation': {
-    coverImageUrl:
-      'https://images.unsplash.com/photo-1771054243991-e7b2d194ac96?q=80&w=905&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    modalImageUrl:
-      'https://images.unsplash.com/photo-1771054243991-e7b2d194ac96?q=80&w=905&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-  },
-  'gtm-implementation': {
-    coverImageUrl:
-      'https://images.unsplash.com/photo-1555099962-4199c345e5dd?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    modalImageUrl:
-      'https://images.unsplash.com/photo-1555099962-4199c345e5dd?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-  },
-  'marketing-analytics-assignment': {
-    coverImageUrl:
-      '/projects/p4-gs-looker-dashboard/02-looker-dashboard-overview.png',
-    modalImageUrl:
-      '/projects/p4-gs-looker-dashboard/02-looker-dashboard-overview.png'
-  }
 }
 
 const calendlyUrl = 'https://calendly.com/armandopbringas/new-meeting'
@@ -230,40 +200,23 @@ const PortfolioPage = () => {
 
   const borderColor = useColorModeValue('blackAlpha.200', 'whiteAlpha.300')
   const surfaceBg = useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')
-  const cardContentBg = useColorModeValue('sand.100', '#1D2021')
-  const cardSubtitleColor = useColorModeValue('accent.600', 'accent.500')
   const cardShadow = useColorModeValue('md', 'dark-lg')
   const hoverCardShadow = useColorModeValue('lg', '2xl')
   const badgeBg = useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')
-  const tabInactiveBg = useColorModeValue('blackAlpha.50', 'whiteAlpha.100')
-  const tabActiveBg = useColorModeValue('ink.800', 'sand.100')
-  const tabActiveColor = useColorModeValue('white', 'ink.800')
   const mutedColor = useColorModeValue('blackAlpha.700', 'whiteAlpha.800')
   const modalOverlayBg = useColorModeValue('blackAlpha.500', 'blackAlpha.700')
   const modalBg = useColorModeValue('sand.100', '#1D2021')
   const evidencePlaceholderBg = useColorModeValue('blackAlpha.100', 'whiteAlpha.200')
-  const heroOverlay = useColorModeValue(
-    'linear-gradient(to-b, rgba(0,0,0,0.15), rgba(0,0,0,0.55))',
-    'linear-gradient(to-b, rgba(0,0,0,0.25), rgba(0,0,0,0.7))'
-  )
-  const projectOverlay = useColorModeValue(
-    'linear-gradient(to-t, rgba(0,0,0,0.75), rgba(0,0,0,0.1))',
-    'linear-gradient(to-t, rgba(0,0,0,0.85), rgba(0,0,0,0.15))'
-  )
   const heroPrimaryButtonBg = useColorModeValue('ink.800', 'sand.100')
   const heroPrimaryButtonColor = useColorModeValue('white', 'ink.800')
-  const heroSecondaryButtonColor = useColorModeValue('accent.600', 'accent.500')
 
-  const projects = t.portfolio.projects.map(project => ({
-    ...project,
-    ...projectMedia[project.id],
-    createdAt: '2026-03-24'
-  }))
+  const projects = getFeaturedProjects(language)
 
   const routeProjectId = Array.isArray(router.query.projectId)
     ? router.query.projectId[0]
     : router.query.projectId
   const [selectedEvidence, setSelectedEvidence] = useState(null)
+  const [activeProjectSlide, setActiveProjectSlide] = useState(0)
   const [activeTab, setActiveTab] = useState('services')
   const [contactForm, setContactForm] = useState({
     name: '',
@@ -278,12 +231,16 @@ const PortfolioPage = () => {
   const contactSectionRef = useRef([])
   const selectedProject =
     projects.find(project => project.id === routeProjectId) || null
+  const projectGallery = selectedProject
+    ? selectedProject.contentBlocks.find(block => block.type === 'gallery')?.items || []
+    : []
+  const currentProjectSlide = projectGallery[activeProjectSlide]
   const isOpen = Boolean(selectedProject)
 
   const tabItems = [
     { id: 'services', label: t.nav.services },
     { id: 'process', label: t.nav.workProcess },
-    // { id: 'portfolio', label: t.nav.portfolio },
+    { id: 'portfolio', label: t.nav.portfolio },
     { id: 'contact', label: t.nav.contact }
   ]
 
@@ -378,6 +335,7 @@ const PortfolioPage = () => {
 
 
   const handleOpenProject = projectId => {
+    setActiveProjectSlide(0)
     if (router.asPath !== `/portfolio/${projectId}`) {
       router.push(
         { pathname: '/portfolio', query: { projectId } },
@@ -771,18 +729,31 @@ const PortfolioPage = () => {
 
                   <Box role="tabpanel" id={`panel-${activeTab}`} aria-labelledby={`tab-${activeTab}`} p={{ base: 5, md: 6 }}>
                     {activeTab === 'portfolio' && (
-                      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4}>
+                      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5}>
                         {projects.map(project => (
                           <Box
                             key={project.id}
-                            borderRadius="2xl"
+                            as="button"
+                            type="button"
+                            aria-label={`${language === 'es' ? 'Ver proyecto' : 'View project'}: ${project.title}`}
+                            textAlign="left"
+                            borderRadius="lg"
                             overflow="hidden"
                             borderWidth="1px"
                             borderColor={borderColor}
-                            bg={cardContentBg}
-                            boxShadow={cardShadow}
+                            transition="transform 0.2s ease, border-color 0.2s ease"
+                            _hover={{
+                              transform: 'translateY(-4px)',
+                              borderColor: 'accent.500'
+                            }}
+                            _focusVisible={{
+                              outline: '3px solid',
+                              outlineColor: 'accent.500',
+                              outlineOffset: '3px'
+                            }}
+                            onClick={() => handleOpenProject(project.id)}
                           >
-                            <Box position="relative" minH="220px" bg={surfaceBg}>
+                            <Box position="relative" h="170px" bg={surfaceBg}>
                               <Image
                                 src={project.coverImageUrl}
                                 alt={`${project.title} thumbnail`}
@@ -790,26 +761,22 @@ const PortfolioPage = () => {
                                 sizes="(max-width: 768px) 100vw, 50vw"
                                 style={{ objectFit: 'cover' }}
                               />
-                              <Box position="absolute" inset={0} bgGradient={projectOverlay} />
                             </Box>
-                            <Stack spacing={3} p={5}>
-                              <Heading as="h4" size="md" noOfLines={2}>
+                            <Stack spacing={3} p={4}>
+                              <Heading as="h3" size="sm" noOfLines={2}>
                                 {project.title}
                               </Heading>
-                              <Text fontSize="sm" noOfLines={2} color={cardSubtitleColor}>
+                              <Text fontSize="sm" noOfLines={2} color={mutedColor}>
                                 {project.shortDescription}
                               </Text>
-                              <Text fontSize="sm" color={mutedColor}>
-                                {project.tags.slice(0, 3).join(' · ')}
+                              <Wrap spacing={2}>
+                                {project.tags.map(tag => (
+                                  <Tag key={tag}>{tag}</Tag>
+                                ))}
+                              </Wrap>
+                              <Text fontSize="sm" fontWeight="semibold" color="accent.600">
+                                {language === 'es' ? 'Ver caso de estudio' : 'View case study'}
                               </Text>
-                              <Button
-                                alignSelf="flex-start"
-                                variant="ghost"
-                                px={0}
-                                onClick={() => handleOpenProject(project.id)}
-                              >
-                                {language === 'es' ? 'Ver proyecto' : 'View project'}
-                              </Button>
                             </Stack>
                           </Box>
                         ))}
@@ -1068,69 +1035,97 @@ const PortfolioPage = () => {
         </Box>
       </Container>
 
-      <Modal isOpen={isOpen} onClose={handleCloseProject} size="6xl">
+      <Modal isOpen={isOpen} onClose={handleCloseProject} size="4xl" scrollBehavior="inside" isCentered>
         <ModalOverlay bg={modalOverlayBg} backdropFilter="blur(6px)" />
         <ModalContent
-          maxW={{ base: '95vw', lg: '1000px' }}
-          borderRadius="8px"
-          overflow="hidden"
+          maxH={{ base: 'calc(100dvh - 1rem)', md: 'calc(100dvh - 4rem)' }}
+          borderRadius={{ base: 'xl', md: '2xl' }}
           bg={modalBg}
-          borderWidth="1px"
-          borderColor={borderColor}
-          boxShadow={hoverCardShadow}
-          mt="64px"
         >
           <ModalCloseButton zIndex={2} />
           {selectedProject && (
-            <>
-              <Box h={{ base: '240px', md: '360px' }} position="relative">
-                <Image
-                  src={selectedProject.modalImageUrl || selectedProject.coverImageUrl}
-                  alt={selectedProject.title}
-                  fill
-                  sizes="100vw"
-                  style={{ objectFit: 'cover' }}
-                />
-                <Box position="absolute" inset={0} bgGradient={heroOverlay} />
-              </Box>
-              <ModalHeader px={{ base: 5, md: 8 }} pb={2}>
-                {selectedProject.title}
-              </ModalHeader>
-              <ModalBody px={{ base: 5, md: 8 }} pb={8}>
-                <Stack spacing={5} maxW="860px" mx="auto" w="full">
-                  <HStack spacing={8} flexWrap="wrap">
+            <ModalBody px={{ base: 5, md: 10 }} py={{ base: 8, md: 10 }}>
+              <Stack spacing={{ base: 7, md: 9 }}>
+                <Box pr={10}>
+                  <Text color={mutedColor} fontSize="sm" mb={3}>{t.nav.portfolio}</Text>
+                  <Heading as="h2" size={{ base: 'lg', md: 'xl' }} lineHeight="short">
+                    {selectedProject.title}
+                  </Heading>
+                  <Text mt={4} color={mutedColor} lineHeight="tall" maxW="70ch">
+                    {selectedProject.shortDescription}
+                  </Text>
+                </Box>
+                <SimpleGrid
+                  as="dl"
+                  columns={{ base: 1, md: 2 }}
+                  spacing={{ base: 5, md: 8 }}
+                  pt={6}
+                  borderTopWidth="1px"
+                  borderColor={borderColor}
+                >
                     <Box>
-                      <Text fontSize="sm" opacity={0.8}>
-                        {t.portfolio.createdLabel}
-                      </Text>
-                      <Text>{selectedProject.createdAt}</Text>
-                    </Box>
-                    <Box>
-                      <Text fontSize="sm" opacity={0.8}>
-                        {t.portfolio.tagsLabel}
-                      </Text>
-                      <Wrap mt={1}>
+                      <Text as="dt" fontWeight="semibold" mb={3}>{t.portfolio.tagsLabel}</Text>
+                      <Wrap as="dd" spacing={2} m={0}>
                         {selectedProject.tags.map(tag => (
-                          <Tag key={tag} borderRadius="md" bg={badgeBg}>
-                            {tag}
-                          </Tag>
+                          <Tag key={tag} borderRadius="md" bg={badgeBg}>{tag}</Tag>
                         ))}
                       </Wrap>
                     </Box>
-                  </HStack>
-                  <Box borderTopWidth="1px" borderColor={borderColor} />
-                  <Stack spacing={4}>
-                    {renderContentBlocks(selectedProject.contentBlocks, {
-                      borderColor,
-                      cardShadow,
-                      surfaceBg,
-                      placeholderBg: evidencePlaceholderBg,
-                      onOpenEvidenceImage: setSelectedEvidence
-                    })}
-                  </Stack>
+                    <Box>
+                      <Text as="dt" fontWeight="semibold" mb={3}>{t.portfolio.createdLabel}</Text>
+                      <Text as="dd" m={0}>{selectedProject.createdAt}</Text>
+                    </Box>
+                </SimpleGrid>
+                {currentProjectSlide ? (
+                  <Box role="region" aria-roledescription="carousel" aria-label={language === 'es' ? 'Galería del proyecto' : 'Project gallery'}>
+                    <Box position="relative" h={{ base: '280px', md: '460px' }} bg="black" borderRadius="xl" overflow="hidden">
+                      <Image src={currentProjectSlide.imageUrl} alt={currentProjectSlide.title} fill sizes="(max-width: 768px) 100vw, 896px" style={{ objectFit: 'contain' }} />
+                      <IconButton
+                        aria-label={language === 'es' ? 'Imagen anterior' : 'Previous image'}
+                        icon={<Icon as={FaChevronLeft} />}
+                        position="absolute" left={{ base: 2, md: 4 }} top="50%" transform="translateY(-50%)"
+                        borderRadius="full" bg="blackAlpha.700" color="white" _hover={{ bg: 'blackAlpha.800' }}
+                        onClick={() => setActiveProjectSlide(activeProjectSlide === 0 ? projectGallery.length - 1 : activeProjectSlide - 1)}
+                      />
+                      <IconButton
+                        aria-label={language === 'es' ? 'Siguiente imagen' : 'Next image'}
+                        icon={<Icon as={FaChevronRight} />}
+                        position="absolute" right={{ base: 2, md: 4 }} top="50%" transform="translateY(-50%)"
+                        borderRadius="full" bg="blackAlpha.700" color="white" _hover={{ bg: 'blackAlpha.800' }}
+                        onClick={() => setActiveProjectSlide(activeProjectSlide === projectGallery.length - 1 ? 0 : activeProjectSlide + 1)}
+                      />
+                    </Box>
+                    <HStack justify="center" spacing={2} mt={3}>
+                      {projectGallery.map((slide, index) => (
+                        <IconButton
+                          key={slide.id}
+                          aria-label={`${language === 'es' ? 'Ver imagen' : 'View image'} ${index + 1}`}
+                          aria-current={index === activeProjectSlide ? 'true' : undefined}
+                          size="xs" minW={index === activeProjectSlide ? 6 : 2} h={2}
+                          borderRadius="full" bg={index === activeProjectSlide ? 'accent.600' : borderColor}
+                          _hover={{ bg: 'accent.500' }} onClick={() => setActiveProjectSlide(index)}
+                        />
+                      ))}
+                    </HStack>
+                  </Box>
+                ) : (
+                  <AspectRatio ratio={{ base: 4 / 3, md: 16 / 8 }} borderRadius="xl" overflow="hidden">
+                    <Image src={selectedProject.modalImageUrl || selectedProject.coverImageUrl} alt={selectedProject.title} fill sizes="(max-width: 768px) 100vw, 896px" style={{ objectFit: 'cover' }} />
+                  </AspectRatio>
+                )}
+
+                <Divider borderColor={borderColor} />
+                <Stack spacing={4} maxW="70ch">
+                  {renderContentBlocks(selectedProject.contentBlocks, {
+                    borderColor,
+                    cardShadow,
+                    surfaceBg,
+                    placeholderBg: evidencePlaceholderBg,
+                    onOpenEvidenceImage: setSelectedEvidence
+                  })}
                 </Stack>
-              </ModalBody>
-            </>
+              </Stack>
+            </ModalBody>
           )}
         </ModalContent>
       </Modal>

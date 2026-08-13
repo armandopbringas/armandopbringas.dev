@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-12T00:00:00Z",
+  "title": "Design System: Armando Bringas",
+  "extensions": {
+    "colorMeta": {
+      "ink": { "role": "neutral", "displayName": "Studio Ink", "canonical": "#141A28", "tonalRamp": ["#0B0F19", "#141A28", "#273044", "#45516A", "#D7DBE5", "#E8EAF0", "#F5F6FA", "#FFFFFF"] },
+      "signal-graphite": { "role": "primary", "displayName": "Signal Graphite", "canonical": "#4B535E", "tonalRamp": ["#14181E", "#252B33", "#343A43", "#4B535E", "#6D7480", "#AAB0B8", "#D7DBE0", "#F1F3F5"] }
+    },
+    "motion": [
+      { "name": "state-shift", "value": "200ms ease", "purpose": "Buttons, cards, and tabs respond quickly without spectacle." }
+    ],
+    "breakpoints": [
+      { "name": "md", "value": "768px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main conversion action on a dark or light surface.",
+      "html": "<button class=\"ds-button-primary\">Start a project</button>",
+      "css": ".ds-button-primary { background:#355CFF; color:#fff; border:0; border-radius:6px; padding:12px 32px; font:600 14px Manrope,sans-serif; cursor:pointer; transition:transform 200ms ease,background 200ms ease; }.ds-button-primary:hover { background:#2548D8; transform:translateY(-2px); }.ds-button-primary:focus-visible { outline:3px solid #91A4FF; outline-offset:3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Independent Software Studio",
+    "overview": "A calm, technical and specific system for a compact professional practice. Ink establishes conviction, paper supports reading, and graphite signals decisions.",
+    "keyCharacteristics": ["Editorial hierarchy", "Technical precision", "Real project evidence"],
+    "rules": [{ "name": "The Signal Rule", "body": "Graphite is reserved for a visitor decision, an active state, or a meaningful link.", "section": "colors" }],
+    "dos": ["Do let real project imagery and case-study detail provide proof.", "Do preserve bilingual content, theme switching, and existing navigation paths."],
+    "donts": ["Don't use graphite as a decorative accent across every surface.", "Don't introduce glassmorphism, neon glow, dashboard metrics, or generic agency imagery."]
+  }
+}

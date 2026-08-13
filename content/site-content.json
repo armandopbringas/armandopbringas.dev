@@ -6,7 +6,7 @@
       "skillsTitle": "Skills - Armando Bringas"
     },
     "nav": {
-      "portfolio": "Portfolio",
+      "portfolio": "Proyectos",
       "bio": "Bio",
       "skills": "Skills",
       "mobileAbout": "Sobre mí",
@@ -24,12 +24,12 @@
         "Web Analytics"
       ],
       "aboutTitle": "Acerca de",
-      "aboutText": "Product developer especializado en sitios web. Construyo sitios rapidos, optimizados y medibles para negocios que quieren resultados reales de su presencia digital."
+      "aboutText": "Hola, soy Armando P. Bringas, desarrollador de sitios y aplicaciones web. Construyo soluciones simples, funcionales y escalables — con automatización cuando tu negocio la necesita — pensadas para resolver problemas reales, no solo para verse bien."
     },
     "portfolio": {
       "hero": {
         "eyebrow": "PRODUCT DEVELOPER",
-        "title": "Desarrollo sitios web y landings que convierten, no solo que se ven bien.",
+        "title": "Desarrollo sitios y aplicaciones web simples, funcionales y escalables.",
         "description": "",
         "primaryCta": "Agendar llamada",
         "secondaryCta": "Escríbeme",
@@ -1156,7 +1156,7 @@
       "skillsTitle": "Skills - Armando Bringas"
     },
     "nav": {
-      "portfolio": "Portfolio",
+      "portfolio": "Projects",
       "bio": "Bio",
       "skills": "Skills",
       "mobileAbout": "About me",
@@ -1174,12 +1174,12 @@
         "Web Analytics"
       ],
       "aboutTitle": "About",
-      "aboutText": "Product developer specialized in websites. I build fast, optimized, and measurable sites for businesses that want real results from their digital presence."
+      "aboutText": "Hi, I'm Armando P. Bringas, a website and web application developer. I build simple, functional, and scalable solutions — with automation when your business needs it — designed to solve real problems, not just look good."
     },
     "portfolio": {
       "hero": {
         "eyebrow": "PRODUCT DEVELOPER",
-        "title": "I build websites and landing pages that convert, not just look good.",
+        "title": "I build simple, functional, scalable websites and web apps.",
         "description": "",
         "primaryCta": "Book a call",
         "secondaryCta": "Email me",

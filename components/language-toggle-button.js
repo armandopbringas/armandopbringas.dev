@@ -3,7 +3,7 @@ import { useLanguage } from './language-context'
 
 const LanguageToggleButton = () => {
   const { language, toggleLanguage } = useLanguage()
-  const iconColor = useColorModeValue('accent.600', 'accent.500')
+  const iconColor = useColorModeValue('accent.500', 'accentDark.500')
   const borderColor = useColorModeValue('blackAlpha.300', 'whiteAlpha.300')
   const hoverBg = useColorModeValue('blackAlpha.100', 'whiteAlpha.100')
 

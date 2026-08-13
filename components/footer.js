@@ -6,17 +6,14 @@ const Footer = () => {
   return (
     <Box as="footer" align="center" pt={12} pb={4}>
       <HStack spacing={4} justify="center" flexWrap="wrap" mb={3}>
-        <Link href="https://github.com/armandopbringas" isExternal>
-          GitHub
-        </Link>
-        <Link href="https://www.linkedin.com/in/armandopbringas/" isExternal>
-          LinkedIn
-        </Link>
         <Link
           href="https://wa.me/2727232016?text=Hola,%20me%20gustar%C3%ADa%20hablar%20sobre%20un%20proyecto%20web."
           isExternal
         >
           WhatsApp
+        </Link>
+        <Link href="mailto:bringas.armandop@gmail.com">
+          Email
         </Link>
       </HStack>
       <Text opacity={0.6} fontSize="sm" color={mutedColor}>

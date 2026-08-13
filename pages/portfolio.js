@@ -46,7 +46,7 @@ import Script from 'next/script'
 import { motion } from 'framer-motion'
 import { useRef, useState } from 'react'
 import { useRouter } from 'next/router'
-import { FaChevronLeft, FaChevronRight, FaGithub, FaLinkedin, FaWhatsapp } from 'react-icons/fa'
+import { FaChevronLeft, FaChevronRight, FaWhatsapp } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
 import Section from '../components/section'
 import { useLanguage } from '../components/language-context'
@@ -202,13 +202,14 @@ const PortfolioPage = () => {
   const surfaceBg = useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')
   const cardShadow = useColorModeValue('md', 'dark-lg')
   const hoverCardShadow = useColorModeValue('lg', '2xl')
-  const badgeBg = useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')
   const mutedColor = useColorModeValue('blackAlpha.700', 'whiteAlpha.800')
+  const accentColor = useColorModeValue('accent.500', 'accentDark.500')
+  const accentHoverColor = useColorModeValue('accent.400', 'accentDark.400')
+  const tabHoverColor = useColorModeValue('accent.500', 'accentDark.400')
   const modalOverlayBg = useColorModeValue('blackAlpha.500', 'blackAlpha.700')
-  const modalBg = useColorModeValue('sand.100', '#1D2021')
   const evidencePlaceholderBg = useColorModeValue('blackAlpha.100', 'whiteAlpha.200')
-  const heroPrimaryButtonBg = useColorModeValue('ink.800', 'sand.100')
-  const heroPrimaryButtonColor = useColorModeValue('white', 'ink.800')
+  const heroPrimaryButtonBg = 'blackAlpha.300'
+  const heroPrimaryButtonColor = 'white'
 
   const projects = getFeaturedProjects(language)
 
@@ -250,7 +251,7 @@ const PortfolioPage = () => {
           {
             title: 'Landing pages de alto rendimiento',
             description:
-              'Para producto, campaña o lanzamiento, optimizadas para velocidad de carga y conversión.'
+              'Para producto, campaña o lanzamiento — optimizadas para velocidad de carga y conversión.'
           },
           {
             title: 'Sitios web corporativos',
@@ -258,21 +259,26 @@ const PortfolioPage = () => {
               'Para negocios locales, clínicas, despachos e inmobiliarias que necesitan presencia profesional y generación de leads.'
           },
           {
-            title: 'Tracking y medición (add-on)',
+            title: 'Aplicaciones web con automatización',
             description:
-              'Configuración de GA4 y GTM, y dashboards en Looker Studio, para que veas resultados reales desde el lanzamiento.'
+              'Agendamiento de citas, integración con calendarios, registro de clientes e inventario — para que dejes de hacerlo a mano.'
           },
           {
-            title: 'Investigación tech',
+            title: 'Tracking y medición (add-on)',
             description:
-              'Si tu necesidad no encaja del todo con mis servicios actuales, te ayudo a aterrizar el problema, evaluar opciones y orientarte hacia la herramienta, stack o proveedor más adecuado.'
+              'Configuración de GA4, GTM y dashboards en Looker Studio, para que veas de dónde vienen tus clientes y qué está funcionando, con datos reales desde el lanzamiento.'
+          },
+          {
+            title: 'Investigación y estrategia técnica',
+            description:
+              '¿No estás seguro qué necesitas? Te ayudo a definir el problema, evaluar opciones, y elegir la herramienta o stack más adecuado para tu negocio — antes de invertir en desarrollo.'
           }
         ]
       : [
           {
             title: 'High-performance landing pages',
             description:
-              'For products, campaigns, or launches, optimized for loading speed and conversion.'
+              'For a product, campaign, or launch — optimized for loading speed and conversion.'
           },
           {
             title: 'Corporate websites',
@@ -280,14 +286,19 @@ const PortfolioPage = () => {
               'For local businesses, clinics, law firms, and real estate companies that need professional presence and lead generation.'
           },
           {
-            title: 'Tracking and measurement (add-on)',
+            title: 'Web applications with automation',
             description:
-              'GA4 and GTM setup, plus Looker Studio dashboards, so you can see real results from launch.'
+              'Appointment scheduling, calendar integrations, customer records, and inventory management — so you can stop doing it manually.'
           },
           {
-            title: 'Tech research',
+            title: 'Tracking and measurement (add-on)',
             description:
-              'If your need does not fully fit my current services, I can help you frame the problem, evaluate options, and point you toward the right tool, stack, or provider.'
+              'GA4, GTM, and Looker Studio dashboard setup, so you can see where your customers come from and what is working, with real data from launch.'
+          },
+          {
+            title: 'Technical research and strategy',
+            description:
+              'Not sure what you need? I help you define the problem, evaluate options, and choose the right tool or stack for your business — before you invest in development.'
           }
         ]
 
@@ -298,17 +309,17 @@ const PortfolioPage = () => {
     language === 'es'
       ? [
           'Entiendo tu negocio, tus objetivos y a quién le quieres hablar con tu sitio.',
-          'Defino estructura, contenido clave y diseño alineado a tu marca.',
-          'Desarrollo el sitio con foco en velocidad, buenas prácticas y SEO técnico.',
+          'Defino qué necesita tu proyecto: contenido y diseño si es un sitio, o cómo debe funcionar si es un sistema que automatiza algo.',
+          'Desarrollo tu sitio o sistema con foco en velocidad, buenas prácticas y que todo funcione como debe.',
           'Reviso y pruebo en distintos dispositivos y navegadores antes de lanzar.',
-          'Entrego con tracking básico de GA4 configurado, para que veas resultados desde el día uno.'
+          'Entrego con seguimiento configurado, para que veas resultados desde el día uno.'
         ]
       : [
           'I understand your business, your goals, and who your site needs to speak to.',
-          'I define structure, key content, and a design aligned with your brand.',
-          'I build the site with a focus on speed, best practices, and technical SEO.',
+          'I define what your project needs: content and design for a website, or how it should work if it is a system that automates something.',
+          'I build your site or system with a focus on speed, best practices, and making sure everything works as it should.',
           'I review and test across devices and browsers before launch.',
-          'I deliver with basic GA4 tracking configured so you can see results from day one.'
+          'I deliver with tracking configured so you can see results from day one.'
         ]
 
   const serviceOptions =
@@ -316,15 +327,17 @@ const PortfolioPage = () => {
       ? [
           'Landing page',
           'Sitio web completo',
+          'Aplicación web con automatización',
           'Tracking y analítica',
-          'Investigación tech',
+          'Investigación y estrategia técnica',
           'Otro'
         ]
       : [
           'Landing page',
           'Full website',
+          'Web application with automation',
           'Tracking and analytics',
-          'Tech research',
+          'Technical research and strategy',
           'Other'
         ]
 
@@ -513,18 +526,18 @@ const PortfolioPage = () => {
         strategy="afterInteractive"
       />
       <Container>
-        <Box position="relative" my="4rem">
+        <Box position="relative" mt="38px" mb="4rem">
           <Box
             position="relative"
             width="100dvw"
             maxW="100dvw"
             ml="calc(50% - 50dvw)"
             minH={{ base: '360px', md: '440px' }}
-            mt="3.75rem"
+            mt={0}
             mb={{ base: 10, md: 12 }}
             borderRadius="0"
             overflow="hidden"
-            bgImage="url('https://images.unsplash.com/photo-1677100091644-53575a136cfb?q=80&w=1771&auto=format&fit=crop')"
+            bgImage="url('https://images.unsplash.com/photo-1677100091644-53575a136cfb?q=80&w=1771&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"
             bgPosition="center"
             bgSize="cover"
             bgRepeat="no-repeat"
@@ -541,16 +554,9 @@ const PortfolioPage = () => {
               textAlign="center"
             >
               <Stack spacing={{ base: 4, md: 5 }} maxW="760px" color="white">
-                <Text
-                  fontSize={{ base: '10px', md: 'xs' }}
-                  letterSpacing="0.35em"
-                  textTransform="uppercase"
-                  opacity={0.82}
-                >
-                  {t.portfolio.hero.eyebrow}
-                </Text>
                 <Heading
                   as="h1"
+                  fontFamily="body"
                   fontSize={{ base: 'xl', md: '3xl', lg: '4xl' }}
                   lineHeight={{ base: 1.2, md: 1.1 }}
                   fontWeight="normal"
@@ -587,7 +593,9 @@ const PortfolioPage = () => {
                       px={8}
                       bg={heroPrimaryButtonBg}
                       color={heroPrimaryButtonColor}
-                      _hover={{ bg: heroPrimaryButtonBg, transform: 'translateY(-1px)' }}
+                      backdropFilter="blur(6px)"
+                      borderColor="whiteAlpha.300"
+                      _hover={{ bg: 'blackAlpha.400', transform: 'translateY(-1px)' }}
                       onClick={handleOpenCalendly}
                     >
                       {t.portfolio.hero.primaryCta}
@@ -624,7 +632,7 @@ const PortfolioPage = () => {
                     </Tag>
                   ))}
                 </Wrap>
-                <HStack spacing={4} justify="center" flexWrap="wrap" color="whiteAlpha.900">
+                <HStack spacing={4} justify="center" flexWrap="wrap" color={accentColor}>
                   <ChakraLink
                     href="mailto:bringas.armandop@gmail.com"
                     aria-label="Email Armando Bringas"
@@ -637,20 +645,6 @@ const PortfolioPage = () => {
                     aria-label="WhatsApp Armando Bringas"
                   >
                     <Icon as={FaWhatsapp} boxSize={6} />
-                  </ChakraLink>
-                  <ChakraLink
-                    href="https://github.com/armandopbringas"
-                    isExternal
-                    aria-label="GitHub de Armando Bringas"
-                  >
-                    <Icon as={FaGithub} boxSize={6} />
-                  </ChakraLink>
-                  <ChakraLink
-                    href="https://www.linkedin.com/in/armandopbringas/"
-                    isExternal
-                    aria-label="LinkedIn de Armando Bringas"
-                  >
-                    <Icon as={FaLinkedin} boxSize={6} />
                   </ChakraLink>
                 </HStack>
               </Stack>
@@ -680,7 +674,7 @@ const PortfolioPage = () => {
                 <Box id="projects" minW={0} scrollMarginTop="96px">
                   <Box
                     role="tablist"
-                    aria-label="Portfolio sections"
+                    aria-label={language === 'es' ? 'Secciones del portafolio' : 'Portfolio sections'}
                     display="flex"
                     flexWrap="wrap"
                     justifyContent="center"
@@ -706,17 +700,17 @@ const PortfolioPage = () => {
                           tabIndex={isActive ? 0 : -1}
                           variant="ghost"
                           bg="transparent"
-                          color={isActive ? 'accent.600' : mutedColor}
+                          color={isActive ? accentColor : mutedColor}
                           borderRadius="0"
                           borderBottomWidth="2px"
-                          borderColor={isActive ? 'accent.600' : 'transparent'}
+                          borderColor={isActive ? accentColor : 'transparent'}
                           px={0}
                           minW="auto"
                           h="auto"
                           pb={2}
                           fontSize={{ base: 'md', md: 'lg' }}
                           fontWeight={isActive ? 'semibold' : 'medium'}
-                          _hover={{ bg: 'transparent', color: isActive ? 'accent.600' : 'ink.700' }}
+                          _hover={{ bg: 'transparent', color: isActive ? accentColor : tabHoverColor }}
                           _active={{ bg: 'transparent' }}
                           onClick={() => setActiveTab(tab.id)}
                           onKeyDown={event => handleTabKeyDown(event, index)}
@@ -729,9 +723,15 @@ const PortfolioPage = () => {
 
                   <Box role="tabpanel" id={`panel-${activeTab}`} aria-labelledby={`tab-${activeTab}`} p={{ base: 5, md: 6 }}>
                     {activeTab === 'portfolio' && (
-                      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5}>
-                        {projects.map(project => (
-                          <Box
+                      <Stack spacing={5}>
+                        <Text color={mutedColor} lineHeight="tall">
+                          {language === 'es'
+                            ? 'Negocios que han confiado en mi trabajo:'
+                            : 'Businesses that have trusted me with their work:'}
+                        </Text>
+                        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5}>
+                          {projects.map(project => (
+                            <Box
                             key={project.id}
                             as="button"
                             type="button"
@@ -744,11 +744,11 @@ const PortfolioPage = () => {
                             transition="transform 0.2s ease, border-color 0.2s ease"
                             _hover={{
                               transform: 'translateY(-4px)',
-                              borderColor: 'accent.500'
+                              borderColor: accentColor
                             }}
                             _focusVisible={{
                               outline: '3px solid',
-                              outlineColor: 'accent.500',
+                              outlineColor: accentColor,
                               outlineOffset: '3px'
                             }}
                             onClick={() => handleOpenProject(project.id)}
@@ -769,18 +769,14 @@ const PortfolioPage = () => {
                               <Text fontSize="sm" noOfLines={2} color={mutedColor}>
                                 {project.shortDescription}
                               </Text>
-                              <Wrap spacing={2}>
-                                {project.tags.map(tag => (
-                                  <Tag key={tag}>{tag}</Tag>
-                                ))}
-                              </Wrap>
-                              <Text fontSize="sm" fontWeight="semibold" color="accent.600">
+                              <Text fontSize="sm" fontWeight="semibold" color={accentColor}>
                                 {language === 'es' ? 'Ver caso de estudio' : 'View case study'}
                               </Text>
                             </Stack>
-                          </Box>
-                        ))}
-                      </SimpleGrid>
+                            </Box>
+                          ))}
+                        </SimpleGrid>
+                      </Stack>
                     )}
 
                     {activeTab === 'services' && (
@@ -791,7 +787,7 @@ const PortfolioPage = () => {
                         <Text color={mutedColor} lineHeight="tall">
                           {language === 'es'
                             ? 'Desarrollo web enfocado en negocios que necesitan un sitio rápido, bien construido y que realmente ayude a conseguir clientes.'
-                            : 'Web development focused on businesses that need a fast, well-built site that genuinely helps them win clients.'}
+                            : 'Web development for businesses that need a fast, well-built site that genuinely helps them attract clients.'}
                         </Text>
                         <UnorderedList spacing={5} listStyleType="none" m={0} ml={0}>
                           {servicesFirstHalf.map(service => (
@@ -846,8 +842,8 @@ const PortfolioPage = () => {
                         </Heading>
                         <Text color={mutedColor} lineHeight="tall">
                           {language === 'es'
-                            ? 'Un proceso claro para pasar de una idea o un sitio desactualizado a un producto terminado, rápido y bien construido.'
-                            : 'A clear process to move from an idea or outdated site to a finished product that is fast and well built.'}
+                            ? 'Un proceso claro para pasar de una idea, un sitio desactualizado, o algo que hoy haces a mano, a un producto terminado, rápido y bien construido.'
+                            : 'A clear process for turning an idea, an outdated site, or something you currently do manually into a finished product that is fast and well built.'}
                         </Text>
                         <OrderedList spacing={4} pl={5}>
                           {processSteps.map(step => (
@@ -1040,7 +1036,9 @@ const PortfolioPage = () => {
         <ModalContent
           maxH={{ base: 'calc(100dvh - 1rem)', md: 'calc(100dvh - 4rem)' }}
           borderRadius={{ base: 'xl', md: '2xl' }}
-          bg={modalBg}
+          bg="sand.100"
+          color="ink.800"
+          _dark={{ bg: 'ink.900', color: 'paper.100' }}
         >
           <ModalCloseButton zIndex={2} />
           {selectedProject && (
@@ -1055,27 +1053,15 @@ const PortfolioPage = () => {
                     {selectedProject.shortDescription}
                   </Text>
                 </Box>
-                <SimpleGrid
+                <Box
                   as="dl"
-                  columns={{ base: 1, md: 2 }}
-                  spacing={{ base: 5, md: 8 }}
                   pt={6}
                   borderTopWidth="1px"
                   borderColor={borderColor}
                 >
-                    <Box>
-                      <Text as="dt" fontWeight="semibold" mb={3}>{t.portfolio.tagsLabel}</Text>
-                      <Wrap as="dd" spacing={2} m={0}>
-                        {selectedProject.tags.map(tag => (
-                          <Tag key={tag} borderRadius="md" bg={badgeBg}>{tag}</Tag>
-                        ))}
-                      </Wrap>
-                    </Box>
-                    <Box>
-                      <Text as="dt" fontWeight="semibold" mb={3}>{t.portfolio.createdLabel}</Text>
-                      <Text as="dd" m={0}>{selectedProject.createdAt}</Text>
-                    </Box>
-                </SimpleGrid>
+                  <Text as="dt" fontWeight="semibold" mb={2}>{t.portfolio.createdLabel}</Text>
+                  <Text as="dd" m={0}>{selectedProject.createdAt}</Text>
+                </Box>
                 {currentProjectSlide ? (
                   <Box role="region" aria-roledescription="carousel" aria-label={language === 'es' ? 'Galería del proyecto' : 'Project gallery'}>
                     <Box position="relative" h={{ base: '280px', md: '460px' }} bg="black" borderRadius="xl" overflow="hidden">
@@ -1102,8 +1088,8 @@ const PortfolioPage = () => {
                           aria-label={`${language === 'es' ? 'Ver imagen' : 'View image'} ${index + 1}`}
                           aria-current={index === activeProjectSlide ? 'true' : undefined}
                           size="xs" minW={index === activeProjectSlide ? 6 : 2} h={2}
-                          borderRadius="full" bg={index === activeProjectSlide ? 'accent.600' : borderColor}
-                          _hover={{ bg: 'accent.500' }} onClick={() => setActiveProjectSlide(index)}
+                          borderRadius="full" bg={index === activeProjectSlide ? accentColor : borderColor}
+                          _hover={{ bg: accentHoverColor }} onClick={() => setActiveProjectSlide(index)}
                         />
                       ))}
                     </HStack>
@@ -1136,7 +1122,9 @@ const PortfolioPage = () => {
           maxW={{ base: '95vw', lg: '1000px' }}
           borderRadius="8px"
           overflow="hidden"
-          bg={modalBg}
+          bg="sand.100"
+          color="ink.800"
+          _dark={{ bg: 'ink.900', color: 'paper.100' }}
           borderWidth="1px"
           borderColor={borderColor}
           boxShadow={hoverCardShadow}

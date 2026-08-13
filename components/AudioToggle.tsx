@@ -10,7 +10,7 @@ const AudioToggle = () => {
   const [isPlaying, setIsPlaying] = useState(false)
 
   const color = useColorModeValue('ink.700', 'sand.400')
-  const activeColor = useColorModeValue('accent.600', 'accent.500')
+  const activeColor = useColorModeValue('accent.500', 'accentDark.500')
   const borderColor = useColorModeValue('blackAlpha.300', 'whiteAlpha.300')
   const hoverBg = useColorModeValue('blackAlpha.100', 'whiteAlpha.100')
 

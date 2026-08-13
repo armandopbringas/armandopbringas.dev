@@ -5,7 +5,6 @@ import {
   Container,
   Box,
   Link,
-  Heading,
   Flex,
   Menu,
   MenuItem,
@@ -32,16 +31,17 @@ const Navbar = props => {
       position="fixed"
       as="nav"
       w="100%"
-      bg={useColorModeValue('#ffffff40', '#20202380')}
-      css={{ backdropFilter: 'blur(10px)' }}
+      bg={useColorModeValue('rgba(245,246,250,0.94)', 'ink.900')}
+      borderBottomWidth="1px"
+      borderColor={useColorModeValue('blackAlpha.100', 'whiteAlpha.200')}
       zIndex={2}
       {...props}
     >
-      <Container p={2} width="100%" display="flex" justifyContent="space-between">
+      <Container py={3} px={{ base: 4, md: 6 }} maxW="container.lg" width="100%" display="flex" justifyContent="space-between">
         <Flex align="center" mr={5}>
-          <Heading as="h1" size="lg" letterSpacing="tighter">
+          <Box as="div" fontSize="lg" letterSpacing="tighter">
             <Logo />
-          </Heading>
+          </Box>
         </Flex>
 
         <Box display="flex" alignItems="center" gap="1rem">

@@ -1,14 +1,13 @@
 import {
   ChakraProvider,
-  cookieStorageManagerSSR,
-  localStorageManager
+  createLocalStorageManager
 } from '@chakra-ui/react'
 import theme from '../lib/theme'
 
-export default function Chakra({ children, cookies }) {
-  const colorModeManager =
-    typeof cookies === 'string' ? cookieStorageManagerSSR(cookies) : localStorageManager
+// A new key ignores the time-based preference persisted by earlier versions.
+const colorModeManager = createLocalStorageManager('armandopbringas-color-mode')
 
+export default function Chakra({ children }) {
   return (
     <ChakraProvider theme={theme} colorModeManager={colorModeManager}>
       {children}
@@ -16,10 +15,7 @@ export default function Chakra({ children, cookies }) {
   )
 }
 
-export async function getServerSideProps({ req }) {
-  return {
-    props: {
-      cookies: req.headers.cookie ?? ''
-    }
-  }
+// Kept for pages that re-export this loader; color mode now resolves on the client.
+export async function getServerSideProps() {
+  return { props: {} }
 }

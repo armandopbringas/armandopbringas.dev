@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useLayoutEffect, useRef } from 'react'
 import { useColorMode } from '@chakra-ui/react'
 
 const LIGHT_START_HOUR = 7
@@ -35,7 +35,22 @@ const ColorModeScheduler = () => {
   const { setColorMode } = useColorMode()
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    const systemPreference = window.matchMedia?.('(prefers-color-scheme: dark)')
+
+    if (systemPreference) {
+      const applySystemPreference = (event?: MediaQueryListEvent) => {
+        setColorMode((event?.matches ?? systemPreference.matches) ? 'dark' : 'light')
+      }
+
+      applySystemPreference()
+      systemPreference.addEventListener('change', applySystemPreference)
+
+      return () => {
+        systemPreference.removeEventListener('change', applySystemPreference)
+      }
+    }
+
     const applyModeAndSchedule = () => {
       const now = new Date()
       const desiredMode = getModeForDate(now)

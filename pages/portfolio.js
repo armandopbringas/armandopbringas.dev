@@ -533,6 +533,8 @@ const PortfolioPage = () => {
             maxW="100dvw"
             ml="calc(50% - 50dvw)"
             minH={{ base: '360px', md: '440px' }}
+            display="flex"
+            alignItems="center"
             mt={0}
             mb={{ base: 10, md: 12 }}
             borderRadius="0"
@@ -545,7 +547,7 @@ const PortfolioPage = () => {
             <Box
               position="relative"
               zIndex={1}
-              h="100%"
+              w="100%"
               px={{ base: 6, md: 8, lg: 12 }}
               py={{ base: 12, md: 14 }}
               display="flex"

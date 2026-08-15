@@ -1,9 +1,12 @@
 {
   "es": {
     "meta": {
-      "portfolioTitle": "Portfolio - Armando Bringas",
-      "bioTitle": "Bio - Armando Bringas",
-      "skillsTitle": "Skills - Armando Bringas"
+      "portfolioTitle": "Desarrollo web y automatización para negocios | Armando Bringas",
+      "portfolioDescription": "Desarrollo sitios web, landing pages y aplicaciones con automatización para negocios que buscan una presencia rápida, profesional y escalable.",
+      "bioTitle": "Sobre Armando Bringas | Desarrollo web y automatización",
+      "bioDescription": "Conoce a Armando Bringas, desarrollador de sitios y aplicaciones web para negocios que necesitan soluciones simples, funcionales y escalables.",
+      "skillsTitle": "Habilidades de desarrollo web | Armando Bringas",
+      "skillsDescription": "Tecnologías y habilidades de Armando Bringas para construir sitios web, aplicaciones y automatizaciones enfocadas en negocio."
     },
     "nav": {
       "portfolio": "Proyectos",
@@ -1151,9 +1154,12 @@
   },
   "en": {
     "meta": {
-      "portfolioTitle": "Portfolio - Armando Bringas",
-      "bioTitle": "Bio - Armando Bringas",
-      "skillsTitle": "Skills - Armando Bringas"
+      "portfolioTitle": "Web development and automation for businesses | Armando Bringas",
+      "portfolioDescription": "I build websites, landing pages, and web applications with automation for businesses that need a fast, professional, scalable presence.",
+      "bioTitle": "About Armando Bringas | Web development and automation",
+      "bioDescription": "Meet Armando Bringas, a website and web application developer who builds simple, functional, scalable solutions for businesses.",
+      "skillsTitle": "Web development skills | Armando Bringas",
+      "skillsDescription": "Armando Bringas' technologies and skills for building business-focused websites, web applications, and automations."
     },
     "nav": {
       "portfolio": "Projects",

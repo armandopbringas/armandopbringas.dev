@@ -39,10 +39,12 @@ export const getFeaturedProjects = language => {
       modalImageUrl: '/images/projects/nutrition-consultation/01-home.png',
       createdAt: '2026',
       contentBlocks: [
-        { type: 'heading', text: isSpanish ? 'Resumen' : 'Summary' },
-        { type: 'text', text: isSpanish ? 'Desarrollé un sitio para una consulta nutricional que presenta su propuesta de acompañamiento, especialidades y servicios, y guía a las personas hacia la agenda de una cita.' : 'I built a website for a nutrition practice that presents its approach, specialties, and services, then guides visitors to schedule an appointment.' },
-        { type: 'heading', text: isSpanish ? 'Alcance' : 'Scope' },
-        { type: 'ul', items: isSpanish ? ['Landing responsive con perfil, acompañamiento y contacto.', 'Formulario de datos iniciales y página de agenda conectada con Calendly.', 'Confirmación de cita por Gmail y opción para agregarla a Google Calendar.', 'Registro de datos iniciales en Google Sheets.', 'Contenido administrable desde Sanity CMS.'] : ['Responsive landing page with profile, care, and contact sections.', 'Initial-details form and booking page connected to Calendly.', 'Appointment confirmation sent by Gmail with an option to add it to Google Calendar.', 'Initial details stored in Google Sheets.', 'Content modeled and managed through Sanity CMS.'] },
+        { type: 'heading', text: isSpanish ? 'El reto' : 'The challenge' },
+        { type: 'text', text: isSpanish ? 'La consulta necesitaba una presencia clara para explicar su enfoque, resolver dudas iniciales y facilitar que cada persona llegara a su cita con la información básica compartida.' : 'The practice needed a clear online presence that explained its approach, answered initial questions, and made it easier for each person to arrive at their appointment with the basic context already shared.' },
+        { type: 'heading', text: isSpanish ? 'La solución' : 'The solution' },
+        { type: 'ul', items: isSpanish ? ['Landing responsive con perfil profesional, servicios y contacto.', 'Formulario de datos iniciales y página de agenda conectada con Calendly.', 'Confirmación de cita por correo y opción para agregarla a Google Calendar.', 'Registro de datos iniciales en Google Sheets.', 'Contenido administrable desde Sanity CMS.'] : ['Responsive landing page with professional profile, services, and contact.', 'Initial-details form and booking page connected to Calendly.', 'Appointment confirmation by email and an option to add it to Google Calendar.', 'Initial details stored in Google Sheets.', 'Content modeled and managed through Sanity CMS.'] },
+        { type: 'heading', text: isSpanish ? 'Lo que quedó listo' : 'What was delivered' },
+        { type: 'text', text: isSpanish ? 'Un recorrido que lleva desde conocer la consulta hasta solicitar una cita, con los datos iniciales reunidos en un solo flujo para facilitar el seguimiento.' : 'A journey that takes visitors from learning about the practice to requesting an appointment, with initial details collected in one flow to make follow-up easier.' },
         { type: 'heading', text: isSpanish ? 'Sitio' : 'Website' },
         { type: 'ul', items: [{ text: isSpanish ? 'Ver sitio en vivo' : 'View live site', url: 'https://nutrition-site-two.vercel.app/' }] },
         gallery('nutrition-consultation-site', language)
@@ -59,10 +61,12 @@ export const getFeaturedProjects = language => {
       modalImageUrl: '/images/projects/sarintec-engineering/01-home.png',
       createdAt: '2026',
       contentBlocks: [
-        { type: 'heading', text: isSpanish ? 'Resumen' : 'Summary' },
-        { type: 'text', text: isSpanish ? 'Desarrollé el sitio de Sarintec Ingeniería para comunicar sus soluciones para hogares y negocios y facilitar las solicitudes de servicio desde la web.' : 'I built the Sarintec Ingeniería website to communicate its connected-space solutions for homes and businesses and make it easier to request a service online.' },
-        { type: 'heading', text: isSpanish ? 'Alcance' : 'Scope' },
+        { type: 'heading', text: isSpanish ? 'El reto' : 'The challenge' },
+        { type: 'text', text: isSpanish ? 'Sarintec necesitaba explicar una oferta técnica amplia de forma entendible y abrir un canal claro para recibir solicitudes de servicio desde la web.' : 'Sarintec needed to explain a broad technical offering in a clear way and open a straightforward channel for receiving service requests online.' },
+        { type: 'heading', text: isSpanish ? 'La solución' : 'The solution' },
         { type: 'ul', items: isSpanish ? ['Landing responsive para servicios de seguridad, automatización, redes e iluminación.', 'Formulario para solicitar un servicio y compartir los detalles iniciales del proyecto.', 'Agenda de visitas mediante Calendly, con detalles enviados por correo y Google Calendar.', 'Área administrativa protegida para revisar solicitudes recibidas.'] : ['Responsive landing page for security, automation, network, and lighting services.', 'Service-request form for sharing initial project details.', 'Visits can be scheduled through Calendly, with details delivered by email and Google Calendar.', 'Protected admin area for reviewing submitted requests.'] },
+        { type: 'heading', text: isSpanish ? 'Lo que quedó listo' : 'What was delivered' },
+        { type: 'text', text: isSpanish ? 'Un sitio que presenta las soluciones de la empresa y convierte una visita en una solicitud con el contexto suficiente para dar seguimiento.' : 'A website that presents the company’s solutions and turns a visit into a request with enough context to follow up.' },
         { type: 'heading', text: isSpanish ? 'Sitio' : 'Website' },
         { type: 'ul', items: [{ text: isSpanish ? 'Ver sitio en vivo' : 'View live site', url: 'https://sarintec-eng.vercel.app/' }] },
         gallery('sarintec-engineering-site', language)

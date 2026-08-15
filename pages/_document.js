@@ -4,12 +4,26 @@ import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
 import theme from '../lib/theme'
 
 export default class Document extends NextDocument {
+  static async getInitialProps(ctx) {
+    const initialProps = await NextDocument.getInitialProps(ctx)
+
+    return {
+      ...initialProps,
+      locale: ctx.locale || 'es'
+    }
+  }
+
   render() {
     const gtmId = process.env.NEXT_PUBLIC_GTM_ID
+    const lang = this.props.locale === 'en' ? 'en' : 'es'
 
     return (
-      <Html lang="en">
+      <Html lang={lang}>
         <Head>
+          <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+          <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+          <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml" />
+          <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
           {gtmId ? (
             <script
               dangerouslySetInnerHTML={{

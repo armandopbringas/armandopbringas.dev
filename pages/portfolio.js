@@ -40,7 +40,6 @@ import {
   useToast,
   useColorModeValue
 } from '@chakra-ui/react'
-import Head from 'next/head'
 import Image from 'next/image'
 import Script from 'next/script'
 import { motion } from 'framer-motion'
@@ -51,6 +50,7 @@ import { MdEmail } from 'react-icons/md'
 import Section from '../components/section'
 import { useLanguage } from '../components/language-context'
 import { getFeaturedProjects } from '../content/featured-projects'
+import SeoHead, { getHomeSchema } from '../components/seo-head'
 
 const variants = {
   hidden: { opacity: 0, x: 0, y: 20 },
@@ -237,6 +237,12 @@ const PortfolioPage = () => {
     : []
   const currentProjectSlide = projectGallery[activeProjectSlide]
   const isOpen = Boolean(selectedProject)
+  const seoTitle = selectedProject
+    ? `${selectedProject.title} | ${language === 'es' ? 'Caso de estudio' : 'Case study'} | Armando Bringas`
+    : t.meta.portfolioTitle
+  const seoDescription = selectedProject
+    ? selectedProject.shortDescription
+    : t.meta.portfolioDescription
 
   const tabItems = [
     { id: 'services', label: t.nav.services },
@@ -515,12 +521,11 @@ const PortfolioPage = () => {
 
   return (
     <>
-      <Head>
-        <title>{t.meta.portfolioTitle}</title>
-        <meta name="twitter:title" content={t.meta.portfolioTitle} />
-        <meta property="og:title" content={t.meta.portfolioTitle} />
-        <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
-      </Head>
+      <SeoHead
+        title={seoTitle}
+        description={seoDescription}
+        schema={selectedProject ? undefined : getHomeSchema(language)}
+      />
       <Script
         src="https://assets.calendly.com/assets/external/widget.js"
         strategy="afterInteractive"
@@ -728,8 +733,8 @@ const PortfolioPage = () => {
                       <Stack spacing={5}>
                         <Text color={mutedColor} lineHeight="tall">
                           {language === 'es'
-                            ? 'Negocios que han confiado en mi trabajo:'
-                            : 'Businesses that have trusted me with their work:'}
+                            ? 'Negocios que han confiado en mi trabajo. Cada caso muestra el problema que había que resolver, la solución construida y lo que quedó listo para operar.'
+                            : 'Businesses that have trusted me with their work. Each case shows the problem to solve, the solution that was built, and what was ready to use.'}
                         </Text>
                         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5}>
                           {projects.map(project => (
@@ -791,6 +796,26 @@ const PortfolioPage = () => {
                             ? 'Desarrollo web enfocado en negocios que necesitan un sitio rápido, bien construido y que realmente ayude a conseguir clientes.'
                             : 'Web development for businesses that need a fast, well-built site that genuinely helps them attract clients.'}
                         </Text>
+                        <Box borderLeftWidth="2px" borderColor={accentColor} pl={4}>
+                          <Heading as="h3" size="sm" mb={2}>
+                            {language === 'es' ? 'Qué puedes esperar' : 'What you can expect'}
+                          </Heading>
+                          <UnorderedList spacing={2} color={mutedColor} fontSize="sm" lineHeight="tall" m={0} pl={5}>
+                            {language === 'es' ? (
+                              <>
+                                <ListItem>Una recomendación clara sobre qué conviene construir antes de empezar.</ListItem>
+                                <ListItem>Un sitio o sistema probado en distintos dispositivos antes de lanzar.</ListItem>
+                                <ListItem>Un flujo de contacto, agenda o seguimiento pensado para no perder oportunidades.</ListItem>
+                              </>
+                            ) : (
+                              <>
+                                <ListItem>A clear recommendation on what makes sense to build before work starts.</ListItem>
+                                <ListItem>A website or system tested across devices before launch.</ListItem>
+                                <ListItem>A contact, booking, or follow-up flow designed to avoid lost opportunities.</ListItem>
+                              </>
+                            )}
+                          </UnorderedList>
+                        </Box>
                         <UnorderedList spacing={5} listStyleType="none" m={0} ml={0}>
                           {servicesFirstHalf.map(service => (
                             <ListItem key={service.title}>

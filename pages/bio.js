@@ -1,11 +1,11 @@
 import { Box, Container, Stack } from '@chakra-ui/react'
-import Head from 'next/head'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 import { BioSection, BioYear } from '../components/bio'
 import Section from '../components/section'
 import ProfileFixedLayout from '../components/profile-fixed-layout'
 import { useLanguage } from '../components/language-context'
+import SeoHead from '../components/seo-head'
 
 const variants = {
   hidden: { opacity: 0, x: 0, y: 20 },
@@ -19,11 +19,7 @@ const BioPage = () => {
 
   return (
     <>
-      <Head>
-        <title>{t.meta.bioTitle}</title>
-        <meta name="twitter:title" content={t.meta.bioTitle} />
-        <meta property="og:title" content={t.meta.bioTitle} />
-      </Head>
+      <SeoHead title={t.meta.bioTitle} description={t.meta.bioDescription} />
       <Container>
         <Box position="relative" my="4rem">
         <ProfileFixedLayout currentPath={router.pathname} />

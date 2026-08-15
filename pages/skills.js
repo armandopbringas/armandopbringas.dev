@@ -1,5 +1,4 @@
 import { Box, Container, useColorModeValue } from '@chakra-ui/react'
-import Head from 'next/head'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 import { frontendSkills } from '../content'
@@ -7,6 +6,7 @@ import Section from '../components/section'
 import ProfileFixedLayout from '../components/profile-fixed-layout'
 import { FlexBox, ListBox } from '../components/layouts/Boxes'
 import { useLanguage } from '../components/language-context'
+import SeoHead from '../components/seo-head'
 
 const variants = {
   hidden: { opacity: 0, x: 0, y: 20 },
@@ -21,11 +21,7 @@ const SkillsPage = () => {
 
   return (
     <>
-      <Head>
-        <title>{t.meta.skillsTitle}</title>
-        <meta name="twitter:title" content={t.meta.skillsTitle} />
-        <meta property="og:title" content={t.meta.skillsTitle} />
-      </Head>
+      <SeoHead title={t.meta.skillsTitle} description={t.meta.skillsDescription} />
       <Container>
         <div style={{ position: 'relative', margin: '4rem 0' }}>
         <ProfileFixedLayout currentPath={router.pathname} />

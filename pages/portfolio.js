@@ -260,14 +260,14 @@ const PortfolioPage = () => {
               'Para producto, campaña o lanzamiento — optimizadas para velocidad de carga y conversión.'
           },
           {
-            title: 'Sitios web corporativos',
+            title: 'Sitios web a la medida',
             description:
-              'Para negocios locales, clínicas, despachos e inmobiliarias que necesitan presencia profesional y generación de leads.'
+              'Corporativos, tiendas en línea, o plataformas con un propósito específico — construidos según lo que tu negocio necesita: generar leads, vender en línea, o dar presencia profesional.'
           },
           {
             title: 'Aplicaciones web con automatización',
             description:
-              'Agendamiento de citas, integración con calendarios, registro de clientes e inventario — para que dejes de hacerlo a mano.'
+              'Sistemas simples para llevar el control de tu negocio — citas, clientes, inventario, proyectos y cotizaciones — para que dejes de hacerlo a mano y ahorres tiempo todos los días.'
           },
           {
             title: 'Tracking y medición (add-on)',
@@ -287,14 +287,14 @@ const PortfolioPage = () => {
               'For a product, campaign, or launch — optimized for loading speed and conversion.'
           },
           {
-            title: 'Corporate websites',
+            title: 'Custom websites',
             description:
-              'For local businesses, clinics, law firms, and real estate companies that need professional presence and lead generation.'
+              'Corporate sites, online stores, or platforms with a specific purpose — built around what your business needs: generate leads, sell online, or establish a professional presence.'
           },
           {
             title: 'Web applications with automation',
             description:
-              'Appointment scheduling, calendar integrations, customer records, and inventory management — so you can stop doing it manually.'
+              'Simple systems to keep your business organized — appointments, customers, inventory, projects, and quotes — so you can stop doing it manually and save time every day.'
           },
           {
             title: 'Tracking and measurement (add-on)',
@@ -307,9 +307,6 @@ const PortfolioPage = () => {
               'Not sure what you need? I help you define the problem, evaluate options, and choose the right tool or stack for your business — before you invest in development.'
           }
         ]
-
-  const servicesFirstHalf = services.slice(0, Math.ceil(services.length / 2))
-  const servicesSecondHalf = services.slice(Math.ceil(services.length / 2))
 
   const processSteps =
     language === 'es'
@@ -530,7 +527,7 @@ const PortfolioPage = () => {
         src="https://assets.calendly.com/assets/external/widget.js"
         strategy="afterInteractive"
       />
-      <Container>
+      <Container maxW="none" px={0}>
         <Box position="relative" mt="38px" mb="4rem">
           <Box
             position="relative"
@@ -666,9 +663,9 @@ const PortfolioPage = () => {
             transition={{ duration: 0.35, type: 'easeInOut' }}
           >
             <Section delay={0.05}>
-              <Stack spacing={12} maxW="760px" mx="auto" align="stretch">
-                <Box id="about" p={{ base: 5, md: 6 }} scrollMarginTop="96px">
-                  <Stack spacing={3}>
+              <Stack spacing={12} w="100%" align="stretch">
+                <Box id="about" scrollMarginTop="96px">
+                  <Stack spacing={3} maxW="58ch" mx="auto">
                     <Heading as="h2" size="md">
                       {t.profile.aboutTitle}
                     </Heading>
@@ -728,7 +725,12 @@ const PortfolioPage = () => {
                     })}
                   </Box>
 
-                  <Box role="tabpanel" id={`panel-${activeTab}`} aria-labelledby={`tab-${activeTab}`} p={{ base: 5, md: 6 }}>
+                  <Box
+                    role="tabpanel"
+                    id={`panel-${activeTab}`}
+                    aria-labelledby={`tab-${activeTab}`}
+                    py={{ base: 5, md: 6 }}
+                  >
                     {activeTab === 'portfolio' && (
                       <Stack spacing={5}>
                         <Text color={mutedColor} lineHeight="tall">
@@ -787,114 +789,134 @@ const PortfolioPage = () => {
                     )}
 
                     {activeTab === 'services' && (
-                      <Stack spacing={6}>
-                        <Heading as="h2" size="lg">
-                          {t.nav.services}
-                        </Heading>
-                        <Text color={mutedColor} lineHeight="tall">
-                          {language === 'es'
-                            ? 'Desarrollo web enfocado en negocios que necesitan un sitio rápido, bien construido y que realmente ayude a conseguir clientes.'
-                            : 'Web development for businesses that need a fast, well-built site that genuinely helps them attract clients.'}
-                        </Text>
-                        <Box borderLeftWidth="2px" borderColor={accentColor} pl={4}>
-                          <Heading as="h3" size="sm" mb={2}>
-                            {language === 'es' ? 'Qué puedes esperar' : 'What you can expect'}
+                      <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={{ base: 6, lg: 12 }} alignItems="stretch">
+                        <Stack spacing={6}>
+                          <Heading as="h2" size="lg">
+                            {t.nav.services}
                           </Heading>
-                          <UnorderedList spacing={2} color={mutedColor} fontSize="sm" lineHeight="tall" m={0} pl={5}>
-                            {language === 'es' ? (
-                              <>
-                                <ListItem>Una recomendación clara sobre qué conviene construir antes de empezar.</ListItem>
-                                <ListItem>Un sitio o sistema probado en distintos dispositivos antes de lanzar.</ListItem>
-                                <ListItem>Un flujo de contacto, agenda o seguimiento pensado para no perder oportunidades.</ListItem>
-                              </>
-                            ) : (
-                              <>
-                                <ListItem>A clear recommendation on what makes sense to build before work starts.</ListItem>
-                                <ListItem>A website or system tested across devices before launch.</ListItem>
-                                <ListItem>A contact, booking, or follow-up flow designed to avoid lost opportunities.</ListItem>
-                              </>
-                            )}
+                          <Text color={mutedColor} lineHeight="tall">
+                            {language === 'es'
+                              ? 'Desarrollo web enfocado en negocios que necesitan un sitio o sistema rápido, bien construido y que realmente ayude a conseguir clientes u optimizar procesos.'
+                              : 'Web development for businesses that need a fast, well-built website or system that helps attract clients or streamline processes.'}
+                          </Text>
+                          <Box borderLeftWidth="2px" borderColor={accentColor} pl={4}>
+                            <Heading as="h3" size="sm" mb={2}>
+                              {language === 'es' ? 'Qué puedes esperar' : 'What you can expect'}
+                            </Heading>
+                            <UnorderedList spacing={2} color={mutedColor} fontSize="sm" lineHeight="tall" m={0} pl={5}>
+                              {language === 'es' ? (
+                                <>
+                                  <ListItem>Una recomendación clara sobre qué conviene construir antes de empezar.</ListItem>
+                                  <ListItem>Un sitio o sistema probado en distintos dispositivos antes de lanzar.</ListItem>
+                                </>
+                              ) : (
+                                <>
+                                  <ListItem>A clear recommendation on what makes sense to build before work starts.</ListItem>
+                                  <ListItem>A website or system tested across devices before launch.</ListItem>
+                                </>
+                              )}
+                            </UnorderedList>
+                          </Box>
+                          <UnorderedList spacing={5} listStyleType="none" m={0} ml={0}>
+                            {services.slice(0, 2).map(service => (
+                              <ListItem key={service.title}>
+                                <Stack spacing={1}>
+                                  <Heading as="h3" size="sm">
+                                    {service.title}
+                                  </Heading>
+                                  <Text color={mutedColor} fontSize="sm" lineHeight="tall">
+                                    {service.description}
+                                  </Text>
+                                </Stack>
+                              </ListItem>
+                            ))}
                           </UnorderedList>
-                        </Box>
-                        <UnorderedList spacing={5} listStyleType="none" m={0} ml={0}>
-                          {servicesFirstHalf.map(service => (
-                            <ListItem key={service.title}>
-                              <Stack spacing={1}>
-                                <Heading as="h3" size="sm">
-                                  {service.title}
-                                </Heading>
-                                <Text color={mutedColor} fontSize="sm" lineHeight="tall">
-                                  {service.description}
-                                </Text>
-                              </Stack>
-                            </ListItem>
-                          ))}
-                        </UnorderedList>
+                        </Stack>
                         <Box
                           position="relative"
                           w="100%"
-                          minH={{ base: '240px', md: '320px' }}
-                          overflow="hidden"
-                          borderRadius="2xl"
-                        >
-                          <Image
-                            src="https://images.unsplash.com/photo-1686061594183-8c864f508b00?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                            alt="Digital analytics style dashboard and workspace representing premium web service delivery"
-                            fill
-                            sizes="(max-width: 768px) 100vw, 760px"
-                            style={{ objectFit: 'cover' }}
-                          />
-                        </Box>
-                        <UnorderedList spacing={5} listStyleType="none" m={0} ml={0}>
-                          {servicesSecondHalf.map(service => (
-                            <ListItem key={service.title}>
-                              <Stack spacing={1}>
-                                <Heading as="h3" size="sm">
-                                  {service.title}
-                                </Heading>
-                                <Text color={mutedColor} fontSize="sm" lineHeight="tall">
-                                  {service.description}
-                                </Text>
-                              </Stack>
-                            </ListItem>
-                          ))}
-                        </UnorderedList>
-                      </Stack>
-                    )}
-
-                    {activeTab === 'process' && (
-                      <Stack spacing={4}>
-                        <Heading as="h2" size="lg">
-                          {t.nav.workProcess}
-                        </Heading>
-                        <Text color={mutedColor} lineHeight="tall">
-                          {language === 'es'
-                            ? 'Un proceso claro para pasar de una idea, un sitio desactualizado, o algo que hoy haces a mano, a un producto terminado, rápido y bien construido.'
-                            : 'A clear process for turning an idea, an outdated site, or something you currently do manually into a finished product that is fast and well built.'}
-                        </Text>
-                        <OrderedList spacing={4} pl={5}>
-                          {processSteps.map(step => (
-                            <ListItem key={step} color={mutedColor} lineHeight="tall">
-                              {step}
-                            </ListItem>
-                          ))}
-                        </OrderedList>
-                        <Box
-                          position="relative"
-                          w="100%"
-                          minH={{ base: '220px', md: '320px' }}
+                          h={{ base: '200px', lg: 'clamp(360px, 26vw, 440px)' }}
+                          alignSelf={{ lg: 'start' }}
                           overflow="hidden"
                           borderRadius="2xl"
                         >
                           <Image
                             src="https://images.unsplash.com/photo-1558367853-fd760bbe56b6?q=80&w=1064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                            alt="Workspace and notebook representing a structured web project workflow"
+                            alt="Workspace and notebook representing thoughtful web service delivery"
                             fill
-                            sizes="(max-width: 768px) 100vw, 760px"
+                            sizes="(max-width: 992px) 100vw, 50vw"
                             style={{ objectFit: 'cover' }}
                           />
                         </Box>
-                      </Stack>
+                        <Box
+                          position="relative"
+                          w="100%"
+                          h={{ base: '180px', lg: 'clamp(280px, 20vw, 340px)' }}
+                          alignSelf={{ lg: 'start' }}
+                          overflow="hidden"
+                          borderRadius="2xl"
+                        >
+                          <Image
+                            src="https://images.unsplash.com/photo-1686061594183-8c864f508b00?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Digital dashboard and workspace representing web application automation"
+                            fill
+                            sizes="(max-width: 992px) 100vw, 50vw"
+                            style={{ objectFit: 'cover' }}
+                          />
+                        </Box>
+                        <UnorderedList spacing={5} listStyleType="none" m={0} ml={0}>
+                          {services.slice(2).map(service => (
+                            <ListItem key={service.title}>
+                              <Stack spacing={1}>
+                                <Heading as="h3" size="sm">
+                                  {service.title}
+                                </Heading>
+                                <Text color={mutedColor} fontSize="sm" lineHeight="tall">
+                                  {service.description}
+                                </Text>
+                              </Stack>
+                            </ListItem>
+                          ))}
+                        </UnorderedList>
+                      </SimpleGrid>
+                    )}
+
+                    {activeTab === 'process' && (
+                      <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={{ base: 6, lg: 12 }} alignItems="stretch">
+                        <Stack spacing={4}>
+                          <Heading as="h2" size="lg">
+                            {t.nav.workProcess}
+                          </Heading>
+                          <Text color={mutedColor} lineHeight="tall">
+                            {language === 'es'
+                              ? 'Un proceso claro para pasar de una idea, un sitio desactualizado, o algo que hoy haces a mano, a un producto terminado, rápido y bien construido.'
+                              : 'A clear process for turning an idea, an outdated site, or something you currently do manually into a finished product that is fast and well built.'}
+                          </Text>
+                          <OrderedList spacing={4} pl={5}>
+                            {processSteps.map(step => (
+                              <ListItem key={step} color={mutedColor} lineHeight="tall">
+                                {step}
+                              </ListItem>
+                            ))}
+                          </OrderedList>
+                        </Stack>
+                        <Box
+                          position="relative"
+                          w="100%"
+                          h={{ base: '200px', lg: 'clamp(320px, 23vw, 380px)' }}
+                          alignSelf={{ lg: 'center' }}
+                          overflow="hidden"
+                          borderRadius="2xl"
+                        >
+                          <Image
+                            src="https://images.unsplash.com/photo-1516031190212-da133013de50?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0"
+                            alt="Computer screen with software representing a structured web project workflow"
+                            fill
+                            sizes="(max-width: 992px) 100vw, 50vw"
+                            style={{ objectFit: 'cover' }}
+                          />
+                        </Box>
+                      </SimpleGrid>
                     )}
 
                     {activeTab === 'contact' && (
@@ -904,7 +926,7 @@ const PortfolioPage = () => {
                         id="contact"
                         scrollMarginTop="96px"
                       >
-                        <Box>
+                        <Box w="100%" maxW="640px" mx="auto">
                           <Text
                             fontSize="sm"
                             textTransform="uppercase"
@@ -926,7 +948,7 @@ const PortfolioPage = () => {
                           </Text>
                         </Box>
 
-                        <HStack spacing={6} flexWrap="wrap" align="center">
+                        <HStack spacing={6} flexWrap="wrap" align="center" w="100%" maxW="640px" mx="auto">
                           <ChakraLink href="mailto:bringas.armandop@gmail.com" fontWeight="semibold">
                             {language === 'es' ? 'Escríbeme por correo' : 'Email me'} →
                           </ChakraLink>
@@ -942,7 +964,7 @@ const PortfolioPage = () => {
                           </ChakraLink>
                         </HStack>
 
-                        <Box as="form" onSubmit={handleContactSubmit}>
+                        <Box as="form" onSubmit={handleContactSubmit} w="100%" maxW="640px" mx="auto">
                           <Stack spacing={5}>
                             <FormControl isRequired>
                               <FormLabel>{language === 'es' ? 'Nombre' : 'Name'}</FormLabel>

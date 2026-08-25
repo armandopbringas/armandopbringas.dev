@@ -738,52 +738,56 @@ const PortfolioPage = () => {
                             ? 'Negocios que han confiado en mi trabajo. Cada caso muestra el problema que había que resolver, la solución construida y lo que quedó listo para operar.'
                             : 'Businesses that have trusted me with their work. Each case shows the problem to solve, the solution that was built, and what was ready to use.'}
                         </Text>
-                        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5}>
-                          {projects.map(project => (
-                            <Box
-                            key={project.id}
-                            as="button"
-                            type="button"
-                            aria-label={`${language === 'es' ? 'Ver proyecto' : 'View project'}: ${project.title}`}
-                            textAlign="left"
-                            borderRadius="lg"
+                        <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={{ base: 6, lg: 12 }} alignItems="stretch">
+                          <Stack spacing={4}>
+                            {projects.map(project => (
+                              <Box
+                                key={project.id}
+                                as="button"
+                                type="button"
+                                aria-label={`${language === 'es' ? 'Ver proyecto' : 'View project'}: ${project.title}`}
+                                textAlign="left"
+                                p={5}
+                                borderRadius="lg"
+                                borderWidth="1px"
+                                borderColor={borderColor}
+                                transition="transform 0.2s ease, border-color 0.2s ease"
+                                _hover={{
+                                  transform: 'translateY(-4px)',
+                                  borderColor: accentColor
+                                }}
+                                _focusVisible={{
+                                  outline: '3px solid',
+                                  outlineColor: accentColor,
+                                  outlineOffset: '3px'
+                                }}
+                                onClick={() => handleOpenProject(project.id)}
+                              >
+                                <Stack spacing={2}>
+                                  <Heading as="h3" size="sm">
+                                    {project.title}
+                                  </Heading>
+                                  <Text fontSize="sm" color={mutedColor}>
+                                    {project.shortDescription}
+                                  </Text>
+                                </Stack>
+                              </Box>
+                            ))}
+                          </Stack>
+                          <Box
+                            position="relative"
+                            minH={{ base: '240px', lg: '360px' }}
                             overflow="hidden"
-                            borderWidth="1px"
-                            borderColor={borderColor}
-                            transition="transform 0.2s ease, border-color 0.2s ease"
-                            _hover={{
-                              transform: 'translateY(-4px)',
-                              borderColor: accentColor
-                            }}
-                            _focusVisible={{
-                              outline: '3px solid',
-                              outlineColor: accentColor,
-                              outlineOffset: '3px'
-                            }}
-                            onClick={() => handleOpenProject(project.id)}
+                            borderRadius="2xl"
                           >
-                            <Box position="relative" h="170px" bg={surfaceBg}>
-                              <Image
-                                src={project.coverImageUrl}
-                                alt={`${project.title} thumbnail`}
-                                fill
-                                sizes="(max-width: 768px) 100vw, 50vw"
-                                style={{ objectFit: 'cover' }}
-                              />
-                            </Box>
-                            <Stack spacing={3} p={4}>
-                              <Heading as="h3" size="sm" noOfLines={2}>
-                                {project.title}
-                              </Heading>
-                              <Text fontSize="sm" noOfLines={2} color={mutedColor}>
-                                {project.shortDescription}
-                              </Text>
-                              <Text fontSize="sm" fontWeight="semibold" color={accentColor}>
-                                {language === 'es' ? 'Ver caso de estudio' : 'View case study'}
-                              </Text>
-                            </Stack>
-                            </Box>
-                          ))}
+                            <Image
+                              src="https://images.unsplash.com/photo-1516031190212-da133013de50?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0"
+                              alt="Computer screen with software representing project delivery"
+                              fill
+                              sizes="(max-width: 992px) 100vw, 50vw"
+                              style={{ objectFit: 'cover' }}
+                            />
+                          </Box>
                         </SimpleGrid>
                       </Stack>
                     )}
@@ -817,6 +821,22 @@ const PortfolioPage = () => {
                               )}
                             </UnorderedList>
                           </Box>
+                          <Box
+                            display={{ base: 'block', lg: 'none' }}
+                            position="relative"
+                            w="100%"
+                            h="200px"
+                            overflow="hidden"
+                            borderRadius="2xl"
+                          >
+                            <Image
+                              src="https://images.unsplash.com/photo-1558367853-fd760bbe56b6?q=80&w=1064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                              alt="Workspace and notebook representing thoughtful web service delivery"
+                              fill
+                              sizes="(max-width: 992px) 100vw, 50vw"
+                              style={{ objectFit: 'cover' }}
+                            />
+                          </Box>
                           <UnorderedList spacing={5} listStyleType="none" m={0} ml={0}>
                             {services.slice(0, 2).map(service => (
                               <ListItem key={service.title}>
@@ -833,6 +853,7 @@ const PortfolioPage = () => {
                           </UnorderedList>
                         </Stack>
                         <Box
+                          display={{ base: 'none', lg: 'block' }}
                           position="relative"
                           w="100%"
                           h={{ base: '200px', lg: 'clamp(360px, 26vw, 440px)' }}
@@ -905,12 +926,13 @@ const PortfolioPage = () => {
                           w="100%"
                           h={{ base: '200px', lg: 'clamp(320px, 23vw, 380px)' }}
                           alignSelf={{ lg: 'center' }}
+                          order={{ lg: -1 }}
                           overflow="hidden"
                           borderRadius="2xl"
                         >
                           <Image
-                            src="https://images.unsplash.com/photo-1516031190212-da133013de50?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0"
-                            alt="Computer screen with software representing a structured web project workflow"
+                            src="https://images.unsplash.com/photo-1753715613388-7e03410b1dce?q=80&w=2231&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Workspace representing a structured web project workflow"
                             fill
                             sizes="(max-width: 992px) 100vw, 50vw"
                             style={{ objectFit: 'cover' }}

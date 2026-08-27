@@ -1,31 +1,15 @@
-import { forwardRef } from 'react'
 import Logo from './logo'
-import NextLink from 'next/link'
 import {
   Container,
   Box,
-  Link,
   Flex,
-  Menu,
-  MenuItem,
-  MenuList,
-  MenuButton,
-  IconButton,
   useColorModeValue
 } from '@chakra-ui/react'
-import { HamburgerIcon } from '@chakra-ui/icons'
 import ThemeToggleButton from './theme-toggle-button'
 import AudioToggle from './AudioToggle'
 import LanguageToggleButton from './language-toggle-button'
-import { useLanguage } from './language-context'
-
-const MenuLink = forwardRef((props, ref) => (
-  <Link ref={ref} as={NextLink} {...props} />
-))
 
 const Navbar = props => {
-  const { t } = useLanguage()
-
   return (
     <Box
       position="fixed"
@@ -48,22 +32,6 @@ const Navbar = props => {
           <AudioToggle />
           <LanguageToggleButton />
           <ThemeToggleButton />
-
-          <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
-            <Menu isLazy id="navbar-menu">
-              <MenuButton
-                as={IconButton}
-                icon={<HamburgerIcon />}
-                variant="outline"
-                aria-label="Options"
-              />
-              <MenuList>
-                <MenuItem as={MenuLink} href="/">
-                  {t.nav.mobileAbout}
-                </MenuItem>
-              </MenuList>
-            </Menu>
-          </Box>
         </Box>
       </Container>
     </Box>

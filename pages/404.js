@@ -23,4 +23,10 @@ const NotFound = () => {
   )
 }
 
+// Generate locale-specific 404 pages ahead of time. This also avoids a
+// duplicate error-page output step in Vercel's Pages Router adapter.
+export async function getStaticProps() {
+  return { props: {} }
+}
+
 export default NotFound
